@@ -1,4 +1,5 @@
 ﻿using eCarService.Model;
+using eCarService.Model.SearchObjects;
 using eCarService.WinUI;
 using System;
 using System.Collections.Generic;
@@ -27,14 +28,20 @@ namespace eProdajaService.WinUI.Offers
 
         private async void loadOffers()
         {
-            var result = await OfferService.Get<List<eCarService.Model.Offer>>();
+            OfferSearchObject search = new OfferSearchObject()
+            {
+                CarServiceId = ServiceCredentials.ServiceId,
+                Name = txtSearch.Text
+            };
+
+            var result = await OfferService.Get<List<eCarService.Model.Offer>>(search);
             dgvOffers.AutoGenerateColumns = false;
             dgvOffers.DataSource = result;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            loadOffers();
         }
 
         private void dgvOffers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -44,6 +51,7 @@ namespace eProdajaService.WinUI.Offers
             Form editForm = new frmAddNewOffer(data.OfferId);
 
             editForm.ShowDialog();
+            loadOffers();
         }
     }
 }

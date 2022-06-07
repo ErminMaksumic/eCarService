@@ -14,7 +14,6 @@ namespace eCarService.Model.Requests
         [Required(AllowEmptyStrings = false)]
         [EmailAddress()]
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
 
         [MinLength(4)]
         [Required(AllowEmptyStrings = false)]

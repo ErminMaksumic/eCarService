@@ -25,22 +25,20 @@ namespace eCarService.WinUI.Brands
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var searchDataObject = new CarBrandSearchObject();
-            searchDataObject.Name = txtSearch.Text;
+            loadBrands();
 
-            loadBrands(searchDataObject);
         }
         private void frmBrand_Load(object sender, EventArgs e)
         {
             loadBrands();
         }
 
-        private async void loadBrands(CarBrandSearchObject additionalSearch = null)
+        private async void loadBrands()
         {
             CarBrandSearchObject search = new CarBrandSearchObject()
             {
                 CarServiceId = ServiceCredentials.ServiceId,
-                Name = additionalSearch == null ? null : additionalSearch.Name
+                Name = txtSearch.Text
             };
 
             var result = await BrandService.Get<List<eCarService.Model.CarBrand>>(search);
@@ -92,6 +90,8 @@ namespace eCarService.WinUI.Brands
                 await BrandService.Put<dynamic>(_carBrand.CarBrandId, request);
 
                 MessageBox.Show($"Brand {request.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadBrands();
+
             }
             else
             {

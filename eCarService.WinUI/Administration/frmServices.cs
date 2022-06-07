@@ -28,8 +28,13 @@ namespace eProdajaService.WinUI.Administration
             loadData();
         }
 
-        private async void loadData(CarServiceSearchObject search = null)
+        private async void loadData()
         {
+            CarServiceSearchObject search = new CarServiceSearchObject()
+            {
+                Name = txtSearch.Text
+            };
+
             var result = await CarService.Get<List<eCarService.Model.CarService>>(search);
             dgvServices.AutoGenerateColumns = false;
             dgvServices.DataSource = result;
@@ -37,10 +42,7 @@ namespace eProdajaService.WinUI.Administration
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var searchDataObject = new CarServiceSearchObject();
-            searchDataObject.Address = txtSearch.Text;
-
-            loadData(searchDataObject);
+            loadData();
         }
 
         private void dgvServices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

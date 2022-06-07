@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtOfferName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +40,9 @@
             this.clbParts = new System.Windows.Forms.CheckedListBox();
             this.clbBrands = new System.Windows.Forms.CheckedListBox();
             this.label = new System.Windows.Forms.Label();
+            this.errorOfferProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorOfferProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtOfferName
@@ -135,6 +138,10 @@
             this.label.TabIndex = 20;
             this.label.Text = "Brands:";
             // 
+            // errorOfferProvider
+            // 
+            this.errorOfferProvider.ContainerControl = this;
+            // 
             // frmAddNewOffer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -155,6 +162,7 @@
             this.Text = "AddNewOffer";
             this.Load += new System.EventHandler(this.frmAddNewOffer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorOfferProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +181,6 @@
         private CheckedListBox clbParts;
         private CheckedListBox clbBrands;
         private Label label;
+        private ErrorProvider errorOfferProvider;
     }
 }

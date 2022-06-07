@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace eCarService.Service.Interfaces
 {
-    public interface IOfferService : ICRUDService<Model.Offer, OfferSearchObject, OfferUpsertRequest, 
-        OfferUpsertRequest>
-    {
-    }
+    public interface IRatingService : ICRUDService<Model.Rating, BaseSearchObject, RatingUpsertRequest, 
+        RatingUpsertRequest>
+    {}
 }

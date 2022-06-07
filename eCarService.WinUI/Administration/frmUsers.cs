@@ -28,8 +28,12 @@ namespace eProdajaService.WinUI.Administration
             loadData();
         }
 
-        private async void loadData(UserSearchObject searchObject = null)
+        private async void loadData()
         {
+            UserSearchObject searchObject = new UserSearchObject()
+            {
+                Name = txtSearch.Text
+            };
             var result = await UsersService.Get<List<eCarService.Model.User>>(searchObject);
             dgvUsers.AutoGenerateColumns = false;
             dgvUsers.DataSource = result;
@@ -42,11 +46,7 @@ namespace eProdajaService.WinUI.Administration
 
         private void searchUsers()
         {
-            var searchDataObject = new UserSearchObject();
-            searchDataObject.UserName = txtSearch.Text;
-
-            loadData(searchDataObject);
-
+            loadData();
         }
 
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

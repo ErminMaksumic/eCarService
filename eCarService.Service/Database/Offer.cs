@@ -22,7 +22,7 @@ namespace eCarService.Database
 
         public virtual CarService? CarService { get; set; }
         public virtual ICollection<CarBrandOffer> CarBrandOffers { get; set; }
-       // public virtual ICollection<OfferPart> OfferParts { get; set; }
+        public virtual ICollection<OfferPart> OfferParts { get; set; }
        // public virtual ICollection<Rating> Ratings { get; set; }
        // public virtual ICollection<Reservation> Reservations { get; set; }
     }

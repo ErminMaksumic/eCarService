@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace eCarService.Service.Implementation
 {
-    public class OfferService : CRUDService<Model.Offer, OfferSearchObject, Database.Offer, OfferInsertRequest,
-        OfferInsertRequest>, IOfferService
+    public class OfferService : CRUDService<Model.Offer, OfferSearchObject, Database.Offer, OfferUpsertRequest,
+        OfferUpsertRequest>, IOfferService
     {
         public OfferService(eCarServiceContext context, IMapper mapper) : base(context, mapper)
         { }
 
-        public override Model.Offer Insert(OfferInsertRequest request)
+        public override Model.Offer Insert(OfferUpsertRequest request)
         {
             Offer offer = new Offer()
             {
@@ -42,14 +42,82 @@ namespace eCarService.Service.Implementation
                 _context.SaveChanges();
             }
 
+            foreach (var part in request.Parts)
+            {
+                Database.OfferPart offerPart = new OfferPart();
+                offerPart.PartId = part;
+                offerPart.OfferId = offer.OfferId;
+
+                _context.OfferParts.Add(offerPart);
+
+                _context.SaveChanges();
+            }
+
             return _mapper.Map<Model.Offer>(offer);
+        }
+
+        public override Model.Offer Update(int id, OfferUpsertRequest request)
+        {
+            var entity = _context.Offers.Include("CarBrandOffers")
+                .Include("OfferParts").FirstOrDefault(x=> x.OfferId == id);
+
+            entity.Name = request.Name;
+            entity.Price = request.Price;
+
+            foreach (var item in entity.OfferParts)
+            {
+                _context.OfferParts.Remove(item);
+            }
+            foreach (var item in entity.CarBrandOffers)
+            {
+                _context.CarBrandOffers.Remove(item);
+            }
+
+            foreach (var brand in request.Brands)
+            {
+                Database.CarBrandOffer carBrandOffer = new CarBrandOffer();
+                carBrandOffer.CarBrandId = brand;
+                carBrandOffer.OfferId = entity.OfferId;
+
+                _context.CarBrandOffers.Add(carBrandOffer);
+            }
+
+            foreach (var part in request.Parts)
+            {
+                Database.OfferPart offerPart = new OfferPart();
+                offerPart.PartId = part;
+                offerPart.OfferId = entity.OfferId;
+
+                _context.OfferParts.Add(offerPart);
+            }
+            _context.SaveChanges();
+
+
+            return _mapper.Map<Model.Offer>(entity);
         }
 
         public override Model.Offer GetById(int id)
         {
-            var entity = _context.Offers.Include("CarBrandOffers").Include("CarBrandOffers.CarBrand").FirstOrDefault(x => x.OfferId == id);
+            var entity = _context.Offers.Include("CarBrandOffers").Include("CarBrandOffers.CarBrand").
+                Include("OfferParts").Include("OfferParts.Part").
+                FirstOrDefault(x => x.OfferId == id);
 
             return _mapper.Map<Model.Offer>(entity);
+        }
+
+        public override IQueryable<Offer> AddFilter(IQueryable<Offer> query, OfferSearchObject search = null)
+        {
+            var filteredQuery = base.AddFilter(query, search);
+
+            if (search.CarServiceId != null && search.CarServiceId != 0)
+            {
+                filteredQuery = filteredQuery.Where(x => x.CarServiceId == search.CarServiceId);
+            }
+            if (!string.IsNullOrWhiteSpace(search.Name))
+            {
+                filteredQuery = filteredQuery.Where(x => x.Name.StartsWith(search.Name));
+            }
+            return filteredQuery;
         }
     }
 }

@@ -29,54 +29,65 @@ namespace eProdajaService.WinUI.Offers
 
         private void frmAddNewOffer_Load(object sender, EventArgs e)
         {
-            if (!_offerId.HasValue)
+            if (_offerId.HasValue)
             {
-                loadParts();
-                loadBrands();
+                editData();
             }
             else
             {
-                loadEditBrands();
+                loadData();
             }
         }
 
-        private async void loadBrands()
+        private async void editData()
         {
-            CarBrandSearchObject search = new CarBrandSearchObject()
-            {
-                CarServiceId = ServiceCredentials.ServiceId
-            };
+            var offer = await OfferService.GetById<Offer>(_offerId);
+            txtOfferName.Text = offer.Name;
+            numPrice.Value = (decimal)offer.Price;
 
-            var brands = await BrandService.Get<List<CarBrand>>(search);
+            var parts = await PartService.Get<List<Part>>
+                (new PartSearchObject() { CarServiceId = ServiceCredentials.ServiceId });
+
+            clbParts.DataSource = parts;
+            clbParts.DisplayMember = "Name";
+
+            for (int i = 0; i < parts.Count; i++)
+            {
+                if (offer.OfferParts.Where(x => x.PartId == parts[i].PartId).Count() > 0)
+                    clbParts.SetItemChecked(i, true);
+            }
+
+            var brands = await BrandService.Get<List<CarBrand>>(new CarBrandSearchObject()
+            { CarServiceId = ServiceCredentials.ServiceId });
 
             clbBrands.DataSource = brands;
             clbBrands.DisplayMember = "Name";
-        }
 
-        private async void loadEditBrands()
-        {
-            var offer = await OfferService.GetById<Offer>(_offerId);
-
-
-            List<CarBrand> list = new List<CarBrand>();
-
-            foreach (var item in offer?.CarBrandOffers)
+            for (int i = 0; i < brands.Count; i++)
             {
-                list.Add(item.CarBrand);
+                if (offer.CarBrandOffers.Where(x => x.CarBrandId == brands[i].CarBrandId).Count() > 0)
+                    clbBrands.SetItemChecked(i, true);
             }
-
-            clbBrands.DataSource = list;
-            clbBrands.DisplayMember = "Name";
         }
-
-        private async void loadParts()
+        private async void loadData()
         {
-            PartSearchObject search = new PartSearchObject()
+            CarBrandSearchObject searchBrand = new CarBrandSearchObject()
             {
                 CarServiceId = ServiceCredentials.ServiceId
             };
 
-            var parts = await PartService.Get<List<Part>>(search);
+            var brands = await BrandService.Get<List<CarBrand>>(searchBrand);
+
+            clbBrands.DataSource = brands;
+            clbBrands.DisplayMember = "Name";
+
+
+            PartSearchObject searchPart = new PartSearchObject()
+            {
+                CarServiceId = ServiceCredentials.ServiceId
+            };
+
+            var parts = await PartService.Get<List<Part>>(searchPart);
 
             clbParts.DataSource = parts;
             clbParts.DisplayMember = "Name";
@@ -84,23 +95,55 @@ namespace eProdajaService.WinUI.Offers
 
         private async void btnSubmit_Click(object sender, EventArgs e)
         {
-            var ulogeList = clbBrands.CheckedItems.Cast<CarBrand>();
-            var ulogeIdList = ulogeList.Select(x => x.CarBrandId).ToList();
-
-            OfferInsertRequest insertRequest = new OfferInsertRequest()
+            if (ValidateInputs())
             {
-                Name = txtOfferName.Text,
-                Brands = ulogeIdList,
-                CarServiceId = ServiceCredentials.ServiceId,
-                Price = numPrice.Value,
-                Status = "Active"
-            };
 
-            await OfferService.Post<Offer>(insertRequest);
+                var brandList = clbBrands.CheckedItems.Cast<CarBrand>();
+                var brandIdList = brandList.Select(x => x.CarBrandId).ToList();
 
-            MessageBox.Show($"Offer {insertRequest.Name} was successfuly created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var partList = clbParts.CheckedItems.Cast<Part>();
+                var partIdList = partList.Select(x => x.PartId).ToList();
 
-            this.Close();
+
+                OfferUpsertRequest insertRequest = new OfferUpsertRequest()
+                {
+                    Name = txtOfferName.Text,
+                    Brands = brandIdList,
+                    Parts = partIdList,
+                    CarServiceId = ServiceCredentials.ServiceId,
+                    Price = numPrice.Value,
+                    Status = "Active"
+                };
+
+                Offer result;
+
+                if (_offerId.HasValue)
+                {
+                    result = await OfferService.Put<Offer>(_offerId, insertRequest);
+                    if (result != null)
+                    {
+                        MessageBox.Show($"Offer {insertRequest.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+
+                    }
+                }
+                else
+                {
+                    result = await OfferService.Post<Offer>(insertRequest);
+                    if (result != null)
+                    {
+                        MessageBox.Show($"Offer {insertRequest.Name} was successfuly created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+
+                }
+            }
+        }
+
+        private bool ValidateInputs()
+        {
+            return
+            Validator.ValidateControl(txtOfferName, errorOfferProvider, "Name is required field!");
         }
     }
 }

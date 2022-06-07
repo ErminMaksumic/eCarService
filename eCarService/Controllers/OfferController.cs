@@ -10,13 +10,13 @@ namespace eCarService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OfferController : BaseCRUDController<Model.Offer, OfferSearchObject, OfferInsertRequest,
-        OfferInsertRequest>
+    public class OfferController : BaseCRUDController<Model.Offer, OfferSearchObject, OfferUpsertRequest,
+        OfferUpsertRequest>
     {
         public OfferController(IOfferService service) : base(service)
         { }
         [AllowAnonymous]
-        public override Offer Insert([FromBody] OfferInsertRequest request)
+        public override Offer Insert([FromBody] OfferUpsertRequest request)
         {
             return base.Insert(request);
         }

@@ -35,7 +35,6 @@ namespace eCarService.Service.Implementation
         {
             var set = _context.Set<TDatabase>();
 
-
             var entity = set.Find(id);
 
 
@@ -76,6 +75,9 @@ namespace eCarService.Service.Implementation
 
         public virtual void BeforeDelete(TDatabase entity)
         { }
+
+        public virtual void BeforeUpdate(TDatabase entity, TUpdate request)
+        {}
 
     }
 

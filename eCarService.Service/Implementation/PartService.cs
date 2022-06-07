@@ -34,7 +34,7 @@ namespace eCarService.Service.Implementation
         {
             var filteredQuery = base.AddFilter(query, search);
 
-            if (search.CarServiceId!=null)
+            if (search.CarServiceId!=null && search.CarServiceId != 0)
             {
                 filteredQuery = filteredQuery.Where(x => x.CarServiceId == search.CarServiceId);
             }
