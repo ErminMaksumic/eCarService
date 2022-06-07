@@ -2,6 +2,7 @@
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.WinUI;
+using eCarService.WinUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,11 +43,15 @@ namespace eProdajaService.WinUI.Offers
         private async void editData()
         {
             var offer = await OfferService.GetById<Offer>(_offerId);
-            txtOfferName.Text = offer.Name;
-            numPrice.Value = (decimal)offer.Price;
+            fillInputs(offer);
+            loadClbItems(offer);
+           
+        }
 
+        private async void loadClbItems(Offer offer)
+        {
             var parts = await PartService.Get<List<Part>>
-                (new PartSearchObject() { CarServiceId = ServiceCredentials.ServiceId });
+               (new PartSearchObject() { CarServiceId = ServiceCredentials.ServiceId });
 
             clbParts.DataSource = parts;
             clbParts.DisplayMember = "Name";
@@ -69,6 +74,14 @@ namespace eProdajaService.WinUI.Offers
                     clbBrands.SetItemChecked(i, true);
             }
         }
+
+        private void fillInputs(Offer offer)
+        {
+            txtOfferName.Text = offer.Name;
+            numPrice.Value = (decimal)offer.Price;
+            pbImage.Image = ImageHelper.ByteArrayToImage(offer.Image);
+        }
+
         private async void loadData()
         {
             CarBrandSearchObject searchBrand = new CarBrandSearchObject()
@@ -112,7 +125,8 @@ namespace eProdajaService.WinUI.Offers
                     Parts = partIdList,
                     CarServiceId = ServiceCredentials.ServiceId,
                     Price = numPrice.Value,
-                    Status = "Active"
+                    Status = "Active",
+                    Image  = ImageHelper.ImageToByteArray(pbImage.Image)
                 };
 
                 Offer result;
@@ -124,7 +138,6 @@ namespace eProdajaService.WinUI.Offers
                     {
                         MessageBox.Show($"Offer {insertRequest.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
-
                     }
                 }
                 else
@@ -143,7 +156,18 @@ namespace eProdajaService.WinUI.Offers
         private bool ValidateInputs()
         {
             return
-            Validator.ValidateControl(txtOfferName, errorOfferProvider, "Name is required field!");
+            Validator.ValidateControl(txtOfferName, errorOfferProvider, "Name is required field!") &&
+            Validator.ValidateControl(pbImage, errorOfferProvider, "You must upload an image!");
+        }
+
+        private void pbImage_Click(object sender, EventArgs e)
+        {
+            ofdPicture.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
+
+            if (ofdPicture.ShowDialog() == DialogResult.OK)
+            {
+                pbImage.Image = new Bitmap(ofdPicture.FileName);
+            }
         }
     }
 }

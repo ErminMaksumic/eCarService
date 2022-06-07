@@ -8,7 +8,7 @@ namespace eCarService.Database
         public Offer()
         {
             CarBrandOffers = new HashSet<CarBrandOffer>();
-          //  OfferParts = new HashSet<OfferPart>();
+            OfferParts = new HashSet<OfferPart>();
            // Ratings = new HashSet<Rating>();
             //Reservations = new HashSet<Reservation>();
         }
@@ -18,7 +18,7 @@ namespace eCarService.Database
         public decimal Price { get; set; }
         public string? Status { get; set; }
         public int? CarServiceId { get; set; }
-        //public byte[]? Image { get; set; }
+        public byte[]? Image { get; set; }
 
         public virtual CarService? CarService { get; set; }
         public virtual ICollection<CarBrandOffer> CarBrandOffers { get; set; }

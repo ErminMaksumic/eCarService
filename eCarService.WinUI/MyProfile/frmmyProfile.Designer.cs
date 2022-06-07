@@ -28,18 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbProfileImage = new System.Windows.Forms.PictureBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.errorProfileProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtConfirmationPassword = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProfileProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // pbProfileImage
             // 
-            this.pbProfileImage.Location = new System.Drawing.Point(24, 12);
+            this.pbProfileImage.Location = new System.Drawing.Point(79, 12);
             this.pbProfileImage.Name = "pbProfileImage";
             this.pbProfileImage.Size = new System.Drawing.Size(332, 178);
             this.pbProfileImage.TabIndex = 0;
@@ -47,7 +52,8 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(126, 217);
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(212, 217);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(230, 27);
             this.txtUsername.TabIndex = 1;
@@ -72,7 +78,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(126, 264);
+            this.txtPassword.Location = new System.Drawing.Point(212, 264);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(230, 27);
@@ -80,7 +86,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(126, 378);
+            this.btnSubmit.Location = new System.Drawing.Point(335, 366);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(107, 29);
             this.btnSubmit.TabIndex = 5;
@@ -88,11 +94,34 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // errorProfileProvider
+            // 
+            this.errorProfileProvider.ContainerControl = this;
+            // 
+            // txtConfirmationPassword
+            // 
+            this.txtConfirmationPassword.Location = new System.Drawing.Point(212, 308);
+            this.txtConfirmationPassword.Name = "txtConfirmationPassword";
+            this.txtConfirmationPassword.PasswordChar = '*';
+            this.txtConfirmationPassword.Size = new System.Drawing.Size(230, 27);
+            this.txtConfirmationPassword.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 308);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Confirm new password:";
+            // 
             // myProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 450);
+            this.ClientSize = new System.Drawing.Size(485, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtConfirmationPassword);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
@@ -101,7 +130,9 @@
             this.Controls.Add(this.pbProfileImage);
             this.Name = "myProfile";
             this.Text = "My profile";
+            this.Load += new System.EventHandler(this.myProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProfileProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +146,8 @@
         private Label label2;
         private TextBox txtPassword;
         private Button btnSubmit;
+        private ErrorProvider errorProfileProvider;
+        private Label label3;
+        private TextBox txtConfirmationPassword;
     }
 }

@@ -28,10 +28,7 @@ namespace eProdajaService.WinUI.Parts
 
         private void searchParts()
         {
-            var searchDataObject = new PartSearchObject();
-            searchDataObject.Name = txtSearch.Text;
-
-            loadData(searchDataObject);
+            loadData();
         }
 
         private void frmParts_Load(object sender, EventArgs e)
@@ -39,15 +36,14 @@ namespace eProdajaService.WinUI.Parts
             loadData();
         }
 
-        private async void loadData(PartSearchObject additionalSearch = null)
+        private async void loadData()
         {
             PartSearchObject search = new PartSearchObject()
             {
                 CarServiceId = ServiceCredentials.ServiceId,
-                Name = additionalSearch == null ? null : additionalSearch.Name
+                Name = txtSearch.Text
             };
             
-
             var result = await PartService.Get<List<eCarService.Model.Part>>(search);
             dgvParts.AutoGenerateColumns = false;
             dgvParts.DataSource = result;

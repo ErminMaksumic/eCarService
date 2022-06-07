@@ -57,6 +57,7 @@ namespace eCarService.WinUI.LoginRegistration
                     });
 
                     ServiceCredentials.ServiceId = carServiceResult.First().CarServiceId;
+                    ServiceCredentials.UserId = userResult2.First().UserId;
 
 
 

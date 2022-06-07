@@ -9,5 +9,6 @@ namespace eCarService.WinUI
     public static class ServiceCredentials
     {
         public static int ServiceId { get; set; }
+        public static int UserId { get; set; }
     }
 }

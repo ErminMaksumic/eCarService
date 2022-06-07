@@ -20,13 +20,7 @@ namespace eCarService.Service.Implementation
 
         public override Model.Offer Insert(OfferUpsertRequest request)
         {
-            Offer offer = new Offer()
-            {
-                Name = request.Name,
-                CarServiceId = request.CarServiceId,
-                Price = request.Price,
-                Status = request.Status
-            };
+            var offer = _mapper.Map<Offer>(request);
 
             _context.Offers.Add(offer);
             _context.SaveChanges();

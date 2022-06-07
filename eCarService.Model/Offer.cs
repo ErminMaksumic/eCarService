@@ -12,6 +12,7 @@ namespace eCarService.Model
         public string Name { get; set; }
         public decimal? Price { get; set; }
         public string Status { get; set; }
+        public byte[] Image { get; set; }
         public int? CarServiceId { get; set; }
         public virtual ICollection<CarBrandOffer> CarBrandOffers { get; set; }
         public virtual ICollection<OfferPart> OfferParts { get; set; }

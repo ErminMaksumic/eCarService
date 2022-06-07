@@ -29,35 +29,43 @@ namespace eCarService.WinUI.LoginRegistration
 
         private async void addNewUser()
         {
-            if (ValidateInputs())
+            try
             {
-                UserInsertRequest newUser = new UserInsertRequest()
+                if (ValidateInputs())
                 {
-                    UserName = txtUsername.Text,
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    Email = txtEmail.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordConfirmation.Text
-                };
-                var user = await UsersService.Post<User>(newUser);
-
-                if (user != null)
-                {
-                    CarServiceInsertRequest newService = new CarServiceInsertRequest()
+                    UserInsertRequest newUser = new UserInsertRequest()
                     {
-                        Name = txtServiceName.Text,
-                        Address = txtServiceAddress.Text,
-                        PhoneNumber = txtServicePhoneNumber.Text,
-                        DateCreated = DateTime.Now,
-                        UserId = user.UserId
+                        UserName = txtUsername.Text,
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        Email = txtEmail.Text,
+                        Password = txtPassword.Text,
+                        PasswordConfirmation = txtPasswordConfirmation.Text
                     };
+                    var user = await UsersService.Post<User>(newUser);
 
-                    await CarService.Post<CarService>(newService);
+                    if (user != null)
+                    {
+                        CarServiceInsertRequest newService = new CarServiceInsertRequest()
+                        {
+                            Name = txtServiceName.Text,
+                            Address = txtServiceAddress.Text,
+                            PhoneNumber = txtServicePhoneNumber.Text,
+                            DateCreated = DateTime.Now,
+                            UserId = user.UserId
+                        };
+
+                        await CarService.Post<CarService>(newService);
 
 
-                    MessageBox.Show($"User {user.UserName} succesfully registered!");
+                        MessageBox.Show($"User {user.UserName} succesfully registered!");
+                    }
                 }
+            }
+             catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
 
         }

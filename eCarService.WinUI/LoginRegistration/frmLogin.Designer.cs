@@ -38,7 +38,9 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.errLoginProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.errLoginProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(114, 19);
+            this.label2.Location = new System.Drawing.Point(286, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 46);
             this.label2.TabIndex = 0;
@@ -62,22 +64,23 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(123, 135);
+            this.txtUsername.Location = new System.Drawing.Point(112, 39);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(125, 27);
+            this.txtUsername.Size = new System.Drawing.Size(293, 27);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(123, 195);
+            this.txtPassword.Location = new System.Drawing.Point(112, 99);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(125, 27);
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(293, 27);
             this.txtPassword.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 135);
+            this.label3.Location = new System.Drawing.Point(18, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 3;
@@ -86,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 198);
+            this.label4.Location = new System.Drawing.Point(18, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 4;
@@ -94,7 +97,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(123, 273);
+            this.btnSubmit.Location = new System.Drawing.Point(286, 298);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(94, 29);
             this.btnSubmit.TabIndex = 5;
@@ -109,26 +112,38 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 339);
+            this.linkLabel1.Location = new System.Drawing.Point(244, 339);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(63, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(201, 20);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Register";
+            this.linkLabel1.Text = "Register new account/service";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtUsername);
+            this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(114, 78);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(481, 201);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Login informations:";
             // 
             // frmLogin
             // 
-            this.ClientSize = new System.Drawing.Size(297, 368);
+            this.ClientSize = new System.Drawing.Size(679, 368);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Name = "frmLogin";
             ((System.ComponentModel.ISupportInitialize)(this.errLoginProvider)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +160,6 @@
         private Button btnSubmit;
         private ErrorProvider errLoginProvider;
         private LinkLabel linkLabel1;
+        private GroupBox groupBox1;
     }
 }

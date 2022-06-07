@@ -13,10 +13,11 @@ namespace eCarService.Model.Requests
         public decimal Price { get; set; }
         public string Status { get; set; }
         public int? CarServiceId { get; set; }
-        //public byte[] Image { get; set; }
+        public byte[] Image { get; set; }
 
         public List<int> Brands { get; set; } = new List<int>();
         public List<int> Parts { get; set; } = new List<int>();
+        public List<int> AdditionalService { get; set; } = new List<int>();
 
     }
 }

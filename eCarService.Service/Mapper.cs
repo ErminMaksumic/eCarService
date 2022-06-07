@@ -35,6 +35,8 @@ namespace eCarService.Service
             CreateMap<Database.Rating, Model.Rating>().ReverseMap();
             CreateMap<Database.Rating, RatingUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.AdditionalService, Model.AdditionalService>().ReverseMap();
+            CreateMap<Database.AdditionalService, AdditionalServiceUpsertRequest>().ReverseMap();
 
 
 

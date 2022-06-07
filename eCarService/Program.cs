@@ -43,6 +43,7 @@ builder.Services.AddTransient<IPartService, PartService>();
 builder.Services.AddTransient<ICarServiceService, CarServiceService>();
 builder.Services.AddTransient<IOfferService, OfferService>();
 builder.Services.AddTransient<IRatingService, RatingService>();
+builder.Services.AddTransient<IAdditionalServiceService, AdditionalServiceService>();
 
 
 

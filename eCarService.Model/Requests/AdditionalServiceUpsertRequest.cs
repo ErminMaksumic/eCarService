@@ -5,19 +5,15 @@ using System.Text;
 
 namespace eCarService.Model.Requests
 {
-    public class UserUpdateRequest
+    public class AdditionalServiceUpsertRequest
     {
         [Required(AllowEmptyStrings = false)]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
         [Required(AllowEmptyStrings = false)]
-        public string LastName { get; set; }
-
+        public string Description { get; set; }
         [Required(AllowEmptyStrings = false)]
-        [EmailAddress()]
-        public string Email { get; set; }
+        public string Status { get; set; }
         [Required(AllowEmptyStrings = false)]
-        public string Password { get; set; }
-        [Required(AllowEmptyStrings = false)]
-        public string PasswordConfirmation { get; set; }
+        public decimal? Price { get; set; }
     }
 }

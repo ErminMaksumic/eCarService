@@ -11,10 +11,22 @@ using System.Threading.Tasks;
 
 namespace eCarService.Service.Implementation
 {
-    public class RatingService : CRUDService<Model.Rating, BaseSearchObject, Database.Rating, RatingUpsertRequest,
+    public class RatingService : CRUDService<Model.Rating, RatingSearchObject, Database.Rating, RatingUpsertRequest,
         RatingUpsertRequest>, IRatingService
     {
         public RatingService(eCarServiceContext context, IMapper mapper) : base(context, mapper)
         {}
+
+        public override IQueryable<Rating> AddFilter(IQueryable<Rating> query, RatingSearchObject search = null)
+        {
+            var filteredQuery = base.AddFilter(query, search);
+
+            if (search.CarServiceId != null && search.CarServiceId != 0)
+            {
+                filteredQuery = filteredQuery.Where(x => x.Offer.CarServiceId == search.CarServiceId);
+            }
+
+            return filteredQuery;
+        }
     }
 }

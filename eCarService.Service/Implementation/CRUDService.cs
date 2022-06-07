@@ -37,6 +37,7 @@ namespace eCarService.Service.Implementation
 
             var entity = set.Find(id);
 
+            BeforeUpdate(entity, request);
 
             if (entity != null)
             {

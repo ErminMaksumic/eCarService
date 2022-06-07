@@ -35,14 +35,41 @@ namespace eCarService.Service.Implementation
 
         public override void BeforeDelete(CarService entity)
         {
-            var data = _context.Parts.Where(x => x.CarServiceId == entity.CarServiceId).FirstOrDefault();
+            var parts = _context.Parts.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
 
-            if(data!=null)
+            if(parts != null)
             {
-                data.CarServiceId = null;
-                _context.SaveChanges();
+                foreach (var item in parts)
+                {
+                    _context.Parts.Remove(item);
+                    _context.SaveChanges();
+                }
             }
 
+            var brands = _context.CarBrands.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
+
+            if (brands != null)
+            {
+                foreach (var item in brands)
+                {
+                    _context.CarBrands.Remove(item);
+                    _context.SaveChanges();
+                }
+            }
+
+            var offers = _context.Offers.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
+
+            if (offers != null)
+            {
+                foreach (var item in offers)
+                {
+                    _context.Offers.Remove(item);
+                    _context.SaveChanges();
+                }
+            }
         }
+   
+
+
     }
 }

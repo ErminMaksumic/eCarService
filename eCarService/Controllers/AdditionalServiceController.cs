@@ -8,10 +8,10 @@ namespace eCarService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RatingController : BaseCRUDController<Model.Rating, RatingSearchObject, RatingUpsertRequest,
-        RatingUpsertRequest>
+    public class AdditionalServiceController : BaseCRUDController<Model.AdditionalService, AdditionalServiceSearchObject,
+        AdditionalServiceUpsertRequest, AdditionalServiceUpsertRequest>
     {
-        public RatingController(IRatingService service): base(service)
+        public AdditionalServiceController(IAdditionalServiceService service) : base(service)
         {}
     }
 }

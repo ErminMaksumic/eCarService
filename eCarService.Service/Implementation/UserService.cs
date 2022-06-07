@@ -99,10 +99,10 @@ namespace eCarService.Service.Implementation
 
         public override Model.User Insert(UserInsertRequest request)
         {
-            try
-            {
+          
                 if (request != null)
                 {
+
                     if (_context.Users.Where(a => a.UserName == request.UserName).Any())
                     {
                         throw new UserException("User with that username already exists!");
@@ -112,13 +112,7 @@ namespace eCarService.Service.Implementation
                         throw new UserException("The two password fields didn't match");
                     }
 
-                    User newUser = new User()
-                    {
-                        UserName = request.UserName,
-                        FirstName = request.FirstName,
-                        LastName = request.LastName,
-                        Email = request.Email
-                    };
+                    var newUser = _mapper.Map<User>(request);
 
                     newUser.PasswordSalt = GenerateSalt();
 
@@ -128,17 +122,8 @@ namespace eCarService.Service.Implementation
                     _context.SaveChanges();
 
                     return _mapper.Map<Model.User>(newUser);
-
                 }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-           
-
-            return null;
+                     return null;
         }
 
         public Model.User Login(string username, string password)
@@ -159,6 +144,12 @@ namespace eCarService.Service.Implementation
             }
 
             return _mapper.Map<Model.User>(entity);
+        }
+
+        public override void BeforeUpdate(User entity, UserUpdateRequest request)
+        {
+            entity.PasswordSalt = GenerateSalt();
+            entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
         }
     }
 }
