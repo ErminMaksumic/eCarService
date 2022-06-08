@@ -16,7 +16,6 @@ namespace eCarService.WinUI.Brands
     public partial class frmBrand : Form
     {
         private readonly APIService BrandService = new APIService("CarBrand");
-        int? _carServiceId;
         CarBrand _carBrand;
 
         public frmBrand()

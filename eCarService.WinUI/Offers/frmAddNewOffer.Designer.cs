@@ -45,9 +45,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.clbAdditionalServices = new System.Windows.Forms.CheckedListBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
@@ -55,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +98,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(706, 503);
+            this.btnSubmit.Location = new System.Drawing.Point(991, 395);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(94, 29);
             this.btnSubmit.TabIndex = 17;
@@ -121,7 +117,7 @@
             // clbBrands
             // 
             this.clbBrands.FormattingEnabled = true;
-            this.clbBrands.Location = new System.Drawing.Point(263, 83);
+            this.clbBrands.Location = new System.Drawing.Point(566, 83);
             this.clbBrands.Name = "clbBrands";
             this.clbBrands.Size = new System.Drawing.Size(222, 114);
             this.clbBrands.TabIndex = 21;
@@ -129,11 +125,11 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(263, 46);
+            this.label.Location = new System.Drawing.Point(566, 46);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(57, 20);
+            this.label.Size = new System.Drawing.Size(132, 20);
             this.label.TabIndex = 20;
-            this.label.Text = "Brands:";
+            this.label.Text = "Offer is for brands:";
             // 
             // errorOfferProvider
             // 
@@ -183,38 +179,10 @@
             this.groupBox2.Controls.Add(this.clbBrands);
             this.groupBox2.Location = new System.Drawing.Point(27, 176);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(503, 231);
+            this.groupBox2.Size = new System.Drawing.Size(811, 231);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Offers details:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.clbAdditionalServices);
-            this.groupBox3.Location = new System.Drawing.Point(578, 185);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(260, 222);
-            this.groupBox3.TabIndex = 26;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Extra services:";
-            // 
-            // clbAdditionalServices
-            // 
-            this.clbAdditionalServices.FormattingEnabled = true;
-            this.clbAdditionalServices.Location = new System.Drawing.Point(20, 66);
-            this.clbAdditionalServices.Name = "clbAdditionalServices";
-            this.clbAdditionalServices.Size = new System.Drawing.Size(176, 114);
-            this.clbAdditionalServices.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 20);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Additional services:";
             // 
             // label6
             // 
@@ -240,9 +208,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 544);
+            this.ClientSize = new System.Drawing.Size(1196, 450);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
@@ -257,8 +224,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -284,9 +249,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private GroupBox groupBox4;
         private Label label6;
-        private GroupBox groupBox3;
-        private Label label5;
-        private CheckedListBox clbAdditionalServices;
         private GroupBox groupBox2;
         private GroupBox groupBox1;
     }

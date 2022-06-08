@@ -8,7 +8,6 @@ namespace eCarService.Model.SearchObjects
     {
         public string Name { get; set; }
         public bool InclCarService { get; set; }
-        public int CarServiceId { get; set; }
 
     }
 }

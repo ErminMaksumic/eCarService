@@ -1,4 +1,5 @@
 ﻿using eCarService.Model;
+using eCarService.Model.Helpers;
 using eCarService.Model.Requests;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace eCarService.WinUI.LoginRegistration
     {
         public APIService UsersService { get; set; } = new APIService("User");
         public APIService CarService { get; set; } = new APIService("CarService");
+        string AuthTokenForDelete = "214214K24SAFMASFAS";
         public frmServiceOwnerRegistration()
         {
             InitializeComponent();
@@ -40,9 +42,10 @@ namespace eCarService.WinUI.LoginRegistration
                         LastName = txtLastName.Text,
                         Email = txtEmail.Text,
                         Password = txtPassword.Text,
-                        PasswordConfirmation = txtPasswordConfirmation.Text
+                        PasswordConfirmation = txtPassConfirmation.Text,
+                        RoleId = 2
                     };
-                    var user = await UsersService.Post<User>(newUser);
+                    var user = await UsersService.Post<Model.User>(newUser);
 
                     if (user != null)
                     {
@@ -55,19 +58,23 @@ namespace eCarService.WinUI.LoginRegistration
                             UserId = user.UserId
                         };
 
-                        await CarService.Post<CarService>(newService);
+                        var service = await CarService.Post<CarService>(newService);
+
+                        if (service != null)
+                            MessageBox.Show($"User {user.UserName} succesfully registered!");
 
 
-                        MessageBox.Show($"User {user.UserName} succesfully registered!");
+                        this.Close();
                     }
                 }
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-
+               
+           
         }
 
         private bool ValidateInputs()
@@ -83,11 +90,16 @@ namespace eCarService.WinUI.LoginRegistration
 
             Validator.ValidateControl(txtPassword, errRegisterProvider, "Password is required field!") &&
 
-            Validator.ValidateControl(txtPasswordConfirmation, errRegisterProvider, "Please confirm your password!") &&
+            Validator.ValidateControl(txtPassConfirmation, errRegisterProvider, "Please confirm your password!") &&
 
             Validator.ValidateControl(txtServiceAddress, errRegisterProvider, "Address is required field!") &&
 
             Validator.ValidateControl(txtServicePhoneNumber, errRegisterProvider, "Phone number is required field!"); 
+        }
+
+        private void frmServiceOwnerRegistration_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

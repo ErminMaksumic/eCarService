@@ -24,26 +24,20 @@ namespace eProdajaService.WinUI.Ratings
         private void frmRatingList_Load(object sender, EventArgs e)
         {
             loadRatings();
-            loadAverageRate();
-        }
-
-        private async void loadAverageRate()
-        {
-            var result = await RatingService.Get<List<eCarService.Model.Rating>>();
-
-            lblAverageRating.Text = result.Average(x => x.Rate).ToString();
         }
 
         private async void loadRatings()
         {
-            RatingSearchObject search = new RatingSearchObject()
+            var result = await RatingService.Get<List<eCarService.Model.Rating>>(new RatingSearchObject()
             {
-                CarServiceId = ServiceCredentials.ServiceId
-            };
+                UserId = ServiceCredentials.UserId
+            });
 
-            var result = await RatingService.Get<List<eCarService.Model.Rating>>(search);
+            lblAverageRating.Text = result.Average(x => x.Rate).ToString();
+
             dgvRatingList.AutoGenerateColumns = false;
             dgvRatingList.DataSource = result;
         }
+
     }
 }

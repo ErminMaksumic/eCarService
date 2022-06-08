@@ -57,7 +57,7 @@
             this.groupBox1.Controls.Add(this.Name);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(37, 30);
+            this.groupBox1.Location = new System.Drawing.Point(98, 37);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(500, 375);
             this.groupBox1.TabIndex = 14;
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 450);
+            this.ClientSize = new System.Drawing.Size(718, 475);
             this.Controls.Add(this.groupBox1);
             this.Text = "frmServicesDetails";
             this.Load += new System.EventHandler(this.frmServiceDetails_Load);

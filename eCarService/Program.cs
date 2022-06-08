@@ -4,6 +4,7 @@ using eCarService.Security;
 using eCarService.Service;
 using eCarService.Service.Implementation;
 using eCarService.Service.Interfaces;
+using eProdaja.Filters;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -44,8 +45,12 @@ builder.Services.AddTransient<ICarServiceService, CarServiceService>();
 builder.Services.AddTransient<IOfferService, OfferService>();
 builder.Services.AddTransient<IRatingService, RatingService>();
 builder.Services.AddTransient<IAdditionalServiceService, AdditionalServiceService>();
+builder.Services.AddTransient<IReservationService, ReservationService>();
 
-
+builder.Services.AddControllers(x =>
+{
+    x.Filters.Add<ErrorFilter>();
+});
 
 
 builder.Services.AddAutoMapper(typeof(Mapper).Assembly);

@@ -30,10 +30,11 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRatingList = new System.Windows.Forms.DataGridView();
-            this.lblAverageRating = new System.Windows.Forms.Label();
             this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblAverageRating = new System.Windows.Forms.Label();
+            this.lblTextRating = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRatingList)).BeginInit();
             this.SuspendLayout();
@@ -41,9 +42,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvRatingList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 86);
+            this.groupBox1.Location = new System.Drawing.Point(82, 101);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 340);
+            this.groupBox1.Size = new System.Drawing.Size(896, 367);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RatingList";
@@ -63,17 +64,8 @@
             this.dgvRatingList.ReadOnly = true;
             this.dgvRatingList.RowHeadersWidth = 51;
             this.dgvRatingList.RowTemplate.Height = 29;
-            this.dgvRatingList.Size = new System.Drawing.Size(770, 314);
+            this.dgvRatingList.Size = new System.Drawing.Size(890, 341);
             this.dgvRatingList.TabIndex = 0;
-            // 
-            // lblAverageRating
-            // 
-            this.lblAverageRating.AutoSize = true;
-            this.lblAverageRating.Location = new System.Drawing.Point(265, 35);
-            this.lblAverageRating.Name = "lblAverageRating";
-            this.lblAverageRating.Size = new System.Drawing.Size(118, 20);
-            this.lblAverageRating.TabIndex = 3;
-            this.lblAverageRating.Text = "Average rating : ";
             // 
             // Rate
             // 
@@ -102,11 +94,32 @@
             this.User.Name = "User";
             this.User.ReadOnly = true;
             // 
+            // lblAverageRating
+            // 
+            this.lblAverageRating.AutoSize = true;
+            this.lblAverageRating.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAverageRating.Location = new System.Drawing.Point(559, 42);
+            this.lblAverageRating.Name = "lblAverageRating";
+            this.lblAverageRating.Size = new System.Drawing.Size(38, 46);
+            this.lblAverageRating.TabIndex = 3;
+            this.lblAverageRating.Text = "0";
+            // 
+            // lblTextRating
+            // 
+            this.lblTextRating.AutoSize = true;
+            this.lblTextRating.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTextRating.Location = new System.Drawing.Point(370, 42);
+            this.lblTextRating.Name = "lblTextRating";
+            this.lblTextRating.Size = new System.Drawing.Size(183, 35);
+            this.lblTextRating.TabIndex = 4;
+            this.lblTextRating.Text = "Average rating:";
+            // 
             // frmRatingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1016, 494);
+            this.Controls.Add(this.lblTextRating);
             this.Controls.Add(this.lblAverageRating);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmRatingList";
@@ -127,5 +140,6 @@
         private DataGridViewTextBoxColumn Rate;
         private DataGridViewTextBoxColumn Comment;
         private DataGridViewTextBoxColumn User;
+        private Label lblTextRating;
     }
 }

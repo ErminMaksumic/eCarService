@@ -41,15 +41,13 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errUserDetailsProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errUserDetailsProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(257, 301);
+            this.btnSubmit.Location = new System.Drawing.Point(257, 247);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(94, 29);
             this.btnSubmit.TabIndex = 5;
@@ -136,8 +134,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtLastName);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.label5);
@@ -148,7 +144,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(170, 36);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(500, 375);
             this.groupBox1.TabIndex = 13;
@@ -159,28 +155,11 @@
             // 
             this.errUserDetailsProvider.ContainerControl = this;
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(257, 233);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(125, 27);
-            this.txtPassword.TabIndex = 13;
-            this.txtPassword.Text = " ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(133, 240);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Password:";
-            // 
             // frmUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 399);
+            this.ClientSize = new System.Drawing.Size(870, 485);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmUserDetails";
             this.Text = "frmUserDetails";
@@ -205,7 +184,5 @@
         private TextBox txtFirstName;
         private GroupBox groupBox1;
         private ErrorProvider errUserDetailsProvider;
-        private TextBox txtPassword;
-        private Label label3;
     }
 }

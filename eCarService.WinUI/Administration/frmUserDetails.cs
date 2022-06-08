@@ -72,8 +72,6 @@ namespace eCarService.WinUI.Administration
                     FirstName = txtFirstName.Text,
                     LastName = txtLastName.Text,
                     Email = txtEmail.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPassword.Text
                 };
 
                 var result = await UserService.Put<Model.User>(userId, userUpdateRequest);

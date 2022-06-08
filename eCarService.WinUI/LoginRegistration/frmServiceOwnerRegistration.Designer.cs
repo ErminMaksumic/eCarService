@@ -50,7 +50,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.frmPassConfirmation = new System.Windows.Forms.TextBox();
+            this.txtPassConfirmation = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.errRegisterProvider)).BeginInit();
@@ -220,7 +220,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.frmPassConfirmation);
+            this.groupBox1.Controls.Add(this.txtPassConfirmation);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.label3);
@@ -241,13 +241,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User informations:";
             // 
-            // frmPassConfirmation
+            // txtPassConfirmation
             // 
-            this.frmPassConfirmation.Location = new System.Drawing.Point(226, 317);
-            this.frmPassConfirmation.Name = "frmPassConfirmation";
-            this.frmPassConfirmation.PasswordChar = '*';
-            this.frmPassConfirmation.Size = new System.Drawing.Size(174, 27);
-            this.frmPassConfirmation.TabIndex = 5;
+            this.txtPassConfirmation.Location = new System.Drawing.Point(226, 317);
+            this.txtPassConfirmation.Name = "txtPassConfirmation";
+            this.txtPassConfirmation.PasswordChar = '*';
+            this.txtPassConfirmation.Size = new System.Drawing.Size(174, 27);
+            this.txtPassConfirmation.TabIndex = 5;
             // 
             // label9
             // 
@@ -283,6 +283,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmServiceOwnerRegistration";
             this.Text = "frmRegistration";
+            this.Load += new System.EventHandler(this.frmServiceOwnerRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errRegisterProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -316,7 +317,7 @@
         private TextBox txtServiceName;
         private GroupBox groupBox2;
         private GroupBox groupBox1;
-        private TextBox frmPassConfirmation;
+        private TextBox txtPassConfirmation;
         private Label label9;
     }
 }

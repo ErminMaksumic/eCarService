@@ -1,3 +1,4 @@
+using eCarService.WinUI;
 using eCarService.WinUI.Brands;
 using eProdajaService.WinUI.Administration;
 using eProdajaService.WinUI.MyProfile;
@@ -10,6 +11,7 @@ namespace eProdajaService.WinUI
 {
     public partial class frmMain : Form
     {
+        public APIService UsersService { get; set; } = new APIService("User");
         public frmMain()
         {
             InitializeComponent();
@@ -90,6 +92,24 @@ namespace eProdajaService.WinUI
         private void brandsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new frmBrand();
+
+            form.ShowDialog();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            loadWlcmMessage();
+        }
+
+        private async void loadWlcmMessage()
+        {
+            var result = await UsersService.GetById<eCarService.Model.User>(ServiceCredentials.UserId);
+            lblUserName.Text = result.UserName;
+        }
+
+        private void allUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmUserList();
 
             form.ShowDialog();
         }

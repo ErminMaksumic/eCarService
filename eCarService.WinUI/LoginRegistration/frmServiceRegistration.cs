@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eProdajaService.WinUI.Orders
+namespace eCarService.WinUI.LoginRegistration
 {
-    public partial class frmOrderList : Form
+    public partial class frmServiceRegistration : Form
     {
-        public frmOrderList()
+        public frmServiceRegistration()
         {
             InitializeComponent();
         }

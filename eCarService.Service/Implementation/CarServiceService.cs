@@ -68,7 +68,17 @@ namespace eCarService.Service.Implementation
                 }
             }
         }
-   
+
+        public override Model.CarService Insert(CarServiceInsertRequest request)
+        {
+            if (request != null)
+            {
+                return base.Insert(request);
+            }
+
+            return null;
+        }
+
 
 
     }

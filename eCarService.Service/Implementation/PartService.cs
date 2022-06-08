@@ -43,6 +43,16 @@ namespace eCarService.Service.Implementation
                 filteredQuery = filteredQuery.Where(x => x.Name.StartsWith(search.Name));
             }
             return filteredQuery;
+        }
+
+        public override void BeforeDelete(Part entity)
+        {
+            var offerParts = _context.OfferParts.Where(x => x.PartId == entity.PartId).ToList();
+
+            foreach (var item in offerParts)
+            {
+                _context.OfferParts.Remove(item);
+            }
 
         }
 

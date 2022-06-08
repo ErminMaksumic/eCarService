@@ -44,9 +44,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvOffers);
-            this.groupBox1.Location = new System.Drawing.Point(0, 130);
+            this.groupBox1.Location = new System.Drawing.Point(35, 144);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(788, 318);
+            this.groupBox1.Size = new System.Drawing.Size(977, 373);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Offer list";
@@ -67,7 +67,7 @@
             this.dgvOffers.RowHeadersWidth = 51;
             this.dgvOffers.RowTemplate.Height = 29;
             this.dgvOffers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOffers.Size = new System.Drawing.Size(782, 292);
+            this.dgvOffers.Size = new System.Drawing.Size(971, 347);
             this.dgvOffers.TabIndex = 0;
             this.dgvOffers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOffers_CellDoubleClick);
             // 
@@ -100,7 +100,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(359, 90);
+            this.txtSearch.Location = new System.Drawing.Point(426, 104);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(230, 34);
@@ -110,7 +110,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(214, 90);
+            this.label1.Location = new System.Drawing.Point(281, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 28);
             this.label1.TabIndex = 2;
@@ -128,7 +128,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(620, 95);
+            this.btnSearch.Location = new System.Drawing.Point(687, 109);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(94, 29);
             this.btnSearch.TabIndex = 4;
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1038, 529);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

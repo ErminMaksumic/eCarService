@@ -17,7 +17,6 @@ namespace eCarService.Model.Requests
 
         public List<int> Brands { get; set; } = new List<int>();
         public List<int> Parts { get; set; } = new List<int>();
-        public List<int> AdditionalService { get; set; } = new List<int>();
 
     }
 }

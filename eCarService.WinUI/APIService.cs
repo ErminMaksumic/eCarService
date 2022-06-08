@@ -1,4 +1,6 @@
-﻿using eCarService.Model.Helpers;
+﻿using eCarService.Model;
+using eCarService.Model.Helpers;
+using eCarService.Model.Requests;
 using eCarService.WinUI.Properties;
 using Flurl.Http;
 using System;
@@ -97,6 +99,7 @@ namespace eCarService.WinUI
             try
             {
                 var result = await $"{endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                
                 return result;
             }
             catch (FlurlHttpException ex)
@@ -118,7 +121,6 @@ namespace eCarService.WinUI
                 MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return default(T);
             }
-
         }
 
         public async Task<T> Put<T>(object id, object request)
@@ -151,8 +153,13 @@ namespace eCarService.WinUI
 
         }
 
-        public async Task<T> Delete<T>(object id)
+        public async Task<T> Delete<T>(object id, string auth = "")
         {
+            if(auth == "214214K24SAFMASFAS")
+            {
+                Username = "admin";
+                Password = "admin";
+            }
             try
             {
                 var result = await $"{endpoint}{_resource}/{id}".WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();

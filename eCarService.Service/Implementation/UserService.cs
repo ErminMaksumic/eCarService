@@ -26,7 +26,12 @@ namespace eCarService.Service.Implementation
 
             if (!string.IsNullOrWhiteSpace(searchObject.UserName))
             {
-                filteredQuery = filteredQuery.Where(x => x.UserName.Contains(searchObject.UserName));
+                filteredQuery = filteredQuery.Where(x => x.UserName.StartsWith(searchObject.UserName));
+            }
+            if (!string.IsNullOrWhiteSpace(searchObject.FullName))
+            {
+                filteredQuery = filteredQuery.Where(x => (x.FirstName + " " + x.LastName)
+                .StartsWith(searchObject.FullName));
             }
 
             return filteredQuery;
@@ -123,7 +128,7 @@ namespace eCarService.Service.Implementation
 
                     return _mapper.Map<Model.User>(newUser);
                 }
-                     return null;
+                    return null;
         }
 
         public Model.User Login(string username, string password)
@@ -148,8 +153,17 @@ namespace eCarService.Service.Implementation
 
         public override void BeforeUpdate(User entity, UserUpdateRequest request)
         {
-            entity.PasswordSalt = GenerateSalt();
-            entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
+            if (!string.IsNullOrWhiteSpace(request.Password) || request.Password == null)
+            {
+                var salt = GenerateSalt();
+                var hash = GenerateHash(salt, entity.PasswordHash);
+                request.Password = hash;
+            }
+            else
+            {
+                entity.PasswordSalt = GenerateSalt();
+                entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
+            }
         }
     }
 }

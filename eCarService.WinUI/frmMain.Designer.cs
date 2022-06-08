@@ -47,6 +47,9 @@
             this.lastYearRevenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestSellingOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.allUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +63,7 @@
             this.partsItem,
             this.ratingsItem,
             this.mProfileItem,
+            this.allUsersToolStripMenuItem,
             this.administrationToolStripMenuItem,
             this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -80,14 +84,14 @@
             // myOffersItem
             // 
             this.myOffersItem.Name = "myOffersItem";
-            this.myOffersItem.Size = new System.Drawing.Size(187, 26);
+            this.myOffersItem.Size = new System.Drawing.Size(224, 26);
             this.myOffersItem.Text = "My offers";
             this.myOffersItem.Click += new System.EventHandler(this.myOffersItem_Click);
             // 
             // addNewOfferItem
             // 
             this.addNewOfferItem.Name = "addNewOfferItem";
-            this.addNewOfferItem.Size = new System.Drawing.Size(187, 26);
+            this.addNewOfferItem.Size = new System.Drawing.Size(224, 26);
             this.addNewOfferItem.Text = "Add new offer";
             this.addNewOfferItem.Click += new System.EventHandler(this.addNewOfferItem_Click);
             // 
@@ -201,15 +205,44 @@
             this.administrationToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.administrationToolStripMenuItem1.Text = "Administration";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(211, 205);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(255, 46);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Welcome back: ";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUserName.Location = new System.Drawing.Point(496, 205);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(0, 46);
+            this.lblUserName.TabIndex = 3;
+            // 
+            // allUsersToolStripMenuItem
+            // 
+            this.allUsersToolStripMenuItem.Name = "allUsersToolStripMenuItem";
+            this.allUsersToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.allUsersToolStripMenuItem.Text = "All users";
+            this.allUsersToolStripMenuItem.Click += new System.EventHandler(this.allUsersToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -237,5 +270,8 @@
         private ToolStripMenuItem myPartsToolStripMenuItem;
         private ToolStripMenuItem addNewPartToolStripMenuItem;
         private ToolStripMenuItem brandsToolStripMenuItem;
+        private Label label1;
+        private Label lblUserName;
+        private ToolStripMenuItem allUsersToolStripMenuItem;
     }
 }

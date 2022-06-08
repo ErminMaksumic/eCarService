@@ -129,6 +129,7 @@ namespace eProdajaService.WinUI.Offers
                     Image  = ImageHelper.ImageToByteArray(pbImage.Image)
                 };
 
+
                 Offer result;
 
                 if (_offerId.HasValue)

@@ -62,6 +62,10 @@
             // 
             // dgvBrands
             // 
+            this.dgvBrands.AllowUserToAddRows = false;
+            this.dgvBrands.AllowUserToDeleteRows = false;
+            this.dgvBrands.AllowUserToOrderColumns = true;
+            this.dgvBrands.AllowUserToResizeColumns = false;
             this.dgvBrands.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBrands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CarBrandName});
