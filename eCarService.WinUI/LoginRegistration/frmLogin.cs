@@ -1,4 +1,5 @@
 ﻿using eCarService.Model.SearchObjects;
+using eCarService.WinUI.Helpers;
 using eProdajaService.WinUI;
 using System;
 using System.Collections.Generic;
@@ -50,16 +51,9 @@ namespace eCarService.WinUI.LoginRegistration
 
                     var userResult2 = await UserService.Get<List<Model.User>>(userSearch);
 
-
-                    var carServiceResult = await CarService.Get<List<Model.CarService>>(new CarServiceSearchObject()
-                    {
-                        UserId = userResult2.First().UserId
-                    });
-
-                    ServiceCredentials.ServiceId = carServiceResult.First().CarServiceId;
                     ServiceCredentials.UserId = userResult2.First().UserId;
 
-
+                    MessageBox.Show($"Welcome back {userResult2.First().UserName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     frmMain frm = new frmMain();
                     this.Hide();
@@ -95,6 +89,7 @@ namespace eCarService.WinUI.LoginRegistration
 
             Validator.ValidateControl(txtPassword, errLoginProvider, "Please enter the password!");
         }
+
     }
 }
    

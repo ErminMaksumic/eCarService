@@ -40,22 +40,19 @@
             this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtServiceAddress = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtServicePhoneNumber = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.errRegisterProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtServiceName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPassConfirmation = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.ofdImage = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errRegisterProvider)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -142,45 +139,13 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(612, 413);
+            this.btnSubmit.Location = new System.Drawing.Point(358, 413);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(94, 29);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 112);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 20);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Address:";
-            // 
-            // txtServiceAddress
-            // 
-            this.txtServiceAddress.Location = new System.Drawing.Point(187, 109);
-            this.txtServiceAddress.Name = "txtServiceAddress";
-            this.txtServiceAddress.Size = new System.Drawing.Size(178, 27);
-            this.txtServiceAddress.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 185);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 20);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Phone number";
-            // 
-            // txtServicePhoneNumber
-            // 
-            this.txtServicePhoneNumber.Location = new System.Drawing.Point(187, 185);
-            this.txtServicePhoneNumber.Name = "txtServicePhoneNumber";
-            this.txtServicePhoneNumber.Size = new System.Drawing.Size(178, 27);
-            this.txtServicePhoneNumber.TabIndex = 3;
             // 
             // txtEmail
             // 
@@ -202,22 +167,6 @@
             // 
             this.errRegisterProvider.ContainerControl = this;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 20);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Name:";
-            // 
-            // txtServiceName
-            // 
-            this.txtServiceName.Location = new System.Drawing.Point(187, 45);
-            this.txtServiceName.Name = "txtServiceName";
-            this.txtServiceName.Size = new System.Drawing.Size(178, 27);
-            this.txtServiceName.TabIndex = 1;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtPassConfirmation);
@@ -234,9 +183,9 @@
             this.groupBox1.Controls.Add(this.txtPasswordConfirmation);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Location = new System.Drawing.Point(34, 21);
+            this.groupBox1.Location = new System.Drawing.Point(94, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(592, 374);
+            this.groupBox1.Size = new System.Drawing.Size(561, 374);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User informations:";
@@ -258,37 +207,46 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "Password confirmation:";
             // 
+            // ofdImage
+            // 
+            this.ofdImage.FileName = "openFileDialog1";
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtServiceAddress);
-            this.groupBox2.Controls.Add(this.txtServiceName);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.txtServicePhoneNumber);
-            this.groupBox2.Location = new System.Drawing.Point(692, 33);
+            this.groupBox2.Controls.Add(this.pbImage);
+            this.groupBox2.Location = new System.Drawing.Point(698, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(425, 362);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.Size = new System.Drawing.Size(399, 356);
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Service informations:";
+            this.groupBox2.Text = "Please select the image:";
+            // 
+            // pbImage
+            // 
+            this.pbImage.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImage.Location = new System.Drawing.Point(3, 23);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(393, 330);
+            this.pbImage.TabIndex = 4;
+            this.pbImage.TabStop = false;
+            this.pbImage.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmServiceOwnerRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 555);
-            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmServiceOwnerRegistration";
             this.Text = "frmRegistration";
-            this.Load += new System.EventHandler(this.frmServiceOwnerRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errRegisterProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,18 +264,14 @@
         private TextBox txtPasswordConfirmation;
         private TextBox txtFirstName;
         private Button btnSubmit;
-        private Label label7;
-        private TextBox txtServiceAddress;
-        private Label label8;
-        private TextBox txtServicePhoneNumber;
         private TextBox txtEmail;
         private Label label11;
         private ErrorProvider errRegisterProvider;
-        private Label label6;
-        private TextBox txtServiceName;
-        private GroupBox groupBox2;
         private GroupBox groupBox1;
         private TextBox txtPassConfirmation;
         private Label label9;
+        private GroupBox groupBox2;
+        private PictureBox pbImage;
+        private OpenFileDialog ofdImage;
     }
 }

@@ -123,6 +123,8 @@ namespace eCarService.Service.Implementation
 
                     newUser.PasswordHash = GenerateHash(newUser.PasswordSalt, request.Password);
 
+                    newUser.RoleId = 3;
+
                     _context.Users.Add(newUser);
                     _context.SaveChanges();
 
@@ -153,17 +155,53 @@ namespace eCarService.Service.Implementation
 
         public override void BeforeUpdate(User entity, UserUpdateRequest request)
         {
-            if (!string.IsNullOrWhiteSpace(request.Password) || request.Password == null)
+            if (request.Password != request.PasswordConfirmation)
+            {
+                throw new UserException("The two password fields didn't match");
+            }
+
+            //  save old pass
+            if (string.IsNullOrWhiteSpace(request.Password) || request.Password == null)
             {
                 var salt = GenerateSalt();
                 var hash = GenerateHash(salt, entity.PasswordHash);
                 request.Password = hash;
             }
+            // password is in the request
             else
             {
                 entity.PasswordSalt = GenerateSalt();
                 entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
             }
+        }
+
+        public Model.User ChangePassword(int id, MyProfileUpdateRequest req)
+        {
+            var entity = _context.Users.Find(id);
+
+            if(entity!=null)
+            {
+                entity.PasswordSalt = GenerateSalt();
+                entity.PasswordHash = GenerateHash(entity.PasswordSalt, req.Password);
+                entity.Image = req.Image;
+            };
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.User>(entity);
+        }
+
+        public Model.User ChangeRole(int id, int roleId)
+        {
+            var entity = _context.Users.Find(id);
+
+            if (entity != null)
+            {
+                entity.RoleId = roleId;
+            }
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.User>(entity);
         }
     }
 }

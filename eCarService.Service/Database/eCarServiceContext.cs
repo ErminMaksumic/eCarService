@@ -17,10 +17,10 @@ namespace eCarService.Database
         }
 
         public virtual DbSet<AdditionalService> AdditionalServices { get; set; } = null!;
-        public virtual DbSet<Bill> Bills { get; set; } = null!;
         public virtual DbSet<CarBrand> CarBrands { get; set; } = null!;
         public virtual DbSet<CarBrandOffer> CarBrandOffers { get; set; } = null!;
         public virtual DbSet<CarService> CarServices { get; set; } = null!;
+        public virtual DbSet<CustomOfferRequest> CustomOfferRequests { get; set; } = null!;
         public virtual DbSet<Offer> Offers { get; set; } = null!;
         public virtual DbSet<OfferPart> OfferParts { get; set; } = null!;
         public virtual DbSet<Part> Parts { get; set; } = null!;
@@ -49,19 +49,6 @@ namespace eCarService.Database
                 entity.Property(e => e.Name).HasMaxLength(40);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(10, 1)");
-
-                entity.Property(e => e.Status).HasMaxLength(40);
-            });
-
-            modelBuilder.Entity<Bill>(entity =>
-            {
-                entity.ToTable("Bill");
-
-                entity.Property(e => e.Date).HasColumnType("datetime");
-
-                entity.Property(e => e.Price).HasColumnType("decimal(10, 1)");
-
-                entity.Property(e => e.Status).HasMaxLength(40);
             });
 
             modelBuilder.Entity<CarBrand>(entity =>
@@ -105,6 +92,30 @@ namespace eCarService.Database
                     .HasConstraintName("FK_REFERENCE_21");
             });
 
+            modelBuilder.Entity<CustomOfferRequest>(entity =>
+            {
+                entity.HasKey(e => e.CustomReqId)
+                    .HasName("PK_2");
+
+                entity.ToTable("CustomOfferRequest");
+
+                entity.Property(e => e.Description).HasMaxLength(40);
+
+                entity.Property(e => e.Name).HasMaxLength(40);
+
+                entity.Property(e => e.Status).HasMaxLength(40);
+
+                entity.HasOne(d => d.CarService)
+                    .WithMany(p => p.CustomOfferRequests)
+                    .HasForeignKey(d => d.CarServiceId)
+                    .HasConstraintName("FK_REFERENCE_29");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.CustomOfferRequests)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_REFERENCE_28");
+            });
+
             modelBuilder.Entity<Offer>(entity =>
             {
                 entity.Property(e => e.Name).HasMaxLength(40);
@@ -121,11 +132,11 @@ namespace eCarService.Database
 
             modelBuilder.Entity<OfferPart>(entity =>
             {
-                //entity.HasOne(d => d.Offer)
-                //    .WithMany(p => p.OfferParts)
-                //    .HasForeignKey(d => d.OfferId)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("FK_REFERENCE_25");
+                entity.HasOne(d => d.Offer)
+                    .WithMany(p => p.OfferParts)
+                    .HasForeignKey(d => d.OfferId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_REFERENCE_25");
 
                 entity.HasOne(d => d.Part)
                     .WithMany(p => p.OfferParts)
@@ -148,25 +159,17 @@ namespace eCarService.Database
             {
                 entity.Property(e => e.Amount).HasColumnType("decimal(10, 1)");
 
-                entity.HasOne(d => d.Bill)
-                    .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.BillId)
-                    .HasConstraintName("FK_REFERENCE_11");
-
-                entity.HasOne(d => d.Reservation)
-                    .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.ReservationId)
-                    .HasConstraintName("FK_REFERENCE_7");
+                entity.Property(e => e.Date).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Rating>(entity =>
             {
                 entity.Property(e => e.Comment).HasMaxLength(40);
 
-                //entity.HasOne(d => d.Offer)
-                //    .WithMany(p => p.Ratings)
-                //    .HasForeignKey(d => d.OfferId)
-                //    .HasConstraintName("FK_REFERENCE_15");
+                entity.HasOne(d => d.Offer)
+                    .WithMany(p => p.Ratings)
+                    .HasForeignKey(d => d.OfferId)
+                    .HasConstraintName("FK_REFERENCE_15");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Ratings)
@@ -180,10 +183,15 @@ namespace eCarService.Database
 
                 entity.Property(e => e.Status).HasMaxLength(40);
 
-                //entity.HasOne(d => d.Offer)
-                //    .WithMany(p => p.Reservations)
-                //    .HasForeignKey(d => d.OfferId)
-                //    .HasConstraintName("FK_REFERENCE_14");
+                entity.HasOne(d => d.Offer)
+                    .WithMany(p => p.Reservations)
+                    .HasForeignKey(d => d.OfferId)
+                    .HasConstraintName("FK_REFERENCE_14");
+
+                entity.HasOne(d => d.Payment)
+                    .WithMany(p => p.Reservations)
+                    .HasForeignKey(d => d.PaymentId)
+                    .HasConstraintName("FK_REFERENCE_27");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Reservations)
@@ -211,6 +219,8 @@ namespace eCarService.Database
 
             modelBuilder.Entity<Role>(entity =>
             {
+                entity.Property(e => e.Description).HasMaxLength(40);
+
                 entity.Property(e => e.Name).HasMaxLength(40);
             });
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eCarService.WinUI
+namespace eCarService.WinUI.Helpers
 {
     public class Validator
     {

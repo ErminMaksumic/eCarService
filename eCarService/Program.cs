@@ -1,4 +1,4 @@
-using eCarService.Database;
+using eCarService.Model;
 using eCarService.Model.SearchObjects;
 using eCarService.Security;
 using eCarService.Service;
@@ -46,6 +46,7 @@ builder.Services.AddTransient<IOfferService, OfferService>();
 builder.Services.AddTransient<IRatingService, RatingService>();
 builder.Services.AddTransient<IAdditionalServiceService, AdditionalServiceService>();
 builder.Services.AddTransient<IReservationService, ReservationService>();
+builder.Services.AddScoped<IBaseService<Role, BaseSearchObject>, RoleService>();
 
 builder.Services.AddControllers(x =>
 {
@@ -56,7 +57,7 @@ builder.Services.AddControllers(x =>
 builder.Services.AddAutoMapper(typeof(Mapper).Assembly);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<eCarServiceContext>(options =>
+builder.Services.AddDbContext<eCarService.Database.eCarServiceContext>(options =>
 options.UseSqlServer(connectionString));
 
 builder.Services.AddAuthentication("BasicAuthentication")

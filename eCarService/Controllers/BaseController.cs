@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCarService.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
 
     public class BaseController<T, TSearch> : ControllerBase where T : class where TSearch : class
     { 

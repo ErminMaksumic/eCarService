@@ -1,4 +1,5 @@
-﻿using eCarService.Service.Interfaces;
+﻿using eCarService.Model;
+using eCarService.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
@@ -47,6 +48,8 @@ namespace eCarService.Security
             new Claim(ClaimTypes.NameIdentifier, username),
             new Claim(ClaimTypes.Name, user.FirstName)
         };
+           
+            claims.Add(new Claim(ClaimTypes.Role, user.Role.Name));
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);

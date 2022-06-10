@@ -1,5 +1,8 @@
+using eCarService.Model;
 using eCarService.WinUI;
+using eCarService.WinUI.Administration;
 using eCarService.WinUI.Brands;
+using eCarService.WinUI.LoginRegistration;
 using eProdajaService.WinUI.Administration;
 using eProdajaService.WinUI.MyProfile;
 using eProdajaService.WinUI.Offers;
@@ -12,12 +15,44 @@ namespace eProdajaService.WinUI
     public partial class frmMain : Form
     {
         public APIService UsersService { get; set; } = new APIService("User");
+        public APIService CarServiceService { get; set; } = new APIService("CarService");
+        User _user = null;
         public frmMain()
         {
             InitializeComponent();
         }
 
  
+
+        private async void validateUser()
+        {
+            _user = await UsersService.GetById<eCarService.Model.User>(ServiceCredentials.UserId);
+            lblUserName.Text = _user.UserName;
+
+            var result = await CarServiceService.Get<List<eCarService.Model.CarService>>();
+
+            var service = result.FirstOrDefault(x => x.UserId == _user.UserId);
+
+
+            if (service != null && _user.Role.Name == "ServiceRegistered")
+            {
+                btnCreateService.Hide();
+                ServiceCredentials.ServiceId = service.CarServiceId;
+                showControls(true);
+            }
+            else if (service != null && _user.Role.Name == "Administrator")
+            {
+                btnCreateService.Hide();
+                ServiceCredentials.ServiceId = service.CarServiceId;
+                showControls(true);
+
+                administrationStripMenu.Visible = true;
+            }
+            else
+                showControls(false);
+          
+
+        }
 
         private void myOffersItem_Click(object sender, EventArgs e)
         {
@@ -96,15 +131,11 @@ namespace eProdajaService.WinUI
             form.ShowDialog();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        private async void frmMain_Load(object sender, EventArgs e)
         {
-            loadWlcmMessage();
-        }
+            validateUser();
+            administrationStripMenu.Visible = false;
 
-        private async void loadWlcmMessage()
-        {
-            var result = await UsersService.GetById<eCarService.Model.User>(ServiceCredentials.UserId);
-            lblUserName.Text = result.UserName;
         }
 
         private void allUsersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,6 +143,30 @@ namespace eProdajaService.WinUI
             Form form = new frmUserList();
 
             form.ShowDialog();
+        }
+
+        private void btnCreateService_Click(object sender, EventArgs e)
+        {
+            Form form = new frmServiceRegistration();
+
+            form.ShowDialog();
+        }
+
+        private void additionalServicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAdditionalServices();
+
+            form.ShowDialog();
+        }
+
+        private void showControls(bool flag)
+        {
+            offersStripMenu.Visible = flag;
+            ordersStripMenu.Visible = flag;
+            brandsStripMenu.Visible = flag;
+            partsStripMenu.Visible = flag;
+            ratingsStripMenu.Visible = flag;
+            reportsStripMenu.Visible = flag;
         }
     }
 }

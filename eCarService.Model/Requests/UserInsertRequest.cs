@@ -23,6 +23,8 @@ namespace eCarService.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string PasswordConfirmation { get; set; }
         public int? RoleId { get; set; }
+        public byte[] Image { get; set; }
+
 
 
 

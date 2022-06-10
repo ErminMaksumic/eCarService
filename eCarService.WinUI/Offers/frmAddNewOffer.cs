@@ -137,7 +137,7 @@ namespace eProdajaService.WinUI.Offers
                     result = await OfferService.Put<Offer>(_offerId, insertRequest);
                     if (result != null)
                     {
-                        MessageBox.Show($"Offer {insertRequest.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Offer {insertRequest.Name} was successfuly edited!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                 }
@@ -146,7 +146,7 @@ namespace eProdajaService.WinUI.Offers
                     result = await OfferService.Post<Offer>(insertRequest);
                     if (result != null)
                     {
-                        MessageBox.Show($"Offer {insertRequest.Name} was successfuly created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Offer {insertRequest.Name} was successfuly created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
 

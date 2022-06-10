@@ -8,6 +8,7 @@ namespace eCarService.Database
         public CarService()
         {
             CarBrands = new HashSet<CarBrand>();
+            CustomOfferRequests = new HashSet<CustomOfferRequest>();
             Offers = new HashSet<Offer>();
             Parts = new HashSet<Part>();
         }
@@ -21,6 +22,7 @@ namespace eCarService.Database
 
         public virtual User? User { get; set; }
         public virtual ICollection<CarBrand> CarBrands { get; set; }
+        public virtual ICollection<CustomOfferRequest> CustomOfferRequests { get; set; }
         public virtual ICollection<Offer> Offers { get; set; }
         public virtual ICollection<Part> Parts { get; set; }
     }

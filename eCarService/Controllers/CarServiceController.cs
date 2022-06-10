@@ -10,6 +10,8 @@ namespace eCarService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Administrator, ServiceRegistered")]
+
     public class CarServiceController : BaseCRUDController<CarService, CarServiceSearchObject,
         CarServiceInsertRequest, CarServiceUpdateRequest>
     {
@@ -20,6 +22,16 @@ namespace eCarService.Controllers
         public override CarService Insert([FromBody] CarServiceInsertRequest request)
         {
             return base.Insert(request);
+        }
+        [AllowAnonymous]
+        public override IEnumerable<CarService> Get([FromQuery] CarServiceSearchObject search)
+        {
+            return base.Get(search);
+        }
+        [AllowAnonymous]
+        public override CarService GetById(int id)
+        {
+            return base.GetById(id);
         }
     }
 }

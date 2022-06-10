@@ -9,10 +9,8 @@ namespace eCarService.Model.Requests
     {
         [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
-        [Required(AllowEmptyStrings = false)]
         public string Description { get; set; }
-        [Required(AllowEmptyStrings = false)]
-        public string Status { get; set; }
+
         [Required(AllowEmptyStrings = false)]
         public decimal? Price { get; set; }
     }

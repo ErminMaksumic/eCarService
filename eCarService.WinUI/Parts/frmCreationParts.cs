@@ -1,6 +1,7 @@
 ﻿using eCarService.Model;
 using eCarService.Model.Requests;
 using eCarService.WinUI;
+using eCarService.WinUI.Helpers;
 using eProdajaService.WinUI.Parts;
 using System;
 using System.Collections.Generic;
@@ -58,13 +59,13 @@ namespace eProdajaService.WinUI
             {
                 await PartService.Post<dynamic>(request);
 
-                MessageBox.Show($"Part {request.Name} was successfuly created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Part {request.Name} was successfuly created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 await PartService.Put<dynamic>(_partId, request);
 
-                MessageBox.Show($"Part {request.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Part {request.Name} was successfuly edited!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             Form form = new frmParts();
             this.Close();

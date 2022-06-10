@@ -153,13 +153,8 @@ namespace eCarService.WinUI
 
         }
 
-        public async Task<T> Delete<T>(object id, string auth = "")
+        public async Task<T> Delete<T>(object id)
         {
-            if(auth == "214214K24SAFMASFAS")
-            {
-                Username = "admin";
-                Password = "admin";
-            }
             try
             {
                 var result = await $"{endpoint}{_resource}/{id}".WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
@@ -185,7 +180,13 @@ namespace eCarService.WinUI
                 MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return default(T);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return default(T);
+            }
+        }
 
         }
-    }
-}
+
+        }

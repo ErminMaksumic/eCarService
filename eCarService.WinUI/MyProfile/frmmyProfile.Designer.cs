@@ -38,6 +38,7 @@
             this.errorProfileProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtConfirmationPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ofdChangeImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProfileProvider)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             this.pbProfileImage.Size = new System.Drawing.Size(332, 178);
             this.pbProfileImage.TabIndex = 0;
             this.pbProfileImage.TabStop = false;
+            this.pbProfileImage.Click += new System.EventHandler(this.pbProfileImage_Click);
             // 
             // txtUsername
             // 
@@ -115,6 +117,10 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Confirm new password:";
             // 
+            // ofdChangeImage
+            // 
+            this.ofdChangeImage.FileName = "openFileDialog1";
+            // 
             // myProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -149,5 +155,6 @@
         private ErrorProvider errorProfileProvider;
         private Label label3;
         private TextBox txtConfirmationPassword;
+        private OpenFileDialog ofdChangeImage;
     }
 }

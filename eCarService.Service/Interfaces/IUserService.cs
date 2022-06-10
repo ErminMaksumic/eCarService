@@ -12,6 +12,8 @@ namespace eCarService.Service.Interfaces
     public interface IUserService : ICRUDService<Model.User, UserSearchObject, UserInsertRequest, UserUpdateRequest>
     {
         User Login(string username, string password);
+        User ChangePassword(int id, MyProfileUpdateRequest req);
+        User ChangeRole(int id, int roleId);
 
     }
 }

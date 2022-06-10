@@ -1,6 +1,7 @@
 ﻿using eCarService.Model;
 using eCarService.Model.Helpers;
 using eCarService.Model.Requests;
+using eCarService.WinUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,6 @@ namespace eCarService.WinUI.LoginRegistration
     {
         public APIService UsersService { get; set; } = new APIService("User");
         public APIService CarService { get; set; } = new APIService("CarService");
-        string AuthTokenForDelete = "214214K24SAFMASFAS";
         public frmServiceOwnerRegistration()
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace eCarService.WinUI.LoginRegistration
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             addNewUser();
+            
         }
 
         private async void addNewUser()
@@ -43,27 +44,14 @@ namespace eCarService.WinUI.LoginRegistration
                         Email = txtEmail.Text,
                         Password = txtPassword.Text,
                         PasswordConfirmation = txtPassConfirmation.Text,
-                        RoleId = 2
+                        Image = ImageHelper.ImageToByteArray(pbImage.Image)
+
                     };
                     var user = await UsersService.Post<Model.User>(newUser);
 
                     if (user != null)
                     {
-                        CarServiceInsertRequest newService = new CarServiceInsertRequest()
-                        {
-                            Name = txtServiceName.Text,
-                            Address = txtServiceAddress.Text,
-                            PhoneNumber = txtServicePhoneNumber.Text,
-                            DateCreated = DateTime.Now,
-                            UserId = user.UserId
-                        };
-
-                        var service = await CarService.Post<CarService>(newService);
-
-                        if (service != null)
-                            MessageBox.Show($"User {user.UserName} succesfully registered!");
-
-
+                        MessageBox.Show($"User {user.UserName} successfully created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                 }
@@ -72,11 +60,19 @@ namespace eCarService.WinUI.LoginRegistration
             {
 
                 MessageBox.Show(ex.Message);
-            }
-               
+            } 
            
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ofdImage.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
+
+            if (ofdImage.ShowDialog() == DialogResult.OK)
+            {
+                pbImage.Image = new Bitmap(ofdImage.FileName);
+            }
+        }
         private bool ValidateInputs()
         {
             return
@@ -92,13 +88,7 @@ namespace eCarService.WinUI.LoginRegistration
 
             Validator.ValidateControl(txtPassConfirmation, errRegisterProvider, "Please confirm your password!") &&
 
-            Validator.ValidateControl(txtServiceAddress, errRegisterProvider, "Address is required field!") &&
-
-            Validator.ValidateControl(txtServicePhoneNumber, errRegisterProvider, "Phone number is required field!"); 
-        }
-
-        private void frmServiceOwnerRegistration_Load(object sender, EventArgs e)
-        {
+            Validator.ValidateControl(pbImage, errRegisterProvider, "Please select a picture!");
 
         }
     }

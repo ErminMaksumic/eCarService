@@ -8,6 +8,7 @@ namespace eCarService.Database
         public User()
         {
             CarServices = new HashSet<CarService>();
+            CustomOfferRequests = new HashSet<CustomOfferRequest>();
             Ratings = new HashSet<Rating>();
             Reservations = new HashSet<Reservation>();
         }
@@ -20,9 +21,11 @@ namespace eCarService.Database
         public string PasswordHash { get; set; } = null!;
         public string PasswordSalt { get; set; } = null!;
         public int? RoleId { get; set; }
+        public byte[] Image { get; set; } = null!;
 
         public virtual Role? Role { get; set; }
         public virtual ICollection<CarService> CarServices { get; set; }
+        public virtual ICollection<CustomOfferRequest> CustomOfferRequests { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
     }
