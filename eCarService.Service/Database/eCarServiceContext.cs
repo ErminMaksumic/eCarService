@@ -99,6 +99,8 @@ namespace eCarService.Database
 
                 entity.ToTable("CustomOfferRequest");
 
+                entity.Property(e => e.Date).HasColumnType("datetime");
+
                 entity.Property(e => e.Description).HasMaxLength(40);
 
                 entity.Property(e => e.Name).HasMaxLength(40);
@@ -182,6 +184,11 @@ namespace eCarService.Database
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
                 entity.Property(e => e.Status).HasMaxLength(40);
+
+                entity.HasOne(d => d.CarBrand)
+                    .WithMany(p => p.Reservations)
+                    .HasForeignKey(d => d.CarBrandId)
+                    .HasConstraintName("FK_REFERENCE_30");
 
                 entity.HasOne(d => d.Offer)
                     .WithMany(p => p.Reservations)

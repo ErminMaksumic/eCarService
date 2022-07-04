@@ -47,15 +47,23 @@ namespace eCarService.WinUI.Administration
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            deleteUser(User.UserId);
+            var confirmResult = MessageBox.Show("Do you want to delete this user?", "Delete user", MessageBoxButtons.YesNo);
+
+            if(confirmResult == DialogResult.Yes)
+            {
+              deleteUser(User.UserId);
+            }
         }
 
         private async void deleteUser(int userId)
         {
-            await UserService.Delete<Model.User>(userId);
+            var result = await UserService.Delete<Model.User>(userId);
 
-            MessageBox.Show($"User with id: {userId} is deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            if (result != null)
+            {
+ 
+                MessageBox.Show($"User with id: {userId} is deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             this.Close();
         }
 

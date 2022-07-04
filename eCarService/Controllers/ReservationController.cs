@@ -11,7 +11,7 @@ namespace eCarService.Controllers
     [Authorize(Roles = "Administrator, ServiceRegistered")]
 
 
-    public class ReservationController : BaseCRUDController<Model.Reservation, BaseSearchObject, 
+    public class ReservationController : BaseCRUDController<Model.Reservation, OrderSearchObject, 
         ReservationInsertRequest, ReservationInsertRequest>
     {
         public ReservationController(IReservationService service) : base(service)

@@ -113,5 +113,38 @@ namespace eCarService.Service.Implementation
             }
             return filteredQuery;
         }
+
+        public override void BeforeDelete(Offer entity)
+        {
+            var ratings = _context.Ratings.Where(x => x.OfferId == entity.OfferId ).ToList();
+
+            foreach (var item in ratings)
+            {
+                _context.Ratings.Remove(item);
+            }
+
+            var brands = _context.CarBrandOffers.Where(x => x.OfferId == entity.OfferId).ToList();
+
+            foreach (var item in brands)
+            {
+                _context.CarBrandOffers.Remove(item);
+            }
+
+            var reservations = _context.Reservations.Where(x => x.OfferId == entity.OfferId).ToList();
+
+            foreach (var item in reservations)
+            {
+                _context.Reservations.Remove(item);
+            }
+
+            var parts = _context.OfferParts.Where(x => x.OfferId == entity.OfferId).ToList();
+
+            foreach (var item in parts)
+            {
+                _context.OfferParts.Remove(item);
+            }
+
+
+        }
     }
 }

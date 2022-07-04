@@ -16,7 +16,8 @@ namespace eProdajaService.WinUI.Administration
 {
     public partial class frmServices : Form
     {
-        public APIService CarService { get; set; } = new APIService("CarService");
+        public  APIService CarService { get; set; } = new APIService("CarService");
+
 
         public frmServices()
         {

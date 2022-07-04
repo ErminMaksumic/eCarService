@@ -24,13 +24,22 @@ namespace eProdajaService.WinUI.Orders
         private void frmOrderList_Load(object sender, EventArgs e)
         {
             loadOrders();
+            setDefaultValues();
+        }
+
+        private void setDefaultValues()
+        {
+            dtpFrom.Value = DateTime.Now;
+            dtpTo.Value = DateTime.Now.AddYears(1);
         }
 
         private async void loadOrders()
         {
-            BaseSearchObject search = new BaseSearchObject()
+            OrderSearchObject search = new OrderSearchObject()
             {
-                CarServiceId = ServiceCredentials.ServiceId
+                CarServiceId = ServiceCredentials.ServiceId,
+                From = dtpFrom.Value,
+                To = dtpTo.Value
             };
 
             var result = await ReservationService.Get<List<eCarService.Model.Reservation>>(search);
@@ -66,6 +75,12 @@ namespace eProdajaService.WinUI.Orders
                 MessageBox.Show("Service is already done!");
             }    
            
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            
+            loadOrders();
         }
     }
 }

@@ -62,9 +62,14 @@ namespace eCarService.Service.Implementation
         }
 
 
-
         public override void BeforeDelete(User entity)
         {
+
+            if(entity?.Role?.Name == "Administrator")
+            {
+                throw new UserException("You cannot delete Administrator's account");
+            }
+
             var data = _context.CarServices.Where(x => x.UserId == entity.UserId).FirstOrDefault();
 
             if(data!=null)
@@ -123,7 +128,6 @@ namespace eCarService.Service.Implementation
 
                     newUser.PasswordHash = GenerateHash(newUser.PasswordSalt, request.Password);
 
-                    newUser.RoleId = 3;
 
                     _context.Users.Add(newUser);
                     _context.SaveChanges();

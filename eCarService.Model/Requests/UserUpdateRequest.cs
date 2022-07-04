@@ -15,7 +15,9 @@ namespace eCarService.Model.Requests
         [Required(AllowEmptyStrings = false)]
         [EmailAddress()]
         public string Email { get; set; }
+        [Required(AllowEmptyStrings = false), MinLength(5)]
         public string Password { get; set; }
+        [Required(AllowEmptyStrings = false)]
         public string PasswordConfirmation { get; set; }
         public byte[] Image { get; set; }
     }

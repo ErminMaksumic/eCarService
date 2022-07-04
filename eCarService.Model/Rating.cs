@@ -14,7 +14,10 @@ namespace eCarService.Model
         public int? OfferId { get; set; }
         public int? UserId { get; set; }
         public virtual User User { get; set; }
+        public virtual Offer Offer { get; set; }
+
         public string UserName => User?.UserName ?? string.Empty;
+        public string OfferName => Offer?.Name ?? string.Empty;
 
     }
 }

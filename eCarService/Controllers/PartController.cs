@@ -15,6 +15,6 @@ namespace eCarService.Controllers
         PartUpsertRequest>
     {
         public PartController(IPartService service) : base(service)
-        {}
+        { }
     }
 }

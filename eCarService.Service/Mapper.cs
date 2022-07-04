@@ -46,6 +46,9 @@ namespace eCarService.Service
 
             CreateMap<Database.ReservationsAdditionalService, Model.ReservationAdditionalService>().ReverseMap();
 
+            CreateMap<Database.CustomOfferRequest, Model.CustomOfferRequest>().ReverseMap();
+            CreateMap<Database.CustomOfferRequest, CustomOfferUpsertRequest>().ReverseMap();
+
 
 
         }

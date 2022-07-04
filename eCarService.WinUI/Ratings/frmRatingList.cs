@@ -30,7 +30,8 @@ namespace eProdajaService.WinUI.Ratings
         {
             var result = await RatingService.Get<List<eCarService.Model.Rating>>(new RatingSearchObject()
             {
-                UserId = ServiceCredentials.UserId
+                UserId = ServiceCredentials.UserId,
+                OfferName = txtSearch.Text
             });
 
             lblAverageRating.Text = result.Average(x => x.Rate).ToString();
@@ -39,5 +40,9 @@ namespace eProdajaService.WinUI.Ratings
             dgvRatingList.DataSource = result;
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            loadRatings();
+        }
     }
 }

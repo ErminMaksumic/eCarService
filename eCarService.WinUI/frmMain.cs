@@ -3,6 +3,7 @@ using eCarService.WinUI;
 using eCarService.WinUI.Administration;
 using eCarService.WinUI.Brands;
 using eCarService.WinUI.LoginRegistration;
+using eCarService.WinUI.Reservations;
 using eProdajaService.WinUI.Administration;
 using eProdajaService.WinUI.MyProfile;
 using eProdajaService.WinUI.Offers;
@@ -21,9 +22,6 @@ namespace eProdajaService.WinUI
         {
             InitializeComponent();
         }
-
- 
-
         private async void validateUser()
         {
             _user = await UsersService.GetById<eCarService.Model.User>(ServiceCredentials.UserId);
@@ -67,14 +65,6 @@ namespace eProdajaService.WinUI
 
             form.ShowDialog();
         }
-
-        private void ordersItem_Click(object sender, EventArgs e)
-        {
-            Form form = new frmOrderList();
-
-            form.ShowDialog();
-        }
-
         private void ratingsItem_Click(object sender, EventArgs e)
         {
             Form form = new frmRatingList();
@@ -167,6 +157,31 @@ namespace eProdajaService.WinUI
             partsStripMenu.Visible = flag;
             ratingsStripMenu.Visible = flag;
             reportsStripMenu.Visible = flag;
+        }
+
+        private void myOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmOrderList();
+
+            form.ShowDialog();
+        }
+
+        private void customServiceRequestsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmCustomOfferRequest();
+
+            form.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Do you want to logout self from app ?", "Logout", MessageBoxButtons.YesNo);
+
+            if(confirmResult == DialogResult.Yes)
+            {
+             Application.Restart();
+            }
+
         }
     }
 }

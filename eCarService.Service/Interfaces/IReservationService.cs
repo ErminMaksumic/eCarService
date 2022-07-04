@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eCarService.Service.Interfaces
 {
-    public interface IReservationService : ICRUDService<Model.Reservation, BaseSearchObject, 
+    public interface IReservationService : ICRUDService<Model.Reservation, OrderSearchObject, 
         ReservationInsertRequest,ReservationInsertRequest>
     {}
 }

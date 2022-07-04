@@ -15,6 +15,8 @@ namespace eCarService.WinUI.Administration
     public partial class frmServiceDetails : Form
     {
         public APIService CarService { get; set; } = new APIService("CarService");
+        private readonly APIService UserChangeRole = new APIService("User/changeRole");
+
         private Model.CarService Service;
 
         private int carServiceId = -1;
@@ -54,9 +56,13 @@ namespace eCarService.WinUI.Administration
                     PhoneNumber = txtPhoneNumber.Text,
                 };
 
-                await CarService.Put<Model.CarService>(carServiceId, carServiceUpdateRequest);
+                var result = await CarService.Put<Model.CarService>(carServiceId, carServiceUpdateRequest);
 
-                MessageBox.Show($"Service {carServiceUpdateRequest.Address} was successfuly updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result != null)
+                {
+                    MessageBox.Show($"Service {carServiceUpdateRequest.Address} was successfuly updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 this.Close();
             }
         }
@@ -75,16 +81,27 @@ namespace eCarService.WinUI.Administration
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            deleteService();
+
+            var confirmResult = MessageBox.Show("Do you want to delete this service?", "Delete service", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                deleteService();
+            }
         }
 
         private async void deleteService()
         {
-            await CarService.Delete<Model.CarService>(carServiceId);
+            var result = await CarService.Delete<Model.CarService>(carServiceId);
 
-            MessageBox.Show($"Service with id: {carServiceId} was deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (result != null)
+            {
+                RoleUpdateRequest request = new RoleUpdateRequest() { RoleId = 3 };
+                await UserChangeRole.Put<Model.User>(Service.UserId, request);
+                MessageBox.Show($"Service with id: {carServiceId} was deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Close();
+                this.Close();
+            }
         }
     }
 }

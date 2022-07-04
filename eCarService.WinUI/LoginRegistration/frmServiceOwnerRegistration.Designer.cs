@@ -216,7 +216,7 @@
             this.groupBox2.Controls.Add(this.pbImage);
             this.groupBox2.Location = new System.Drawing.Point(698, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(399, 356);
+            this.groupBox2.Size = new System.Drawing.Size(429, 356);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Please select the image:";
@@ -224,10 +224,9 @@
             // pbImage
             // 
             this.pbImage.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbImage.Location = new System.Drawing.Point(3, 23);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(393, 330);
+            this.pbImage.Size = new System.Drawing.Size(403, 330);
             this.pbImage.TabIndex = 4;
             this.pbImage.TabStop = false;
             this.pbImage.Click += new System.EventHandler(this.pictureBox1_Click);

@@ -7,10 +7,11 @@ namespace eCarService.Model.Requests
 {
     public class RatingUpsertRequest
     {
-        [Required]
+        [Required, Range(1,5)]
         public int? Rate { get; set; }
         public string Comment { get; set; }
         public int OfferId { get; set; }
         public int UserId { get; set; }
+
     }
 }

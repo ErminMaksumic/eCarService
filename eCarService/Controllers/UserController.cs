@@ -46,7 +46,7 @@ namespace eCarService.Controllers
         }
 
         [HttpPut("changeRole/{id}")]
-        public Model.User ChangePassword(int id, [FromBody] RoleUpdateRequest req)
+        public Model.User ChangeRole(int id, [FromBody] RoleUpdateRequest req)
         {
             return _service.ChangeRole(id, req.RoleId);
         }

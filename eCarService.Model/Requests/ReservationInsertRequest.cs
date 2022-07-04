@@ -9,6 +9,7 @@ namespace eCarService.Model.Requests
         public string Status { get; set; }
         public DateTime? Date { get; set; }
         public int? UserId { get; set; }
+        public int CarBrandId { get; set; }
         public int? OfferId { get; set; }
     }
 }

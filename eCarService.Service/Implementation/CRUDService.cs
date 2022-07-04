@@ -61,7 +61,6 @@ namespace eCarService.Service.Implementation
 
             if (entity != null)
             {
-
                 BeforeDelete(entity);
                 set.Remove(entity);
 

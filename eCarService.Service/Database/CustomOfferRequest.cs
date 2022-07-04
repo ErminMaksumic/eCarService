@@ -11,6 +11,7 @@ namespace eCarService.Database
         public int? UserId { get; set; }
         public string? Status { get; set; }
         public int? CarServiceId { get; set; }
+        public DateTime Date { get; set; }
 
         public virtual CarService? CarService { get; set; }
         public virtual User? User { get; set; }

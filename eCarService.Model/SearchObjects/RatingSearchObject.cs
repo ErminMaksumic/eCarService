@@ -7,5 +7,6 @@ namespace eCarService.Model.SearchObjects
     public class RatingSearchObject : BaseSearchObject
     {
         public int UserId { get; set; }
+        public string OfferName { get; set; }
     }
 }

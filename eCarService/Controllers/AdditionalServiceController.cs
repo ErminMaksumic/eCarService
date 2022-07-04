@@ -14,6 +14,6 @@ namespace eCarService.Controllers
         AdditionalServiceUpsertRequest, AdditionalServiceUpsertRequest>
     {
         public AdditionalServiceController(IAdditionalServiceService service) : base(service)
-        {}
+        { }
     }
 }

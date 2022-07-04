@@ -17,6 +17,6 @@ namespace eCarService.Controllers
     {
         public CarBrandController(ICarBrandService service) 
             : base(service)
-        {}
+        { }
     }
 }

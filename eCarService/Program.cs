@@ -46,6 +46,7 @@ builder.Services.AddTransient<IOfferService, OfferService>();
 builder.Services.AddTransient<IRatingService, RatingService>();
 builder.Services.AddTransient<IAdditionalServiceService, AdditionalServiceService>();
 builder.Services.AddTransient<IReservationService, ReservationService>();
+builder.Services.AddTransient<ICustomOfferRequestService, CustomOfferRequestService>();
 builder.Services.AddScoped<IBaseService<Role, BaseSearchObject>, RoleService>();
 
 builder.Services.AddControllers(x =>

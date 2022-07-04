@@ -3,6 +3,7 @@ using eCarService.Database;
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,18 @@ namespace eCarService.Service.Implementation
             {
                 filteredQuery = filteredQuery.Where(x=> x.UserId == search.UserId);
             }
-          
+            if (!string.IsNullOrWhiteSpace(search.OfferName))
+            {
+                filteredQuery = filteredQuery.Where(x => x.Offer.Name.StartsWith(search.OfferName));
+            }
+
 
             return filteredQuery;
+        }
+
+        public override IQueryable<Rating> AddInclude(IQueryable<Rating> query, RatingSearchObject search = null)
+        {
+            return query.Include("User").Include("Offer");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace eCarService.Controllers
         where TModel : class where TSearch : class where TInsert : class where TUpdate : class
     {
         public BaseCRUDController(ICRUDService<TModel, TSearch, TInsert, TUpdate> service) : base(service)
-        {}
+        { }
 
 
         [HttpPost]
