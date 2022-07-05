@@ -3,6 +3,7 @@ using eCarService.WinUI;
 using eCarService.WinUI.Administration;
 using eCarService.WinUI.Brands;
 using eCarService.WinUI.LoginRegistration;
+using eCarService.WinUI.Reports;
 using eCarService.WinUI.Reservations;
 using eProdajaService.WinUI.Administration;
 using eProdajaService.WinUI.MyProfile;
@@ -182,6 +183,48 @@ namespace eProdajaService.WinUI
              Application.Restart();
             }
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_4(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lastYearRevenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmYearlyRevenueReport();
+            form.ShowDialog();
+        }
+
+        private void bestSellingOfferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new frmYearlyQuantityReport();
+            form.ShowDialog();
         }
     }
 }

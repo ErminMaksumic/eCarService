@@ -34,5 +34,13 @@ namespace eCarService.Service.Implementation
             return filteredQuery.Include("Offer");
         }
 
+        //public override IQueryable<Reservation> AddInclude(IQueryable<Reservation> query, OrderSearchObject search = null)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(search.Include))
+        //        query.Include(search.Include);
+
+        //    return query;
+        //}
+
     }
 }

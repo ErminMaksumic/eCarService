@@ -50,12 +50,14 @@
             this.reportsStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.lastYearRevenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestSellingOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administrationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.btnCreateService = new System.Windows.Forms.Button();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCreateService = new System.Windows.Forms.Button();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -227,14 +229,23 @@
             // lastYearRevenueToolStripMenuItem
             // 
             this.lastYearRevenueToolStripMenuItem.Name = "lastYearRevenueToolStripMenuItem";
-            this.lastYearRevenueToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.lastYearRevenueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lastYearRevenueToolStripMenuItem.Text = "Last year revenue";
+            this.lastYearRevenueToolStripMenuItem.Click += new System.EventHandler(this.lastYearRevenueToolStripMenuItem_Click);
             // 
             // bestSellingOfferToolStripMenuItem
             // 
             this.bestSellingOfferToolStripMenuItem.Name = "bestSellingOfferToolStripMenuItem";
-            this.bestSellingOfferToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.bestSellingOfferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bestSellingOfferToolStripMenuItem.Text = "Best selling offer";
+            this.bestSellingOfferToolStripMenuItem.Click += new System.EventHandler(this.bestSellingOfferToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // administrationToolStripMenuItem1
             // 
@@ -243,42 +254,48 @@
             this.administrationToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.administrationToolStripMenuItem1.Text = "Administration";
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(185, 154);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Welcome back: ";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::eCarService.WinUI.Properties.Resources.modern_car_repair_station_with_large_number_lifts_specialized_equipment_diagnostics_service_repair_car_283617_3976;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(700, 314);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_4);
+            // 
+            // btnCreateService
+            // 
+            this.btnCreateService.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCreateService.Location = new System.Drawing.Point(211, 235);
+            this.btnCreateService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateService.Name = "btnCreateService";
+            this.btnCreateService.Size = new System.Drawing.Size(298, 92);
+            this.btnCreateService.TabIndex = 7;
+            this.btnCreateService.Text = "Create your CAR SERVICE to access your panel!";
+            this.btnCreateService.UseVisualStyleBackColor = false;
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUserName.Location = new System.Drawing.Point(413, 154);
+            this.lblUserName.Location = new System.Drawing.Point(397, 135);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(0, 37);
-            this.lblUserName.TabIndex = 3;
+            this.lblUserName.TabIndex = 6;
             // 
-            // btnCreateService
+            // label1
             // 
-            this.btnCreateService.Location = new System.Drawing.Point(164, 202);
-            this.btnCreateService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreateService.Name = "btnCreateService";
-            this.btnCreateService.Size = new System.Drawing.Size(298, 92);
-            this.btnCreateService.TabIndex = 4;
-            this.btnCreateService.Text = "Create your CAR SERVICE to access your panel!";
-            this.btnCreateService.UseVisualStyleBackColor = true;
-            this.btnCreateService.Click += new System.EventHandler(this.btnCreateService_Click);
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Linen;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(179, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 37);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Welcome back: ";
             // 
             // frmMain
             // 
@@ -288,6 +305,7 @@
             this.Controls.Add(this.btnCreateService);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -296,6 +314,7 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,13 +340,14 @@
         private ToolStripMenuItem myPartsToolStripMenuItem;
         private ToolStripMenuItem addNewPartToolStripMenuItem;
         private ToolStripMenuItem brandsStripMenu;
-        private Label label1;
-        private Label lblUserName;
         private ToolStripMenuItem AllUsersStripMenu;
-        private Button btnCreateService;
         private ToolStripMenuItem additionalServicesToolStripMenuItem;
         private ToolStripMenuItem myOrdersToolStripMenuItem;
         private ToolStripMenuItem customServiceRequestsToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private PictureBox pictureBox1;
+        private Button btnCreateService;
+        private Label lblUserName;
+        private Label label1;
     }
 }

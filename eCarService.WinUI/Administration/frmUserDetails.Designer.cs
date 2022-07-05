@@ -47,9 +47,10 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(257, 247);
+            this.btnSubmit.Location = new System.Drawing.Point(225, 272);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(94, 29);
+            this.btnSubmit.Size = new System.Drawing.Size(82, 22);
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -58,9 +59,10 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(390, 340);
+            this.btnDelete.Location = new System.Drawing.Point(380, 272);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
+            this.btnDelete.Size = new System.Drawing.Size(90, 35);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete user";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -69,67 +71,71 @@
             // txtUsername
             // 
             this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(257, 42);
+            this.txtUsername.Location = new System.Drawing.Point(225, 32);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(125, 27);
+            this.txtUsername.Size = new System.Drawing.Size(110, 23);
             this.txtUsername.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 190);
+            this.label2.Location = new System.Drawing.Point(117, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 8;
             this.label2.Text = "Last name:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(133, 49);
+            this.label4.Location = new System.Drawing.Point(116, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 20);
+            this.label4.Size = new System.Drawing.Size(63, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Username:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(257, 90);
+            this.txtEmail.Location = new System.Drawing.Point(225, 73);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(125, 27);
+            this.txtEmail.Size = new System.Drawing.Size(110, 23);
             this.txtEmail.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(133, 97);
+            this.label5.Location = new System.Drawing.Point(116, 76);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 20);
+            this.label5.Size = new System.Drawing.Size(39, 15);
             this.label5.TabIndex = 12;
             this.label5.Text = "Email:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 143);
+            this.label1.Location = new System.Drawing.Point(116, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "First name:";
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(257, 183);
+            this.txtLastName.Location = new System.Drawing.Point(225, 163);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(125, 27);
+            this.txtLastName.Size = new System.Drawing.Size(110, 23);
             this.txtLastName.TabIndex = 4;
             this.txtLastName.Text = " ";
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(257, 136);
+            this.txtFirstName.Location = new System.Drawing.Point(225, 112);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(125, 27);
+            this.txtFirstName.Size = new System.Drawing.Size(110, 23);
             this.txtFirstName.TabIndex = 0;
             // 
             // groupBox1
@@ -144,9 +150,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(170, 36);
+            this.groupBox1.Location = new System.Drawing.Point(149, 27);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(500, 375);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(500, 322);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User informations:";
@@ -157,10 +165,11 @@
             // 
             // frmUserDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 485);
+            this.ClientSize = new System.Drawing.Size(757, 381);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmUserDetails";
             this.Text = "frmUserDetails";
             this.Load += new System.EventHandler(this.frmUserDetails_Load);

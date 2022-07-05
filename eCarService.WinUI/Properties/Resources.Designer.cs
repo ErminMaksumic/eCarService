@@ -61,11 +61,42 @@ namespace eCarService.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image {
+            get {
+                object obj = ResourceManager.GetObject("image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap istockphoto_1211154399_170667a {
+            get {
+                object obj = ResourceManager.GetObject("istockphoto-1211154399-170667a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://localhost:7045/api/.
         /// </summary>
         internal static string localhost {
             get {
                 return ResourceManager.GetString("localhost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap modern_car_repair_station_with_large_number_lifts_specialized_equipment_diagnostics_service_repair_car_283617_3976 {
+            get {
+                object obj = ResourceManager.GetObject("modern-car-repair-station-with-large-number-lifts-specialized-equipment-diagnosti" +
+                        "cs-service-repair-car_283617-3976", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
