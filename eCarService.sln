@@ -8,11 +8,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCarService", "eCarService\
 		{FCD2A2FB-DB3F-4C75-A33E-8066A620DECF} = {FCD2A2FB-DB3F-4C75-A33E-8066A620DECF}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCarService.WinUI", "eCarService.WinUI\eCarService.WinUI.csproj", "{A316635A-7661-4484-9D25-1E84FCEDD795}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCarService.Service", "eCarService.Service\eCarService.Service.csproj", "{E4464065-0E4C-4E60-9912-EC3B3A193E11}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCarService.Model", "eCarService.Model\eCarService.Model.csproj", "{FCD2A2FB-DB3F-4C75-A33E-8066A620DECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCarService.DesktopApp", "eCarService.DesktopApp\eCarService.DesktopApp.csproj", "{07E03DF4-0D45-4B69-9163-543C7A956836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +24,6 @@ Global
 		{EDB2103E-DF48-41E2-BF0B-A250F9A8A3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB2103E-DF48-41E2-BF0B-A250F9A8A3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB2103E-DF48-41E2-BF0B-A250F9A8A3FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A316635A-7661-4484-9D25-1E84FCEDD795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A316635A-7661-4484-9D25-1E84FCEDD795}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A316635A-7661-4484-9D25-1E84FCEDD795}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A316635A-7661-4484-9D25-1E84FCEDD795}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4464065-0E4C-4E60-9912-EC3B3A193E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4464065-0E4C-4E60-9912-EC3B3A193E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4464065-0E4C-4E60-9912-EC3B3A193E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,6 +32,10 @@ Global
 		{FCD2A2FB-DB3F-4C75-A33E-8066A620DECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD2A2FB-DB3F-4C75-A33E-8066A620DECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCD2A2FB-DB3F-4C75-A33E-8066A620DECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E03DF4-0D45-4B69-9163-543C7A956836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E03DF4-0D45-4B69-9163-543C7A956836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E03DF4-0D45-4B69-9163-543C7A956836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E03DF4-0D45-4B69-9163-543C7A956836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

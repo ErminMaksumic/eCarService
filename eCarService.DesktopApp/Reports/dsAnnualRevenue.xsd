@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsAnnualRevenue" targetNamespace="http://tempuri.org/dsAnnualRevenue.xsd" xmlns:mstns="http://tempuri.org/dsAnnualRevenue.xsd" xmlns="http://tempuri.org/dsAnnualRevenue.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsAnnualRevenue" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsAnnualRevenue" msprop:Generator_DataSetName="dsAnnualRevenue">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AnnualRevenue" msprop:Generator_RowEvHandlerName="AnnualRevenueRowChangeEventHandler" msprop:Generator_RowDeletedName="AnnualRevenueRowDeleted" msprop:Generator_RowDeletingName="AnnualRevenueRowDeleting" msprop:Generator_RowEvArgName="AnnualRevenueRowChangeEvent" msprop:Generator_TablePropName="AnnualRevenue" msprop:Generator_RowChangedName="AnnualRevenueRowChanged" msprop:Generator_RowChangingName="AnnualRevenueRowChanging" msprop:Generator_TableClassName="AnnualRevenueDataTable" msprop:Generator_RowClassName="AnnualRevenueRow" msprop:Generator_TableVarName="tableAnnualRevenue" msprop:Generator_UserTableName="AnnualRevenue">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_UserColumnName="Month" type="xs:int" minOccurs="0" />
+              <xs:element name="Revenue" msprop:Generator_ColumnPropNameInRow="Revenue" msprop:Generator_ColumnPropNameInTable="RevenueColumn" msprop:Generator_ColumnVarNameInTable="columnRevenue" msprop:Generator_UserColumnName="Revenue" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
