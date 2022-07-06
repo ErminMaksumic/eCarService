@@ -81,7 +81,7 @@ namespace eCarService.DesktopApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:7045/api/.
+        ///   Looks up a localized string similar to http://localhost:5045/api/.
         /// </summary>
         internal static string localhost {
             get {
