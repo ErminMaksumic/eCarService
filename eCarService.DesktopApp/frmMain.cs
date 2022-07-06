@@ -141,14 +141,6 @@ namespace eProdajaService.WinUI
 
             form.ShowDialog();
         }
-
-        private void btnCreateService_Click(object sender, EventArgs e)
-        {
-            Form form = new frmServiceRegistration();
-
-            form.ShowDialog();
-        }
-
         private void additionalServicesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new frmAdditionalServices();
@@ -202,5 +194,11 @@ namespace eProdajaService.WinUI
             form.ShowDialog();
         }
 
+        private void btnCreateService_Click_1(object sender, EventArgs e)
+        {
+            Form form = new frmServiceRegistration();
+
+            form.ShowDialog();
+        }
     }
 }

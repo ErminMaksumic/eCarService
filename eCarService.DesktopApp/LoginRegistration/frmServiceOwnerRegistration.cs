@@ -45,7 +45,7 @@ namespace eCarService.WinUI.LoginRegistration
                         Password = txtPassword.Text,
                         PasswordConfirmation = txtPassConfirmation.Text,
                         Image = ImageHelper.ImageToByteArray(pbImage.Image),
-                        RoleId = 1
+                        RoleId = 3
 
                     };
                     var user = await UsersService.Post<Model.User>(newUser);

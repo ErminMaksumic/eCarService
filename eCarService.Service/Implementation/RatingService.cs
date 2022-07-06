@@ -22,9 +22,9 @@ namespace eCarService.Service.Implementation
         {
             var filteredQuery = base.AddFilter(query, search);
 
-            if (search.UserId != null && search.UserId != 0)
+            if (search.CarServiceId != null && search.CarServiceId != 0)
             {
-                filteredQuery = filteredQuery.Where(x=> x.UserId == search.UserId);
+                filteredQuery = filteredQuery.Where(x=> x.Offer.CarServiceId == search.CarServiceId);
             }
             if (!string.IsNullOrWhiteSpace(search.OfferName))
             {

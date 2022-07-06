@@ -79,7 +79,7 @@ namespace eProdajaService.WinUI
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -262,7 +262,7 @@ namespace eProdajaService.WinUI
             this.pictureBox1.Image = global::eCarService.DesktopApp.Properties.Resources.modern_car_repair_station_with_large_number_lifts_specialized_equipment_diagnostics_service_repair_car_283617_3976;
             this.pictureBox1.Location = new System.Drawing.Point(0, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(600, 269);
+            this.pictureBox1.Size = new System.Drawing.Size(744, 320);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -270,13 +270,14 @@ namespace eProdajaService.WinUI
             // btnCreateService
             // 
             this.btnCreateService.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCreateService.Location = new System.Drawing.Point(181, 204);
+            this.btnCreateService.Location = new System.Drawing.Point(290, 243);
             this.btnCreateService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateService.Name = "btnCreateService";
             this.btnCreateService.Size = new System.Drawing.Size(255, 80);
             this.btnCreateService.TabIndex = 7;
             this.btnCreateService.Text = "Create your CAR SERVICE to access your panel!";
             this.btnCreateService.UseVisualStyleBackColor = false;
+            this.btnCreateService.Click += new System.EventHandler(this.btnCreateService_Click_1);
             // 
             // lblUserName
             // 
@@ -302,7 +303,7 @@ namespace eProdajaService.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 293);
+            this.ClientSize = new System.Drawing.Size(744, 344);
             this.Controls.Add(this.btnCreateService);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label1);

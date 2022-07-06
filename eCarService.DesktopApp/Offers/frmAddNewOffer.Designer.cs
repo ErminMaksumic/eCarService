@@ -59,50 +59,56 @@ namespace eProdajaService.WinUI.Offers
             // 
             // txtOfferName
             // 
-            this.txtOfferName.Location = new System.Drawing.Point(417, 33);
+            this.txtOfferName.Location = new System.Drawing.Point(313, 21);
+            this.txtOfferName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtOfferName.Name = "txtOfferName";
-            this.txtOfferName.Size = new System.Drawing.Size(222, 27);
+            this.txtOfferName.Size = new System.Drawing.Size(168, 20);
             this.txtOfferName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(302, 40);
+            this.label1.Location = new System.Drawing.Point(226, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Offer name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Location = new System.Drawing.Point(9, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 20);
+            this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Including parts:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(302, 91);
+            this.label3.Location = new System.Drawing.Point(226, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Price:";
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(417, 89);
+            this.numPrice.Location = new System.Drawing.Point(313, 58);
+            this.numPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(222, 27);
+            this.numPrice.Size = new System.Drawing.Size(166, 20);
             this.numPrice.TabIndex = 14;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(991, 395);
+            this.btnSubmit.Location = new System.Drawing.Point(743, 257);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(94, 29);
+            this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 17;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -111,25 +117,28 @@ namespace eProdajaService.WinUI.Offers
             // clbParts
             // 
             this.clbParts.FormattingEnabled = true;
-            this.clbParts.Location = new System.Drawing.Point(12, 83);
+            this.clbParts.Location = new System.Drawing.Point(9, 54);
+            this.clbParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.clbParts.Name = "clbParts";
-            this.clbParts.Size = new System.Drawing.Size(222, 114);
+            this.clbParts.Size = new System.Drawing.Size(168, 64);
             this.clbParts.TabIndex = 19;
             // 
             // clbBrands
             // 
             this.clbBrands.FormattingEnabled = true;
-            this.clbBrands.Location = new System.Drawing.Point(566, 83);
+            this.clbBrands.Location = new System.Drawing.Point(424, 54);
+            this.clbBrands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.clbBrands.Name = "clbBrands";
-            this.clbBrands.Size = new System.Drawing.Size(222, 114);
+            this.clbBrands.Size = new System.Drawing.Size(168, 64);
             this.clbBrands.TabIndex = 21;
             // 
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(566, 46);
+            this.label.Location = new System.Drawing.Point(424, 30);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(132, 20);
+            this.label.Size = new System.Drawing.Size(93, 13);
             this.label.TabIndex = 20;
             this.label.Text = "Offer is for brands:";
             // 
@@ -140,9 +149,11 @@ namespace eProdajaService.WinUI.Offers
             // pbImage
             // 
             this.pbImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pbImage.Location = new System.Drawing.Point(6, 75);
+            this.pbImage.Location = new System.Drawing.Point(4, 49);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(296, 197);
+            this.pbImage.Size = new System.Drawing.Size(222, 128);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 22;
             this.pbImage.TabStop = false;
             this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
@@ -154,9 +165,10 @@ namespace eProdajaService.WinUI.Offers
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(433, 37);
+            this.label4.Location = new System.Drawing.Point(325, 24);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Image:";
             // 
@@ -166,9 +178,11 @@ namespace eProdajaService.WinUI.Offers
             this.groupBox1.Controls.Add(this.txtOfferName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.numPrice);
-            this.groupBox1.Location = new System.Drawing.Point(27, 12);
+            this.groupBox1.Location = new System.Drawing.Point(20, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 132);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(608, 86);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Basic informations:";
@@ -179,9 +193,11 @@ namespace eProdajaService.WinUI.Offers
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label);
             this.groupBox2.Controls.Add(this.clbBrands);
-            this.groupBox2.Location = new System.Drawing.Point(27, 176);
+            this.groupBox2.Location = new System.Drawing.Point(20, 114);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(811, 231);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(608, 150);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Offers details:";
@@ -189,9 +205,10 @@ namespace eProdajaService.WinUI.Offers
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 33);
+            this.label6.Location = new System.Drawing.Point(4, 21);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 20);
+            this.label6.Size = new System.Drawing.Size(89, 13);
             this.label6.TabIndex = 27;
             this.label6.Text = "Select the image:";
             // 
@@ -199,23 +216,26 @@ namespace eProdajaService.WinUI.Offers
             // 
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.pbImage);
-            this.groupBox4.Location = new System.Drawing.Point(870, 52);
+            this.groupBox4.Location = new System.Drawing.Point(652, 34);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(326, 321);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(244, 209);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Offer image:";
             // 
             // frmAddNewOffer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 450);
+            this.ClientSize = new System.Drawing.Size(897, 292);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSubmit);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAddNewOffer";
             this.Text = "Add new offer";
             this.Load += new System.EventHandler(this.frmAddNewOffer_Load);

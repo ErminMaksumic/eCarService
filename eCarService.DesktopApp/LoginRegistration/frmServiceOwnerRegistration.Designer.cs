@@ -60,90 +60,101 @@ namespace eCarService.WinUI.LoginRegistration
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 45);
+            this.label3.Location = new System.Drawing.Point(30, 29);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Username:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(227, 45);
+            this.txtUsername.Location = new System.Drawing.Point(170, 29);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(173, 27);
+            this.txtUsername.Size = new System.Drawing.Size(131, 20);
             this.txtUsername.TabIndex = 0;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(227, 203);
+            this.txtLastName.Location = new System.Drawing.Point(170, 132);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(173, 27);
+            this.txtLastName.Size = new System.Drawing.Size(131, 20);
             this.txtLastName.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(226, 262);
+            this.txtPassword.Location = new System.Drawing.Point(170, 170);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(174, 27);
+            this.txtPassword.Size = new System.Drawing.Size(132, 20);
             this.txtPassword.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 148);
+            this.label1.Location = new System.Drawing.Point(30, 96);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "First name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 203);
+            this.label2.Location = new System.Drawing.Point(31, 132);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Last name:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 262);
+            this.label4.Location = new System.Drawing.Point(32, 170);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Password";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(91, 470);
+            this.label5.Location = new System.Drawing.Point(68, 306);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 20);
+            this.label5.Size = new System.Drawing.Size(116, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Password confirmation:";
             // 
             // txtPasswordConfirmation
             // 
-            this.txtPasswordConfirmation.Location = new System.Drawing.Point(275, 467);
+            this.txtPasswordConfirmation.Location = new System.Drawing.Point(206, 304);
+            this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.PasswordChar = '*';
-            this.txtPasswordConfirmation.Size = new System.Drawing.Size(125, 27);
+            this.txtPasswordConfirmation.Size = new System.Drawing.Size(95, 20);
             this.txtPasswordConfirmation.TabIndex = 14;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(227, 148);
+            this.txtFirstName.Location = new System.Drawing.Point(170, 96);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(173, 27);
+            this.txtFirstName.Size = new System.Drawing.Size(131, 20);
             this.txtFirstName.TabIndex = 2;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(358, 413);
+            this.btnSubmit.Location = new System.Drawing.Point(268, 268);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(94, 29);
+            this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -151,17 +162,19 @@ namespace eCarService.WinUI.LoginRegistration
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(226, 98);
+            this.txtEmail.Location = new System.Drawing.Point(170, 64);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(174, 27);
+            this.txtEmail.Size = new System.Drawing.Size(132, 20);
             this.txtEmail.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(40, 98);
+            this.label11.Location = new System.Drawing.Point(30, 64);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 20);
+            this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 25;
             this.label11.Text = "Email:";
             // 
@@ -185,27 +198,31 @@ namespace eCarService.WinUI.LoginRegistration
             this.groupBox1.Controls.Add(this.txtPasswordConfirmation);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Location = new System.Drawing.Point(94, 24);
+            this.groupBox1.Location = new System.Drawing.Point(70, 16);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 374);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(421, 243);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User informations:";
             // 
             // txtPassConfirmation
             // 
-            this.txtPassConfirmation.Location = new System.Drawing.Point(226, 317);
+            this.txtPassConfirmation.Location = new System.Drawing.Point(170, 206);
+            this.txtPassConfirmation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassConfirmation.Name = "txtPassConfirmation";
             this.txtPassConfirmation.PasswordChar = '*';
-            this.txtPassConfirmation.Size = new System.Drawing.Size(174, 27);
+            this.txtPassConfirmation.Size = new System.Drawing.Size(132, 20);
             this.txtPassConfirmation.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(42, 317);
+            this.label9.Location = new System.Drawing.Point(32, 206);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(162, 20);
+            this.label9.Size = new System.Drawing.Size(116, 13);
             this.label9.TabIndex = 28;
             this.label9.Text = "Password confirmation:";
             // 
@@ -216,9 +233,11 @@ namespace eCarService.WinUI.LoginRegistration
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pbImage);
-            this.groupBox2.Location = new System.Drawing.Point(698, 42);
+            this.groupBox2.Location = new System.Drawing.Point(524, 27);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 356);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(322, 231);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Please select the image:";
@@ -226,21 +245,24 @@ namespace eCarService.WinUI.LoginRegistration
             // pbImage
             // 
             this.pbImage.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.pbImage.Location = new System.Drawing.Point(3, 23);
+            this.pbImage.Location = new System.Drawing.Point(2, 15);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(403, 330);
+            this.pbImage.Size = new System.Drawing.Size(302, 214);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 4;
             this.pbImage.TabStop = false;
             this.pbImage.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmServiceOwnerRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 555);
+            this.ClientSize = new System.Drawing.Size(904, 361);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmServiceOwnerRegistration";
             this.Text = "frmRegistration";
             ((System.ComponentModel.ISupportInitialize)(this.errRegisterProvider)).EndInit();

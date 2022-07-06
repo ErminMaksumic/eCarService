@@ -92,6 +92,8 @@ namespace eProdajaService.WinUI
         {
             return Validator.ValidateControl(txtPartName, errPartsProvider, "Name is required field!");
         }
+
+       
     }
     
 }

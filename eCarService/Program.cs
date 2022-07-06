@@ -1,3 +1,5 @@
+using eCarService.Database;
+using eCarService.DbSeed;
 using eCarService.Model;
 using eCarService.Model.SearchObjects;
 using eCarService.Security;
@@ -80,5 +82,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var database = scope.ServiceProvider.GetService<eCarServiceContext>();
+    new DbSeed().Init(database);
+    new DbSeed().InsertData(database);
+}
 
 app.Run();

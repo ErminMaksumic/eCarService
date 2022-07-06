@@ -52,5 +52,7 @@ namespace eCarService.WinUI.Reports
         {
             loadData();
         }
+
+  
     }
 }

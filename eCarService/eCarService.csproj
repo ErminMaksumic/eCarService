@@ -30,6 +30,11 @@
     <ProjectReference Include="..\eCarService.Service\eCarService.Service.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="DbSeed\db.sql">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 
 </Project>

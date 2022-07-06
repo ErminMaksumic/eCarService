@@ -31,7 +31,7 @@ namespace eProdajaService.WinUI.Ratings
         {
             var result = await RatingService.Get<List<eCarService.Model.Rating>>(new RatingSearchObject()
             {
-                UserId = ServiceCredentials.UserId,
+                CarServiceId = ServiceCredentials.ServiceId,
                 OfferName = txtSearch.Text
             });
 

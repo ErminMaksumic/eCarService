@@ -45,27 +45,31 @@ namespace eProdajaService.WinUI.Parts
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(151, 82);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.Location = new System.Drawing.Point(113, 53);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 28);
+            this.label1.Size = new System.Drawing.Size(99, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Search parts:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(308, 82);
+            this.txtSearch.Location = new System.Drawing.Point(231, 53);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(230, 34);
+            this.txtSearch.Size = new System.Drawing.Size(174, 24);
             this.txtSearch.TabIndex = 5;
             // 
             // gbParts
             // 
             this.gbParts.Controls.Add(this.dgvParts);
-            this.gbParts.Location = new System.Drawing.Point(21, 122);
+            this.gbParts.Location = new System.Drawing.Point(16, 79);
+            this.gbParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbParts.Name = "gbParts";
-            this.gbParts.Size = new System.Drawing.Size(767, 316);
+            this.gbParts.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbParts.Size = new System.Drawing.Size(732, 305);
             this.gbParts.TabIndex = 7;
             this.gbParts.TabStop = false;
             this.gbParts.Text = "Parts";
@@ -77,12 +81,13 @@ namespace eProdajaService.WinUI.Parts
             this.Name,
             this.Quantity});
             this.dgvParts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvParts.Location = new System.Drawing.Point(3, 23);
+            this.dgvParts.Location = new System.Drawing.Point(2, 15);
+            this.dgvParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvParts.Name = "dgvParts";
             this.dgvParts.RowHeadersWidth = 51;
             this.dgvParts.RowTemplate.Height = 29;
             this.dgvParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParts.Size = new System.Drawing.Size(761, 290);
+            this.dgvParts.Size = new System.Drawing.Size(728, 288);
             this.dgvParts.TabIndex = 0;
             this.dgvParts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParts_CellDoubleClick);
             // 
@@ -105,18 +110,20 @@ namespace eProdajaService.WinUI.Parts
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(342, 18);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.label2.Location = new System.Drawing.Point(256, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 41);
+            this.label2.Size = new System.Drawing.Size(107, 32);
             this.label2.TabIndex = 8;
             this.label2.Text = "My parts";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(565, 87);
+            this.btnSearch.Location = new System.Drawing.Point(424, 57);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -124,14 +131,15 @@ namespace eProdajaService.WinUI.Parts
             // 
             // frmParts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(759, 395);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gbParts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Text = "frmParts";
             this.Load += new System.EventHandler(this.frmParts_Load);
             this.gbParts.ResumeLayout(false);
