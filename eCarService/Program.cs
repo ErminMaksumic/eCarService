@@ -1,6 +1,5 @@
 using eCarService.Database;
 using eCarService.DbSeed;
-using eCarService.Model;
 using eCarService.Model.SearchObjects;
 using eCarService.Security;
 using eCarService.Service;
@@ -49,7 +48,7 @@ builder.Services.AddTransient<IRatingService, RatingService>();
 builder.Services.AddTransient<IAdditionalServiceService, AdditionalServiceService>();
 builder.Services.AddTransient<IReservationService, ReservationService>();
 builder.Services.AddTransient<ICustomOfferRequestService, CustomOfferRequestService>();
-builder.Services.AddScoped<IBaseService<Role, BaseSearchObject>, RoleService>();
+builder.Services.AddScoped<IBaseService<eCarService.Model.Role, BaseSearchObject>, RoleService>();
 
 builder.Services.AddControllers(x =>
 {
