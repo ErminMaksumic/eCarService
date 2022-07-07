@@ -61,13 +61,15 @@ namespace eProdajaService.WinUI.MyProfile
                     if (result != null)
                     {
                         MessageBox.Show($"User successfully edited", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
-                        Form form = new frmLogin(); form.ShowDialog();
-                        for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
-                        {
-                            if (Application.OpenForms[i].Name != "frmLogin")
-                                Application.OpenForms[i].Close();
-                        }
+
+                        //Form form = new frmLogin(); form.ShowDialog();
+                        //for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                        //{
+                        //    if (Application.OpenForms[i].Name != "frmLogin")
+                        //        Application.OpenForms[i].Close();
+                        //}
+
+                        Application.Restart();
                         this.Close();
 
                     }

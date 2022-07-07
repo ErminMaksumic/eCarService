@@ -174,7 +174,7 @@ namespace eProdajaService.WinUI
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Do you want to logout self from app ?", "Logout", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show("Do you want to logout from the app ?", "Logout", MessageBoxButtons.YesNo);
 
             if(confirmResult == DialogResult.Yes)
             {

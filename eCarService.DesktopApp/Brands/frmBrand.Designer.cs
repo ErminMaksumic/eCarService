@@ -33,6 +33,8 @@ namespace eCarService.WinUI.Brands
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvBrands = new System.Windows.Forms.DataGridView();
+            this.CarBrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -44,8 +46,6 @@ namespace eCarService.WinUI.Brands
             this.label2 = new System.Windows.Forms.Label();
             this.txtEditName = new System.Windows.Forms.TextBox();
             this.errBrandProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.CarBrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrands)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -69,7 +69,6 @@ namespace eCarService.WinUI.Brands
             // 
             this.dgvBrands.AllowUserToAddRows = false;
             this.dgvBrands.AllowUserToDeleteRows = false;
-            this.dgvBrands.AllowUserToOrderColumns = true;
             this.dgvBrands.AllowUserToResizeColumns = false;
             this.dgvBrands.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBrands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -79,6 +78,7 @@ namespace eCarService.WinUI.Brands
             this.dgvBrands.Location = new System.Drawing.Point(3, 15);
             this.dgvBrands.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvBrands.Name = "dgvBrands";
+            this.dgvBrands.ReadOnly = true;
             this.dgvBrands.RowHeadersWidth = 51;
             this.dgvBrands.RowTemplate.Height = 29;
             this.dgvBrands.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -86,6 +86,21 @@ namespace eCarService.WinUI.Brands
             this.dgvBrands.TabIndex = 0;
             this.dgvBrands.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrands_CellClick);
             this.dgvBrands.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrands_CellDoubleClick);
+            // 
+            // CarBrandName
+            // 
+            this.CarBrandName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CarBrandName.DataPropertyName = "Name";
+            this.CarBrandName.HeaderText = "Car brand name";
+            this.CarBrandName.MinimumWidth = 6;
+            this.CarBrandName.Name = "CarBrandName";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Actions";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // btnSearch
             // 
@@ -194,21 +209,6 @@ namespace eCarService.WinUI.Brands
             // errBrandProvider
             // 
             this.errBrandProvider.ContainerControl = this;
-            // 
-            // CarBrandName
-            // 
-            this.CarBrandName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CarBrandName.DataPropertyName = "Name";
-            this.CarBrandName.HeaderText = "Car brand name";
-            this.CarBrandName.MinimumWidth = 6;
-            this.CarBrandName.Name = "CarBrandName";
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Actions";
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // frmBrand
             // 
