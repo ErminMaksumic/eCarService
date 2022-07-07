@@ -34,5 +34,19 @@ namespace eCarService.Service.Implementation
             return filteredQuery;
         }
 
+        public override void BeforeDelete(CarBrand entity)
+        {
+            var brandOffer = _context.CarBrandOffers.Where(x => x.CarBrandId == entity.CarBrandId);
+
+            _context.RemoveRange(brandOffer);
+
+            var reservations = _context.Reservations.Where(x => x.CarBrandId == entity.CarBrandId);
+
+            foreach (var item in reservations)
+            {
+                item.CarBrandId = null;
+            }
+        }
+
     }
 }

@@ -118,32 +118,21 @@ namespace eCarService.Service.Implementation
         {
             var ratings = _context.Ratings.Where(x => x.OfferId == entity.OfferId ).ToList();
 
-            foreach (var item in ratings)
-            {
-                _context.Ratings.Remove(item);
-            }
+            _context.RemoveRange(ratings);
 
             var brands = _context.CarBrandOffers.Where(x => x.OfferId == entity.OfferId).ToList();
 
-            foreach (var item in brands)
-            {
-                _context.CarBrandOffers.Remove(item);
-            }
+            _context.RemoveRange(brands);
+
 
             var reservations = _context.Reservations.Where(x => x.OfferId == entity.OfferId).ToList();
 
-            foreach (var item in reservations)
-            {
-                _context.Reservations.Remove(item);
-            }
+            _context.RemoveRange(reservations);
+
 
             var parts = _context.OfferParts.Where(x => x.OfferId == entity.OfferId).ToList();
 
-            foreach (var item in parts)
-            {
-                _context.OfferParts.Remove(item);
-            }
-
+            _context.RemoveRange(parts);
 
         }
     }

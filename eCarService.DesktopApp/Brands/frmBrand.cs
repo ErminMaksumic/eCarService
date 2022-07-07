@@ -88,9 +88,14 @@ namespace eCarService.WinUI.Brands
                     CarServiceId = _carBrand.CarServiceId
                 };
 
-                await BrandService.Put<dynamic>(_carBrand.CarBrandId, request);
+                
+                var update = await BrandService.Put<dynamic>(_carBrand.CarBrandId, request);
 
-                MessageBox.Show($"Brand {request.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (update != null)
+                {
+                    MessageBox.Show($"Brand {request.Name} was successfuly edited!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                txtEditName.Clear();
                 loadBrands();
 
             }
@@ -110,6 +115,29 @@ namespace eCarService.WinUI.Brands
         private bool ValidateEditInput()
         {
             return Validator.ValidateControl(txtEditName, errBrandProvider, "Name is required field!");
+        }
+
+        private void dgvBrands_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            deleteBrand(sender, e);
+        }
+
+        private async void deleteBrand(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dgvBrands.Rows[e.RowIndex].DataBoundItem as eCarService.Model.CarBrand;
+
+            if (e.ColumnIndex == dgvBrands.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
+                await BrandService.Delete<eCarService.Model.CarBrand>(item.CarBrandId);
+
+                loadBrands();
+
+                txtEditName.Clear();
+
+                MessageBox.Show($"Brand is successfuly deleted!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

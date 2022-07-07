@@ -64,18 +64,21 @@ namespace eCarService.WinUI.Administration
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Location = new System.Drawing.Point(12, 23);
+            this.groupBox1.Location = new System.Drawing.Point(9, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 399);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(342, 259);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add new Additional service";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(204, 353);
+            this.btnSubmit.Location = new System.Drawing.Point(153, 229);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(94, 29);
+            this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -84,58 +87,66 @@ namespace eCarService.WinUI.Administration
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 165);
+            this.label3.Location = new System.Drawing.Point(14, 107);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 20);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Description:";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(147, 165);
+            this.txtDescription.Location = new System.Drawing.Point(110, 107);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(198, 167);
+            this.txtDescription.Size = new System.Drawing.Size(150, 110);
             this.txtDescription.TabIndex = 5;
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(147, 108);
+            this.numPrice.Location = new System.Drawing.Point(110, 70);
+            this.numPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(197, 27);
+            this.numPrice.Size = new System.Drawing.Size(148, 20);
             this.numPrice.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 108);
+            this.label2.Location = new System.Drawing.Point(14, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Price:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 45);
+            this.label1.Location = new System.Drawing.Point(14, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(147, 45);
+            this.txtName.Location = new System.Drawing.Point(110, 29);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(197, 27);
+            this.txtName.Size = new System.Drawing.Size(149, 20);
             this.txtName.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvAdditionalServices);
-            this.groupBox2.Location = new System.Drawing.Point(504, 102);
+            this.groupBox2.Location = new System.Drawing.Point(378, 66);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(551, 320);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(559, 208);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Additional Services";
@@ -151,13 +162,14 @@ namespace eCarService.WinUI.Administration
             this.Description,
             this.Delete});
             this.dgvAdditionalServices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAdditionalServices.Location = new System.Drawing.Point(3, 23);
+            this.dgvAdditionalServices.Location = new System.Drawing.Point(2, 15);
+            this.dgvAdditionalServices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAdditionalServices.Name = "dgvAdditionalServices";
             this.dgvAdditionalServices.ReadOnly = true;
             this.dgvAdditionalServices.RowHeadersWidth = 51;
             this.dgvAdditionalServices.RowTemplate.Height = 29;
             this.dgvAdditionalServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAdditionalServices.Size = new System.Drawing.Size(545, 294);
+            this.dgvAdditionalServices.Size = new System.Drawing.Size(555, 191);
             this.dgvAdditionalServices.TabIndex = 0;
             this.dgvAdditionalServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdditionalServices_CellContentClick);
             // 
@@ -200,16 +212,18 @@ namespace eCarService.WinUI.Administration
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(614, 59);
+            this.txtSearch.Location = new System.Drawing.Point(460, 38);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(268, 27);
+            this.txtSearch.Size = new System.Drawing.Size(202, 20);
             this.txtSearch.TabIndex = 8;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(900, 59);
+            this.btnSearch.Location = new System.Drawing.Point(675, 38);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -221,13 +235,14 @@ namespace eCarService.WinUI.Administration
             // 
             // frmAdditionalServices
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 461);
+            this.ClientSize = new System.Drawing.Size(948, 318);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Text = "ManageAdditionalServices";
             this.Load += new System.EventHandler(this.ManageAdditionalServices_Load);
             this.groupBox1.ResumeLayout(false);

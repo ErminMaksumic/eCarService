@@ -82,9 +82,13 @@ namespace eProdajaService.WinUI
 
         private async void deletePart()
         {
-            await PartService.Delete<Part>(_partId);
+            var confirmResult = MessageBox.Show("Do you want to delete this part?", "Delete part", MessageBoxButtons.YesNo);
+            
+            if (confirmResult == DialogResult.Yes)
+            {
+                await PartService.Delete<Part>(_partId);
 
-            MessageBox.Show($"Part with id: {_partId} is deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             this.Close();
         }

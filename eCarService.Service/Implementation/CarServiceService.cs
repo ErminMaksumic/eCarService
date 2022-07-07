@@ -64,34 +64,21 @@ namespace eCarService.Service.Implementation
         {
             var parts = _context.Parts.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
 
-            if (parts != null)
-            {
-                foreach (var item in parts)
-                {
-                    _context.Parts.Remove(item);
-                }
-            }
+            _context.RemoveRange(parts);
 
             var brands = _context.CarBrands.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
 
-            if (brands != null)
-            {
-                foreach (var item in brands)
-                {
-                    _context.CarBrands.Remove(item);
-                }
-            }
+            _context.RemoveRange(brands);
 
             var offers = _context.Offers.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
 
-            if (offers != null)
-            {
-                foreach (var item in offers)
-                {
-                    _context.Offers.Remove(item);
-                }
-            }
-               
+            _context.RemoveRange(offers);
+
+            var customOffers = _context.CustomOfferRequests.Where(x => x.CarServiceId == entity.CarServiceId).ToList();
+
+            _context.RemoveRange(customOffers);
+
+
             _context.SaveChanges();
         }
 

@@ -49,10 +49,7 @@ namespace eCarService.Service.Implementation
         {
             var offerParts = _context.OfferParts.Where(x => x.PartId == entity.PartId).ToList();
 
-            foreach (var item in offerParts)
-            {
-                _context.OfferParts.Remove(item);
-            }
+            _context.RemoveRange(offerParts);
 
         }
 

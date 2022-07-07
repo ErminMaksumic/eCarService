@@ -42,5 +42,12 @@ namespace eCarService.Service.Implementation
         //    return query;
         //}
 
+        public override void BeforeDelete(Reservation entity)
+        {
+            var reservationAdditionalServices = _context.ReservationsAdditionalServices.Where(x => x.ReservationId == entity.ReservationId);
+
+            _context.RemoveRange(reservationAdditionalServices);
+        }
+
     }
 }
