@@ -94,7 +94,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmRevenueReport";
-            this.Text = "frmRevenueReport";
+            this.Text = "Report revenue";
             this.Load += new System.EventHandler(this.frmRevenueReport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

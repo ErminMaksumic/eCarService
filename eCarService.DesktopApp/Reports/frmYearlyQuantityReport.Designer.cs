@@ -108,7 +108,7 @@ namespace eCarService.WinUI.Reports
             this.Controls.Add(this.label1);
             this.Controls.Add(this.graphRevenue);
             this.Name = "frmYearlyQuantityReport";
-            this.Text = "frmYearlyQuantityReport";
+            this.Text = "Graph quantity";
             this.Load += new System.EventHandler(this.frmYearlyQuantityReport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

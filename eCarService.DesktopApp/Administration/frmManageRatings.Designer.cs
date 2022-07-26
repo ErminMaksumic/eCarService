@@ -165,7 +165,7 @@ namespace eProdajaService.WinUI.Administration
             this.Controls.Add(this.txtSearch);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmManageRatings";
-            this.Text = "frmManageRatings";
+            this.Text = "Manage Ratings";
             this.Load += new System.EventHandler(this.frmManageRatings_Load_1);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRatings)).EndInit();

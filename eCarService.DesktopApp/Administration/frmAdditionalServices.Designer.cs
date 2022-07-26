@@ -65,9 +65,9 @@ namespace eCarService.WinUI.Administration
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Location = new System.Drawing.Point(9, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(342, 259);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -76,7 +76,7 @@ namespace eCarService.WinUI.Administration
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(153, 229);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 7;
@@ -97,7 +97,7 @@ namespace eCarService.WinUI.Administration
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(110, 107);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(150, 110);
@@ -106,7 +106,7 @@ namespace eCarService.WinUI.Administration
             // numPrice
             // 
             this.numPrice.Location = new System.Drawing.Point(110, 70);
-            this.numPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numPrice.Margin = new System.Windows.Forms.Padding(2);
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(148, 20);
             this.numPrice.TabIndex = 4;
@@ -134,7 +134,7 @@ namespace eCarService.WinUI.Administration
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(110, 29);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(149, 20);
             this.txtName.TabIndex = 0;
@@ -143,9 +143,9 @@ namespace eCarService.WinUI.Administration
             // 
             this.groupBox2.Controls.Add(this.dgvAdditionalServices);
             this.groupBox2.Location = new System.Drawing.Point(378, 66);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(559, 208);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -163,7 +163,7 @@ namespace eCarService.WinUI.Administration
             this.Delete});
             this.dgvAdditionalServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAdditionalServices.Location = new System.Drawing.Point(2, 15);
-            this.dgvAdditionalServices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAdditionalServices.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAdditionalServices.Name = "dgvAdditionalServices";
             this.dgvAdditionalServices.ReadOnly = true;
             this.dgvAdditionalServices.RowHeadersWidth = 51;
@@ -213,7 +213,7 @@ namespace eCarService.WinUI.Administration
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(460, 38);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(202, 20);
             this.txtSearch.TabIndex = 8;
@@ -221,7 +221,7 @@ namespace eCarService.WinUI.Administration
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(675, 38);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 8;
@@ -242,8 +242,8 @@ namespace eCarService.WinUI.Administration
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Text = "ManageAdditionalServices";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Text = "Manage Additional Services";
             this.Load += new System.EventHandler(this.ManageAdditionalServices_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -94,11 +94,13 @@ namespace eCarService.WinUI.Brands
             this.CarBrandName.HeaderText = "Car brand name";
             this.CarBrandName.MinimumWidth = 6;
             this.CarBrandName.Name = "CarBrandName";
+            this.CarBrandName.ReadOnly = true;
             // 
             // Delete
             // 
             this.Delete.HeaderText = "Actions";
             this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
@@ -222,7 +224,7 @@ namespace eCarService.WinUI.Brands
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmBrand";
-            this.Text = "frmBrand";
+            this.Text = "Brand";
             this.Load += new System.EventHandler(this.frmBrand_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrands)).EndInit();

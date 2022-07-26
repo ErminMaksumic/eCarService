@@ -17,7 +17,8 @@ namespace eCarService.WinUI
     public class APIService
     {
         private string _resource;
-        public string endpoint = $"{Resources.localhost}";
+        //public string endpoint = $"{Resources.localhost}";
+        public string endpoint = $"{Resources.dev}";
 
         public static string Username = null;
         public static string Password = null;

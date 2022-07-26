@@ -53,9 +53,9 @@ namespace eCarService.WinUI.LoginRegistration
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtServicePhoneNumber);
             this.groupBox2.Location = new System.Drawing.Point(141, 89);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(319, 205);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -74,7 +74,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtServiceAddress
             // 
             this.txtServiceAddress.Location = new System.Drawing.Point(140, 71);
-            this.txtServiceAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtServiceAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtServiceAddress.Name = "txtServiceAddress";
             this.txtServiceAddress.Size = new System.Drawing.Size(134, 20);
             this.txtServiceAddress.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtServiceName
             // 
             this.txtServiceName.Location = new System.Drawing.Point(140, 29);
-            this.txtServiceName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtServiceName.Margin = new System.Windows.Forms.Padding(2);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(134, 20);
             this.txtServiceName.TabIndex = 1;
@@ -110,7 +110,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtServicePhoneNumber
             // 
             this.txtServicePhoneNumber.Location = new System.Drawing.Point(140, 120);
-            this.txtServicePhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtServicePhoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtServicePhoneNumber.Name = "txtServicePhoneNumber";
             this.txtServicePhoneNumber.Size = new System.Drawing.Size(134, 20);
             this.txtServicePhoneNumber.TabIndex = 3;
@@ -118,7 +118,7 @@ namespace eCarService.WinUI.LoginRegistration
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(281, 309);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 3;
@@ -137,9 +137,9 @@ namespace eCarService.WinUI.LoginRegistration
             this.ClientSize = new System.Drawing.Size(590, 387);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmServiceRegistration";
-            this.Text = "frmServiceRegistration";
+            this.Text = "Service registration";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errServiceProvider)).EndInit();

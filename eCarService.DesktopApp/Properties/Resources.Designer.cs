@@ -61,6 +61,15 @@ namespace eCarService.DesktopApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://localhost:7045/api/.
+        /// </summary>
+        internal static string dev {
+            get {
+                return ResourceManager.GetString("dev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap image {

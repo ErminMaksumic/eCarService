@@ -70,7 +70,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(170, 29);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(131, 20);
             this.txtUsername.TabIndex = 0;
@@ -78,7 +78,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(170, 132);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(131, 20);
             this.txtLastName.TabIndex = 3;
@@ -86,7 +86,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(170, 170);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(132, 20);
@@ -135,7 +135,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtPasswordConfirmation
             // 
             this.txtPasswordConfirmation.Location = new System.Drawing.Point(206, 304);
-            this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(2);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.PasswordChar = '*';
             this.txtPasswordConfirmation.Size = new System.Drawing.Size(95, 20);
@@ -144,7 +144,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(170, 96);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(131, 20);
             this.txtFirstName.TabIndex = 2;
@@ -152,7 +152,7 @@ namespace eCarService.WinUI.LoginRegistration
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(268, 268);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 2;
@@ -163,7 +163,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(170, 64);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(132, 20);
             this.txtEmail.TabIndex = 1;
@@ -199,9 +199,9 @@ namespace eCarService.WinUI.LoginRegistration
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtFirstName);
             this.groupBox1.Location = new System.Drawing.Point(70, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(421, 243);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -210,7 +210,7 @@ namespace eCarService.WinUI.LoginRegistration
             // txtPassConfirmation
             // 
             this.txtPassConfirmation.Location = new System.Drawing.Point(170, 206);
-            this.txtPassConfirmation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassConfirmation.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassConfirmation.Name = "txtPassConfirmation";
             this.txtPassConfirmation.PasswordChar = '*';
             this.txtPassConfirmation.Size = new System.Drawing.Size(132, 20);
@@ -234,9 +234,9 @@ namespace eCarService.WinUI.LoginRegistration
             // 
             this.groupBox2.Controls.Add(this.pbImage);
             this.groupBox2.Location = new System.Drawing.Point(524, 27);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(322, 231);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
@@ -246,7 +246,7 @@ namespace eCarService.WinUI.LoginRegistration
             // 
             this.pbImage.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.pbImage.Location = new System.Drawing.Point(2, 15);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(302, 214);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -262,9 +262,9 @@ namespace eCarService.WinUI.LoginRegistration
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmServiceOwnerRegistration";
-            this.Text = "frmRegistration";
+            this.Text = "Service owner registration";
             ((System.ComponentModel.ISupportInitialize)(this.errRegisterProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

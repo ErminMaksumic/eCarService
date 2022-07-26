@@ -56,7 +56,7 @@ namespace eProdajaService.WinUI.Parts
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(231, 53);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(174, 24);
@@ -66,9 +66,9 @@ namespace eProdajaService.WinUI.Parts
             // 
             this.gbParts.Controls.Add(this.dgvParts);
             this.gbParts.Location = new System.Drawing.Point(16, 79);
-            this.gbParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbParts.Margin = new System.Windows.Forms.Padding(2);
             this.gbParts.Name = "gbParts";
-            this.gbParts.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbParts.Padding = new System.Windows.Forms.Padding(2);
             this.gbParts.Size = new System.Drawing.Size(732, 305);
             this.gbParts.TabIndex = 7;
             this.gbParts.TabStop = false;
@@ -82,7 +82,7 @@ namespace eProdajaService.WinUI.Parts
             this.Quantity});
             this.dgvParts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvParts.Location = new System.Drawing.Point(2, 15);
-            this.dgvParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvParts.Margin = new System.Windows.Forms.Padding(2);
             this.dgvParts.Name = "dgvParts";
             this.dgvParts.RowHeadersWidth = 51;
             this.dgvParts.RowTemplate.Height = 29;
@@ -121,7 +121,7 @@ namespace eProdajaService.WinUI.Parts
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(424, 57);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 9;
@@ -139,8 +139,8 @@ namespace eProdajaService.WinUI.Parts
             this.Controls.Add(this.gbParts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Text = "frmParts";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Text = "Parts";
             this.Load += new System.EventHandler(this.frmParts_Load);
             this.gbParts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvParts)).EndInit();

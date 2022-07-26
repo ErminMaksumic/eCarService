@@ -143,7 +143,7 @@ namespace eProdajaService.WinUI
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCreationParts";
-            this.Text = "frmParts";
+            this.Text = "Add or edit part";
             ((System.ComponentModel.ISupportInitialize)(this.numUpQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPartsProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);

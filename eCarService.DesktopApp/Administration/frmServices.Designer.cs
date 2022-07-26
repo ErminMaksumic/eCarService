@@ -50,36 +50,41 @@ namespace eProdajaService.WinUI.Administration
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(479, 35);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.label2.Location = new System.Drawing.Point(359, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 35);
+            this.label2.Size = new System.Drawing.Size(112, 28);
             this.label2.TabIndex = 10;
             this.label2.Text = "Services list";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(330, 118);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.Location = new System.Drawing.Point(248, 77);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 28);
+            this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 9;
             this.label1.Text = "Search:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(427, 122);
+            this.txtSearch.Location = new System.Drawing.Point(320, 79);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(249, 27);
+            this.txtSearch.Size = new System.Drawing.Size(188, 20);
             this.txtSearch.TabIndex = 8;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvServices);
-            this.groupBox1.Location = new System.Drawing.Point(34, 159);
+            this.groupBox1.Location = new System.Drawing.Point(26, 103);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1023, 341);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(767, 222);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Services";
@@ -95,13 +100,14 @@ namespace eProdajaService.WinUI.Administration
             this.dataGridViewTextBoxColumn3,
             this.PhoneNumber});
             this.dgvServices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvServices.Location = new System.Drawing.Point(3, 23);
+            this.dgvServices.Location = new System.Drawing.Point(2, 15);
+            this.dgvServices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvServices.Name = "dgvServices";
             this.dgvServices.ReadOnly = true;
             this.dgvServices.RowHeadersWidth = 51;
             this.dgvServices.RowTemplate.Height = 29;
             this.dgvServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServices.Size = new System.Drawing.Size(1017, 315);
+            this.dgvServices.Size = new System.Drawing.Size(763, 205);
             this.dgvServices.TabIndex = 0;
             this.dgvServices.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServices_CellDoubleClick);
             // 
@@ -143,9 +149,10 @@ namespace eProdajaService.WinUI.Administration
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(706, 122);
+            this.btnSearch.Location = new System.Drawing.Point(530, 79);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -177,15 +184,16 @@ namespace eProdajaService.WinUI.Administration
             // 
             // frmServices
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 512);
+            this.ClientSize = new System.Drawing.Size(820, 333);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
-            this.Text = "frmServices";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text = "Services";
             this.Load += new System.EventHandler(this.frmServices_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();

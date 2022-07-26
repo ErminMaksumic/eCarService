@@ -48,9 +48,11 @@ namespace eCarService.WinUI.Reservations
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvCustomReqLIst);
-            this.groupBox1.Location = new System.Drawing.Point(33, 106);
+            this.groupBox1.Location = new System.Drawing.Point(25, 69);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1106, 399);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(830, 259);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Custom requests";
@@ -68,13 +70,14 @@ namespace eCarService.WinUI.Reservations
             this.Status,
             this.Description});
             this.dgvCustomReqLIst.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCustomReqLIst.Location = new System.Drawing.Point(3, 23);
+            this.dgvCustomReqLIst.Location = new System.Drawing.Point(2, 15);
+            this.dgvCustomReqLIst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCustomReqLIst.Name = "dgvCustomReqLIst";
             this.dgvCustomReqLIst.ReadOnly = true;
             this.dgvCustomReqLIst.RowHeadersWidth = 51;
             this.dgvCustomReqLIst.RowTemplate.Height = 29;
             this.dgvCustomReqLIst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomReqLIst.Size = new System.Drawing.Size(1100, 373);
+            this.dgvCustomReqLIst.Size = new System.Drawing.Size(826, 242);
             this.dgvCustomReqLIst.TabIndex = 0;
             this.dgvCustomReqLIst.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellContentClick);
             // 
@@ -140,25 +143,28 @@ namespace eCarService.WinUI.Reservations
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(459, 58);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.Location = new System.Drawing.Point(344, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 28);
+            this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 14;
             this.label1.Text = "Search:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(559, 62);
+            this.txtSearch.Location = new System.Drawing.Point(419, 40);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(249, 27);
+            this.txtSearch.Size = new System.Drawing.Size(188, 20);
             this.txtSearch.TabIndex = 13;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(843, 62);
+            this.btnSearch.Location = new System.Drawing.Point(632, 40);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -166,14 +172,15 @@ namespace eCarService.WinUI.Reservations
             // 
             // frmCustomOfferRequest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 520);
+            this.ClientSize = new System.Drawing.Size(874, 338);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
-            this.Text = "frmCustomServiceRequest";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text = "Custom service request";
             this.Load += new System.EventHandler(this.frmCustomServiceRequest_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomReqLIst)).EndInit();

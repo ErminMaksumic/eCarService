@@ -144,6 +144,7 @@ namespace eCarService.WinUI.LoginRegistration
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnSubmit);
             this.Name = "frmLogin";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.errLoginProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

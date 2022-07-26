@@ -59,9 +59,11 @@ namespace eCarService.WinUI.Administration
             this.groupBox1.Controls.Add(this.Name);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(98, 37);
+            this.groupBox1.Location = new System.Drawing.Point(74, 24);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(500, 375);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(375, 244);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Service details:";
@@ -69,17 +71,19 @@ namespace eCarService.WinUI.Administration
             // txtDateCreated
             // 
             this.txtDateCreated.Enabled = false;
-            this.txtDateCreated.Location = new System.Drawing.Point(257, 190);
+            this.txtDateCreated.Location = new System.Drawing.Point(193, 123);
+            this.txtDateCreated.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDateCreated.Name = "txtDateCreated";
-            this.txtDateCreated.Size = new System.Drawing.Size(125, 27);
+            this.txtDateCreated.Size = new System.Drawing.Size(95, 20);
             this.txtDateCreated.TabIndex = 4;
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(376, 340);
+            this.btnDelete.Location = new System.Drawing.Point(282, 221);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(118, 29);
+            this.btnDelete.Size = new System.Drawing.Size(88, 19);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete service";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -88,17 +92,19 @@ namespace eCarService.WinUI.Administration
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(133, 97);
+            this.label5.Location = new System.Drawing.Point(100, 63);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Address:";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(257, 258);
+            this.btnSubmit.Location = new System.Drawing.Point(193, 168);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(94, 29);
+            this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -106,49 +112,55 @@ namespace eCarService.WinUI.Administration
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(257, 136);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(193, 88);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(125, 27);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(95, 20);
             this.txtPhoneNumber.TabIndex = 0;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(257, 90);
+            this.txtAddress.Location = new System.Drawing.Point(193, 58);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(125, 27);
+            this.txtAddress.Size = new System.Drawing.Size(95, 20);
             this.txtAddress.TabIndex = 11;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(257, 42);
+            this.txtName.Location = new System.Drawing.Point(193, 27);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(125, 27);
+            this.txtName.Size = new System.Drawing.Size(95, 20);
             this.txtName.TabIndex = 2;
             // 
             // Name
             // 
             this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(133, 49);
+            this.Name.Location = new System.Drawing.Point(100, 32);
+            this.Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(49, 20);
+            this.Name.Size = new System.Drawing.Size(35, 13);
             this.Name.TabIndex = 10;
             this.Name.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 143);
+            this.label1.Location = new System.Drawing.Point(100, 93);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Phone number:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 190);
+            this.label2.Location = new System.Drawing.Point(100, 123);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 20);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Date created:";
             // 
@@ -158,11 +170,12 @@ namespace eCarService.WinUI.Administration
             // 
             // frmServiceDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 475);
+            this.ClientSize = new System.Drawing.Size(538, 309);
             this.Controls.Add(this.groupBox1);
-            this.Text = "frmServicesDetails";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text = "Service details";
             this.Load += new System.EventHandler(this.frmServiceDetails_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

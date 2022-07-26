@@ -50,9 +50,11 @@ namespace eProdajaService.WinUI.Administration
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvUsers);
-            this.groupBox1.Location = new System.Drawing.Point(37, 135);
+            this.groupBox1.Location = new System.Drawing.Point(28, 88);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1050, 380);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(788, 247);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
@@ -69,13 +71,14 @@ namespace eProdajaService.WinUI.Administration
             this.LastName,
             this.Email});
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsers.Location = new System.Drawing.Point(3, 23);
+            this.dgvUsers.Location = new System.Drawing.Point(2, 15);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 29;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(1044, 354);
+            this.dgvUsers.Size = new System.Drawing.Size(784, 230);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
             // 
@@ -126,18 +129,20 @@ namespace eProdajaService.WinUI.Administration
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(435, 102);
+            this.txtSearch.Location = new System.Drawing.Point(326, 66);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(249, 27);
+            this.txtSearch.Size = new System.Drawing.Size(188, 20);
             this.txtSearch.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(540, 37);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.label2.Location = new System.Drawing.Point(405, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 35);
+            this.label2.Size = new System.Drawing.Size(132, 28);
             this.label2.TabIndex = 6;
             this.label2.Text = "Manage users";
             // 
@@ -166,9 +171,10 @@ namespace eProdajaService.WinUI.Administration
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(711, 101);
+            this.btnSearch.Location = new System.Drawing.Point(533, 66);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.Size = new System.Drawing.Size(70, 19);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -176,15 +182,16 @@ namespace eProdajaService.WinUI.Administration
             // 
             // frmUsers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 527);
+            this.ClientSize = new System.Drawing.Size(840, 343);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmUsers";
-            this.Text = "frmUsers";
+            this.Text = "Manage users";
             this.Load += new System.EventHandler(this.frmUsers_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();

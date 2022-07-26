@@ -31,7 +31,7 @@ namespace eCarService.Service.Implementation
                 filteredQuery = filteredQuery.Where(x => x.Date > search.From && x.Date < search.To);
             }
 
-            return filteredQuery.Include("Offer");
+            return filteredQuery.Include("Offer").Include("CarBrand");
         }
 
         //public override IQueryable<Reservation> AddInclude(IQueryable<Reservation> query, OrderSearchObject search = null)

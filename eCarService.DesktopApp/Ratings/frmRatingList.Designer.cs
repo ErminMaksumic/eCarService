@@ -32,15 +32,15 @@ namespace eProdajaService.WinUI.Ratings
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRatingList = new System.Windows.Forms.DataGridView();
+            this.OfferName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAverageRating = new System.Windows.Forms.Label();
             this.lblTextRating = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.OfferName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRatingList)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +76,44 @@ namespace eProdajaService.WinUI.Ratings
             this.dgvRatingList.RowTemplate.Height = 29;
             this.dgvRatingList.Size = new System.Drawing.Size(983, 340);
             this.dgvRatingList.TabIndex = 0;
+            // 
+            // OfferName
+            // 
+            this.OfferName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OfferName.DataPropertyName = "OfferName";
+            this.OfferName.HeaderText = "Offer name";
+            this.OfferName.MinimumWidth = 6;
+            this.OfferName.Name = "OfferName";
+            this.OfferName.ReadOnly = true;
+            // 
+            // Rate
+            // 
+            this.Rate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Rate.DataPropertyName = "Rate";
+            this.Rate.HeaderText = "Rate";
+            this.Rate.MinimumWidth = 6;
+            this.Rate.Name = "Rate";
+            this.Rate.ReadOnly = true;
+            this.Rate.Width = 125;
+            // 
+            // Comment
+            // 
+            this.Comment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Comment.DataPropertyName = "Comment";
+            this.Comment.HeaderText = "Comment";
+            this.Comment.MinimumWidth = 6;
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
+            // 
+            // User
+            // 
+            this.User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.User.DataPropertyName = "UserName";
+            this.User.HeaderText = "User";
+            this.User.MinimumWidth = 6;
+            this.User.Name = "User";
+            this.User.ReadOnly = true;
+            this.User.Width = 435;
             // 
             // lblAverageRating
             // 
@@ -129,44 +167,6 @@ namespace eProdajaService.WinUI.Ratings
             this.txtSearch.Size = new System.Drawing.Size(188, 20);
             this.txtSearch.TabIndex = 16;
             // 
-            // OfferName
-            // 
-            this.OfferName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OfferName.DataPropertyName = "OfferName";
-            this.OfferName.HeaderText = "Offer name";
-            this.OfferName.MinimumWidth = 6;
-            this.OfferName.Name = "OfferName";
-            this.OfferName.ReadOnly = true;
-            // 
-            // Rate
-            // 
-            this.Rate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Rate.DataPropertyName = "Rate";
-            this.Rate.HeaderText = "Rate";
-            this.Rate.MinimumWidth = 6;
-            this.Rate.Name = "Rate";
-            this.Rate.ReadOnly = true;
-            this.Rate.Width = 125;
-            // 
-            // Comment
-            // 
-            this.Comment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Comment.DataPropertyName = "Comment";
-            this.Comment.HeaderText = "Comment";
-            this.Comment.MinimumWidth = 6;
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            // 
-            // User
-            // 
-            this.User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.User.DataPropertyName = "UserName";
-            this.User.HeaderText = "User";
-            this.User.MinimumWidth = 6;
-            this.User.Name = "User";
-            this.User.ReadOnly = true;
-            this.User.Width = 435;
-            // 
             // frmRatingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,7 +180,7 @@ namespace eProdajaService.WinUI.Ratings
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRatingList";
-            this.Text = "RatingList";
+            this.Text = "Rating List";
             this.Load += new System.EventHandler(this.frmRatingList_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRatingList)).EndInit();

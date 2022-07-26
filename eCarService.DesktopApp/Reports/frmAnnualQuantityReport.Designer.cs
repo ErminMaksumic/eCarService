@@ -94,7 +94,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmAnnualQuantityReport";
-            this.Text = "frmAnnualQuantity";
+            this.Text = "Report quantity";
             this.Load += new System.EventHandler(this.frmAnnualQuantityReport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
