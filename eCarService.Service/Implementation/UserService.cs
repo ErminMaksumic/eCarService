@@ -144,14 +144,14 @@ namespace eCarService.Service.Implementation
 
             if (entity == null)
             {
-                return null;
+                throw new UserException("Not valid credentials!");
             }
 
             var hash = GenerateHash(entity.PasswordSalt, password);
 
             if (hash != entity.PasswordHash)
             {
-                return null;
+                throw new UserException("Not valid credentials!");
             }
 
             return _mapper.Map<Model.User>(entity);

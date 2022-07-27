@@ -1,4 +1,4 @@
-
+import 'dart:convert';
 
 import '../model/user.dart';
 import 'base_provider.dart';
@@ -9,6 +9,21 @@ class UserProvider extends BaseProvider<User>{
   @override 
   User fromJson(data){
 
-    return User();
+    return User.fromJson(data);
+  }
+
+    Future<User?> login() async {
+    var url = Uri.parse("$baseUrl/login");
+
+    Map<String, String> headers = createHeaders();
+
+    var response = await http!.get(url, headers: headers);
+
+    if (isValidResponseCode(response)) {
+      var data = jsonDecode(response.body);
+      return fromJson(data);
+    } else {
+      throw Exception("An error occured!");
+    }
   }
 }

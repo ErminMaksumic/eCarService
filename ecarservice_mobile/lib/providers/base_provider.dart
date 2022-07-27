@@ -10,6 +10,7 @@ import '../utils/util.dart';
 abstract class BaseProvider<T> with ChangeNotifier {
   String? _baseUrl;
   String? _endpoint;
+  String? baseUrl;
 
   HttpClient client = new HttpClient();
   IOClient? http;
@@ -25,6 +26,9 @@ abstract class BaseProvider<T> with ChangeNotifier {
     _endpoint = endpoint;
     client.badCertificateCallback = (cert, host, port) => true;
     http = IOClient(client);
+
+    baseUrl= "$_baseUrl$_endpoint";
+
   }
 
   Future<List<T>> getById(int id, [dynamic additionalData]) async {

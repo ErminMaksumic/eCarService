@@ -1,6 +1,7 @@
 ﻿using eCarService.Model;
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
+using eCarService.Security;
 using eCarService.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -49,6 +50,14 @@ namespace eCarService.Controllers
         public Model.User ChangeRole(int id, [FromBody] RoleUpdateRequest req)
         {
             return _service.ChangeRole(id, req.RoleId);
+        }
+
+        [HttpGet("login"), AllowAnonymous]
+        public Model.User Login()
+        {
+            var credentials = UserCredentials.extractCredentials(Request);
+
+            return _service.Login(credentials.Username, credentials.Password);
         }
 
     }

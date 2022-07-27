@@ -126,12 +126,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   try {
                         Authorization.username = _usernameController.text;
                         Authorization.password = _passwordController.text;
-                        await _userProvider.get();
+                        await _userProvider.login();
                         Navigator.pushNamed(context, OfferListScreen.routeName);
                       } on Exception catch (e) {
-                        showDialog(context: context, builder: (BuildContext context) => AlertDialog(
-                          title: Text("Invalid username and/or password"),
-                          content: Text(e.toString()),
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                          title: Text("Login failed"),
+                          content: Text("Invalid username and/or password"),
                           actions: [
                             TextButton(
                               child: Text("Ok"),
