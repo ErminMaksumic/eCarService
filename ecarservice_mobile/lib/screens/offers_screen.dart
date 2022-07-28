@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutterv1/providers/offer_provider.dart';
 import 'package:flutterv1/utils/util.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../model/offer.dart';
@@ -19,7 +20,9 @@ class _OfferListScreenState extends State<OfferListScreen> {
 
   OfferProvider? _offerProvider = null;
   List<Offer> data = [];
-  
+
+  TextEditingController _searchController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -45,10 +48,11 @@ class _OfferListScreenState extends State<OfferListScreen> {
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildHeader(),
+                _buildOfferSearch(),
                 Container(
                   height: 200,
                 child: GridView(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
                     childAspectRatio: 4 / 3,
                     crossAxisSpacing: 20,
@@ -69,7 +73,7 @@ class _OfferListScreenState extends State<OfferListScreen> {
   
 List<Widget> _buildProductCardList(){
   if(data.length == 0){
-    return [Text("Loading...")];
+    return [const Text("Loading...")];
   }
 
   List<Widget> list = data.map((x) => 
@@ -84,12 +88,12 @@ List<Widget> _buildProductCardList(){
           child: imageFromBase64String(x.image!),
         ),
         Text(x.name ?? ""),
+        Text(formatNumber(x.price)),
       ],
     ),
   )).cast<Widget>().toList();
 
   return list;
-}
 }
 
 Widget _buildHeader()
@@ -98,4 +102,54 @@ Widget _buildHeader()
     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     child: Text("Offers", style: TextStyle(color: Colors.cyan, fontWeight:FontWeight.bold ,fontSize: 40),),
   );
+  
 }
+
+Widget _buildOfferSearch(){
+    return Row(
+      children: [
+        Expanded(
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10
+          ), 
+          child: TextField(
+            controller: _searchController,
+            onSubmitted:(value) async {
+              var tempData = await _offerProvider?.get({'name': value});
+              setState(() {
+                data = tempData!;
+              });
+            },
+            decoration: InputDecoration(
+              hintText: "Search offers",
+              prefixIcon: const Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(color: Colors.grey),
+              )
+            ),
+          )
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: IconButton(
+            icon: Icon(Icons.filter_list),
+            color: Colors.cyan,
+            onPressed: () async{
+               var tempData = await _offerProvider?.get({'name': _searchController.text});
+              setState(() {
+                data = tempData!;
+              });
+            },
+          ),
+        )
+      ],
+    );
+}
+}
+
+
+

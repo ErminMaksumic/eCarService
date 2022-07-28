@@ -9,6 +9,8 @@ class User {
   String? firstName;
   String? lastName;
   String? fullName;
+  String? image;
+
   int? roleId;
 
   User(){}

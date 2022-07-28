@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterv1/providers/offer_provider.dart';
 import 'package:flutterv1/providers/user_provider.dart';
 import 'package:flutterv1/screens/offers_screen.dart';
+import 'package:flutterv1/screens/register_screen.dart';
 import 'package:flutterv1/utils/util.dart';
 import 'package:provider/provider.dart';
 
@@ -23,13 +24,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo!',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+      primaryColor: Colors.cyan,
+      brightness: Brightness.dark,
       ),
       home: const MyHomePage(title: 'eCarService'),
       onGenerateRoute: (settings) {
         if(settings.name == OfferListScreen.routeName)
         {
           return MaterialPageRoute(builder: (context)=> OfferListScreen());
+        }
+        if(settings.name == RegistrationScreen.routeName)
+        {
+          return MaterialPageRoute(builder: (context)=> RegistrationScreen());
         }
       },
     );
@@ -89,19 +95,18 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: TextField(
                   controller: _usernameController,
-                  decoration: InputDecoration(border: InputBorder.none, hintText: "Username", 
+                  decoration: const InputDecoration(border: InputBorder.none, hintText: "Username", 
                   hintStyle: TextStyle(color: Colors.cyan)),
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.black), bottom: BorderSide(color: Colors.black)
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
+                  border: Border(top: BorderSide(color: Colors.cyan), bottom: BorderSide(color: Colors.cyan)
                   )
                 ),
 
@@ -144,7 +149,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Center(child: Text("Login")),
                 )
-              )
+              ),
+              SizedBox(height: 20),
+              Center(
+                child: InkWell(
+                  child: const Center(child: Text("You are not registered? Click here!",
+                  style: TextStyle(color: Colors.cyan),)),
+                  onTap: (){
+                    Navigator.pushNamed(context, RegistrationScreen.routeName);
+                  },
+                )
+                ),
           ],
         ),
       )
