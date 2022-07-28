@@ -17,6 +17,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static const String routeName = "/login";
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -34,6 +35,10 @@ class MyApp extends StatelessWidget {
           return MaterialPageRoute(builder: (context)=> OfferListScreen());
         }
         if(settings.name == RegistrationScreen.routeName)
+        {
+          return MaterialPageRoute(builder: (context)=> RegistrationScreen());
+        }
+        if(settings.name == MyApp.routeName)
         {
           return MaterialPageRoute(builder: (context)=> RegistrationScreen());
         }
@@ -72,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               height: 350,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/background.png'),
                   fit: BoxFit.fill
@@ -81,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(top: 280),
-                      child: Center(
+                      child: const Center(
                         child: Center(
                           child: Text("Login", 
                           style:TextStyle(color: Colors.cyan, fontSize: 40, fontWeight: FontWeight.bold),)),
@@ -90,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
             ),
-            Padding(padding: EdgeInsets.all(50),
+            Padding(padding: const EdgeInsets.all(50),
             child: Column(children: [
               Container(
                 padding: EdgeInsets.all(10),

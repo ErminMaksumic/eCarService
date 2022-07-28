@@ -29,7 +29,7 @@ class UserProvider extends BaseProvider<User>{
   }
 
    Future<User?> register(dynamic request) async {
-    var url = Uri.parse("$baseUrl/register");
+    var url = Uri.parse("$baseUrl");
 
     Map<String, String> headers = {"Content-Type": "application/json"};
     var jsonRequest = jsonEncode(request);

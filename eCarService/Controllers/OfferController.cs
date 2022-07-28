@@ -10,7 +10,7 @@ namespace eCarService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrator, ServiceRegistered")]
+    [Authorize(Roles = "Administrator, ServiceRegistered, Unregistered")]
 
     public class OfferController : BaseCRUDController<Model.Offer, OfferSearchObject, OfferUpsertRequest,
         OfferUpsertRequest>
