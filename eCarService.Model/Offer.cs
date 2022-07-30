@@ -16,5 +16,7 @@ namespace eCarService.Model
         public int? CarServiceId { get; set; }
         public virtual ICollection<CarBrandOffer> CarBrandOffers { get; set; }
         public virtual ICollection<OfferPart> OfferParts { get; set; }
+
+        public List<Part> parts { get; set; }
     }
 }

@@ -14,6 +14,8 @@ namespace eCarService.Service.Interfaces
         User Login(string username, string password);
         User ChangePassword(int id, MyProfileUpdateRequest req);
         User ChangeRole(int id, int roleId);
+        User BaseUpdate(int id, BasicUserUpdateRequest request);
+
 
     }
 }

@@ -207,6 +207,23 @@ namespace eCarService.Service.Implementation
 
             return _mapper.Map<Model.User>(entity);
         }
+
+        public Model.User BaseUpdate(int id, BasicUserUpdateRequest request)
+        {
+            var entity = _context.Users.Find(id);
+
+            if(entity != null)
+            {
+                entity.FirstName = request.FirstName;
+                entity.LastName = request.LastName;
+                entity.Email = request.Email;
+            }
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.User>(entity);
+        }
     }
+
 }
 

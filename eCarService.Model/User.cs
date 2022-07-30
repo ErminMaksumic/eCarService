@@ -16,7 +16,6 @@ namespace eCarService.Model
         public string FullName => $"{FirstName}{LastName}";
         public int? RoleId { get; set; }
         public byte[] Image { get; set; }
-
         public virtual Role Role { get; set; }
 
 

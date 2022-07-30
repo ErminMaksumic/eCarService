@@ -1,3 +1,4 @@
+import 'package:flutterv1/model/part.dart';
 import 'package:flutterv1/screens/offers_screen.dart';
 
 import 'package:json_annotation/json_annotation.dart';
@@ -9,6 +10,7 @@ class Offer{
   String? status;
   String? image;
   double? price;
+  List<Part>? parts;
 
   Offer(){}
 

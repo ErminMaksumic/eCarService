@@ -60,5 +60,11 @@ namespace eCarService.Controllers
             return _service.Login(credentials.Username, credentials.Password);
         }
 
+        [HttpPut("baseUpdate/{id}")]
+        public Model.User BasicUpdate(int id, BasicUserUpdateRequest request)
+        {
+            return _service.BaseUpdate(id, request);
+        }
+
     }
 }

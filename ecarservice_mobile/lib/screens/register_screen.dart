@@ -1,14 +1,15 @@
 import 'dart:io';
 import 'dart:io' as Io;
 import 'dart:typed_data';
-
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterv1/screens/login_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 import '../main.dart';
-import '../model/user_insert_request.dart';
+import '../model/requests/user_insert_request.dart';
 import '../providers/user_provider.dart';
 import '../utils/util.dart';
 
@@ -29,12 +30,14 @@ class RegistrationScreen extends StatefulWidget {
       TextEditingController _passwordController = TextEditingController();
       TextEditingController _passwordConfirmationController = TextEditingController();
       TextEditingController _imageController = TextEditingController();
+      final _formKey = GlobalKey<FormState>();
 
       String? imageString;
       File? image;
      
       @override void initState() {
-      super.initState();
+        setState(() {});
+        super.initState();
       }
 
       Future pickImage() async {
@@ -46,14 +49,9 @@ class RegistrationScreen extends StatefulWidget {
         if(image==null) return;
 
         final imageTemp = File(image.path);
-
-        debugPrint(imageTemp.toString());
-
         Uint8List bytes = await image.readAsBytes();
         ByteData.view(bytes.buffer);
-
         var x = base64String(bytes);
-        debugPrint(x);
 
         setState(() {
           this.image = imageTemp;
@@ -76,6 +74,7 @@ register() async {
       request.roleId = 3;
       var response = await _userProvider.register(request);
 
+
       showDialog(
           context: context,
           builder: (BuildContext context) => AlertDialog(
@@ -84,7 +83,7 @@ register() async {
                 actions: [
                   TextButton(
                       onPressed: () async =>
-                          await Navigator.pushNamed(context, MyApp.routeName),
+                          await Navigator.pushNamed(context, LoginScreen.routeName),
                       child: Text("Ok"))
                 ],
               ));
@@ -99,7 +98,8 @@ register() async {
                       onPressed: () => Navigator.pop(context),
                       child: Text("Ok"))
                 ],
-              ));
+              )
+              );
     }
   }
   
@@ -113,12 +113,18 @@ register() async {
           children: [
             Container(
               height: 200,
-              margin: EdgeInsets.only(top: 10),
+              margin: const EdgeInsets.only(top: 10),
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/background.png'),
                   fit: BoxFit.fill,
                 )),
+              child: Center(
+                        child: Container(  
+                          margin: EdgeInsets.only(top: 160),
+                          child: const Text("Register", 
+                          style:TextStyle(color: Colors.cyan, fontSize: 40, fontWeight: FontWeight.bold),)),
+                      ),
             ),
             image!= null ? Image.file(
               image!,
@@ -131,7 +137,7 @@ register() async {
                 margin: EdgeInsets.fromLTRB(50, 20, 50, 0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [Colors.cyan, Colors.blue ]
                   )
                 ),
@@ -142,84 +148,137 @@ register() async {
                   child: Center(child: Text("Select the picture")),
                 ),
             ),
+            Center(child: Text("Picture is required field", style: TextStyle(color: Colors.red),)),
             Padding(padding: const EdgeInsets.all(50),
-            child: Column(children: [
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10)
-                ),
-                child: TextField(
-                  controller: _firstNameController,
-                  
-
-                  decoration: const InputDecoration(border: InputBorder.none, hintText: "FirstName", 
-                  hintStyle: TextStyle(color: Colors.cyan)),
+            child: Form(
+              key: _formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: Column(children: [
+               Container(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                validator: (value)
+                  {
+                    if(value!.isEmpty)
+                    {
+                      return "Required field!";
+                    }
+                  },
+                  decoration: const InputDecoration(
+                   labelText: "FirstName",
+                   labelStyle: TextStyle(
+                    color: Colors.cyan,
+                   ),
+                   enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.cyan)
+                   )
+                   ),
+                   controller: _firstNameController,
                 ),
               ),
               Container(
                 padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.cyan), bottom: BorderSide(color: Colors.cyan)
-                  )
-                ),
-
-                child: TextField(
+                child: TextFormField(
+                  validator: (value)
+                  {
+                    if(value!.isEmpty)
+                    {
+                      return "Required field!";
+                    }
+                  },
+                  decoration: const InputDecoration(
+                   labelText: "Last name",
+                   labelStyle: TextStyle(
+                    color: Colors.cyan
+                   ),
+                   enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.cyan)
+                   )),
                    controller: _lastNameController,
-                   decoration: InputDecoration(border: InputBorder.none, hintText: "LastName",
-                   hintStyle: TextStyle(color: Colors.cyan)),
                 ),
               ),
-              Container(
+               Container(
                 padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.cyan), bottom: BorderSide(color: Colors.cyan)
-                  )
-                ),
-
-                child: TextField(
+                child: TextFormField(
+                validator: (value)
+                {
+                    if(value!.isEmpty)
+                    {
+                      return "Required field!";
+                    }
+                },
+                  decoration: const InputDecoration(
+                   labelText: "Email",
+                   labelStyle: TextStyle(
+                    color: Colors.cyan
+                   ),
+                   enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.cyan)
+                   )),
                    controller: _emailController,
-                   decoration: InputDecoration(border: InputBorder.none, hintText: "Email",
-                   hintStyle: TextStyle(color: Colors.cyan)),
                 ),
               ),
-              Container(
+               Container(
                 padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.cyan), bottom: BorderSide(color: Colors.cyan)
-                  )
-                ),
-
-                child: TextField(
+                child: TextFormField(
+                validator: (value)
+                  {
+                    if(value!.isEmpty)
+                    {
+                      return "Required field!";
+                    }
+                  },
+                  decoration: const InputDecoration(
+                   labelText: "Username",
+                   labelStyle: TextStyle(
+                    color: Colors.cyan
+                   ),
+                   enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.cyan)
+                   )),
                    controller: _userNameController,
-                   decoration: InputDecoration(border: InputBorder.none, hintText: "UserName",
-                   hintStyle: TextStyle(color: Colors.cyan)),
                 ),
               ),
-              Container(
+               Container(
                 padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.cyan), bottom: BorderSide(color: Colors.cyan)
-                  )
-                ),
-
-                child: TextField(
+                child: TextFormField(
+                validator: (value)
+                  {
+                     if(value!.isEmpty)
+                    {
+                      return "Required field!";
+                    }
+                  },
+                  decoration: const InputDecoration(
+                   labelText: "Password",
+                   labelStyle: TextStyle(
+                    color: Colors.cyan
+                   ),
+                   enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.cyan)
+                   )),
                    controller: _passwordController,
-                   decoration: InputDecoration(border: InputBorder.none, hintText: "Password",
-                   hintStyle: TextStyle(color: Colors.cyan)),
                 ),
               ),
-              Container(
+               Container(
                 padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.cyan), bottom: BorderSide(color: Colors.cyan)
-                  )
-                ),
-
-                child: TextField(
+                child: TextFormField(
+                  validator: (value)
+                    {
+                    if(value!.isEmpty)
+                    {
+                       return "Required field!";
+                    }
+                    },
+                  decoration: const InputDecoration(
+                   labelText: "Password confirmation",
+                   labelStyle: TextStyle(
+                    color: Colors.cyan
+                   ),
+                   enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.cyan)
+                   )),
                    controller: _passwordConfirmationController,
-                   decoration: const InputDecoration(border: InputBorder.none, hintText: "PasswordConfirmation",
-                   hintStyle: TextStyle(color: Colors.cyan)),
                 ),
               ),
                SizedBox(height: 20),
@@ -234,13 +293,16 @@ register() async {
                 ),
               child: InkWell(
                   onTap: () async {
-                   register();
+                    if(_formKey.currentState!.validate()) {
+                      register();
+                    }
                   },
                   child: const Center(child: Text("Register")),
                 ),
             ),
              
             ],),),
+        ),
           ],
         ),
       ),

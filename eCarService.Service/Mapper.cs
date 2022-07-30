@@ -26,7 +26,7 @@ namespace eCarService.Service
             CreateMap<Database.CarService, CarServiceInsertRequest>().ReverseMap();
             CreateMap<Database.CarService, CarServiceUpdateRequest>().ReverseMap();
 
-            CreateMap<Database.Offer, Model.Offer>().ReverseMap();
+            CreateMap<Database.Offer, Model.Offer>().ForMember(x=> x.parts, opts => opts.MapFrom(x=> x.OfferParts.Select(x=> x.Part).ToList())).ReverseMap();
             CreateMap<Database.Offer, OfferUpsertRequest>().ReverseMap();
             CreateMap<Database.OfferPart, Model.OfferPart>().ReverseMap();
 

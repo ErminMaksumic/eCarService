@@ -135,5 +135,14 @@ namespace eCarService.Service.Implementation
             _context.RemoveRange(parts);
 
         }
+
+        public override IQueryable<Offer> AddInclude(IQueryable<Offer> query, OfferSearchObject searchObject = null)
+        {
+            var includedQuery = base.AddInclude(query, searchObject);
+
+            includedQuery = includedQuery.Include("OfferParts.Part");
+
+            return includedQuery;
+        }
     }
 }

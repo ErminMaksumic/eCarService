@@ -16,6 +16,8 @@ namespace eCarService.WinUI.Administration
     public partial class frmUserDetails : Form
     {
         private readonly APIService UserService = new APIService("User");
+        private readonly APIService UsersUpdateService = new APIService("User/baseUpdate");
+
         private Model.User User;
 
         private int userId = -1;
@@ -76,14 +78,14 @@ namespace eCarService.WinUI.Administration
         {
             if (ValidateInputs())
             {
-                UserUpdateRequest userUpdateRequest = new UserUpdateRequest()
+                BasicUserUpdateRequest userUpdateRequest = new BasicUserUpdateRequest()
                 {
                     FirstName = txtFirstName.Text,
                     LastName = txtLastName.Text,
                     Email = txtEmail.Text,
                 };
 
-                var result = await UserService.Put<Model.User>(userId, userUpdateRequest);
+                var result = await UsersUpdateService.Put<Model.User>(userId, userUpdateRequest);
 
                 if (result != null)
                 {
