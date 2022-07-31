@@ -140,7 +140,7 @@ namespace eCarService.Service.Implementation
         {
             var includedQuery = base.AddInclude(query, searchObject);
 
-            includedQuery = includedQuery.Include("OfferParts.Part");
+            includedQuery = includedQuery.Include("OfferParts.Part").Include("CarBrandOffers.CarBrand");
 
             return includedQuery;
         }

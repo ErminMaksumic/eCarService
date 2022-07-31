@@ -17,6 +17,11 @@ namespace eCarService.Model
         public virtual ICollection<CarBrandOffer> CarBrandOffers { get; set; }
         public virtual ICollection<OfferPart> OfferParts { get; set; }
 
-        public List<Part> parts { get; set; }
+        public List<Part> Parts { get; set; }
+        public List<CarBrand> CarBrands { get; set; }
+
+        public string PartNames => String.Join(", ", Parts?.Take(3).Select(x => x?.Name));
+        public string CarBrandNames => String.Join(", ", CarBrands?.Take(3).Select(x => x?.Name));
+
     }
 }

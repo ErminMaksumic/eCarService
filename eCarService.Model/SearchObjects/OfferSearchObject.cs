@@ -7,6 +7,7 @@ namespace eCarService.Model.SearchObjects
     public class OfferSearchObject : BaseSearchObject
     {
         public string Name { get; set; }
+        public double Price { get; set; }
         public string Include { get; set; }
     }
 }

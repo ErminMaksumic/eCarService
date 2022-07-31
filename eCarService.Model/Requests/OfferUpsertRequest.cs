@@ -7,7 +7,7 @@ namespace eCarService.Model.Requests
 {
     public class OfferUpsertRequest
     {
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(6)]
         public string Name { get; set; }
         [Required(AllowEmptyStrings = false)]
         public decimal Price { get; set; }

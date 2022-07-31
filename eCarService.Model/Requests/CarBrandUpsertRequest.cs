@@ -8,7 +8,7 @@ namespace eCarService.Model.Requests
 {
     public class CarBrandUpsertRequest
     {
-        [Required (AllowEmptyStrings = false)]
+        [Required (AllowEmptyStrings = false), MaxLength(6)]
         public string Name { get; set; }
         public int? CarServiceId { get; set; }
 

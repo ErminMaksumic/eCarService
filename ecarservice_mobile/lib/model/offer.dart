@@ -1,3 +1,4 @@
+import 'package:flutterv1/model/brand.dart';
 import 'package:flutterv1/model/part.dart';
 import 'package:flutterv1/screens/offers_screen.dart';
 
@@ -11,6 +12,10 @@ class Offer{
   String? image;
   double? price;
   List<Part>? parts;
+  List<CarBrand>? carBrands;
+  String? partNames;
+  String? carBrandNames;
+
 
   Offer(){}
 
