@@ -3,6 +3,7 @@ import 'package:flutterv1/providers/offer_provider.dart';
 import 'package:flutterv1/providers/user_provider.dart';
 import 'package:flutterv1/screens/login_screen.dart';
 import 'package:flutterv1/screens/offers_screen.dart';
+import 'package:flutterv1/screens/profile_screen.dart';
 import 'package:flutterv1/screens/register_screen.dart';
 import 'package:flutterv1/utils/util.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,10 @@ class MyApp extends StatelessWidget {
         if(settings.name == LoginScreen.routeName)
         {
           return MaterialPageRoute(builder: (context)=> MyApp());
+        }
+         if(settings.name == ProfileScreen.routeName)
+        {
+          return MaterialPageRoute(builder: (context)=> ProfileScreen());
         }
       },
     );

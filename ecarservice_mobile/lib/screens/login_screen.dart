@@ -1,4 +1,4 @@
-
+import "package:flutterv1/utils/user.dart";
 import 'package:flutter/material.dart';
 import 'package:flutterv1/screens/register_screen.dart';
 import 'package:provider/provider.dart';
@@ -76,6 +76,7 @@ class LoginScreen extends StatelessWidget {
                 ),
 
                 child: TextFormField(
+                   obscureText: true,
                    validator: (value) {
                    if(value!.isEmpty)
                      {
@@ -106,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                         if(_formKey.currentState!.validate()){
                         Authorization.username = _usernameController.text;
                         Authorization.password = _passwordController.text;
-                        var user = await _userProvider.login();
+                        UserLogin.user = await _userProvider.login();
                         Navigator.pushNamed(context, OfferListScreen.routeName);
                         }
                       } on Exception catch (e) {

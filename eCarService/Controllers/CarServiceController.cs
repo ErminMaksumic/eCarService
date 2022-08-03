@@ -24,9 +24,9 @@ namespace eCarService.Controllers
             return base.Insert(request);
         }
         [AllowAnonymous]
-        public override IEnumerable<CarService> Get([FromQuery] CarServiceSearchObject search)
+        public override async Task<IEnumerable<CarService>> Get([FromQuery] CarServiceSearchObject search)
         {
-            return base.Get(search);
+            return await base.Get(search);
         }
         [AllowAnonymous]
         public override CarService GetById(int id)

@@ -29,7 +29,7 @@ class RegistrationScreen extends StatefulWidget {
       TextEditingController _userNameController = TextEditingController();
       TextEditingController _passwordController = TextEditingController();
       TextEditingController _passwordConfirmationController = TextEditingController();
-      TextEditingController _imageController = TextEditingController();
+      //TextEditingController _imageController = TextEditingController();
       final _formKey = GlobalKey<FormState>();
 
       String? imageString;
@@ -242,6 +242,7 @@ register() async {
                Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                obscureText: true,
                 validator: (value)
                   {
                      if(value!.isEmpty)
@@ -263,7 +264,8 @@ register() async {
                Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
-                  validator: (value)
+                obscureText: true,
+                validator: (value)
                     {
                     if(value!.isEmpty)
                     {

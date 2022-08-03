@@ -47,8 +47,7 @@ namespace eProdajaService.WinUI.MyProfile
         {
             try
             {
-                if (ValidateInput())
-                {
+                    ValidateInput();
                     MyProfileUpdateRequest req = new MyProfileUpdateRequest()
                     {
                         Password = txtPassword.Text,
@@ -62,12 +61,6 @@ namespace eProdajaService.WinUI.MyProfile
                     {
                         MessageBox.Show($"User successfully edited", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        //Form form = new frmLogin(); form.ShowDialog();
-                        //for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
-                        //{
-                        //    if (Application.OpenForms[i].Name != "frmLogin")
-                        //        Application.OpenForms[i].Close();
-                        //}
 
                         Application.Restart();
                         this.Close();
@@ -75,7 +68,6 @@ namespace eProdajaService.WinUI.MyProfile
                     }
 
                     
-                }
             }
             catch (Exception ex)
             {
@@ -84,11 +76,12 @@ namespace eProdajaService.WinUI.MyProfile
             
         }
 
-        private bool ValidateInput()
+        private void ValidateInput()
         {
-            return 
-            Validator.ValidateControl(txtPassword, errorProfileProvider, "Please insert the new password!") &&
-            Validator.ValidateControl(txtConfirmationPassword, errorProfileProvider, "Please confirm the new password!");
+            if (!string.IsNullOrEmpty(txtPassword.Text))
+                errorProfileProvider.SetError(txtConfirmationPassword, "This field is required!");
+            else
+                errorProfileProvider.Clear();
         }
 
         private void pbProfileImage_Click(object sender, EventArgs e)

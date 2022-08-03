@@ -32,22 +32,16 @@ namespace eCarService.Service.Implementation
             return query;
         }
 
-        public virtual IEnumerable<TModel> Get(TSearch search)
+        public virtual async Task<IEnumerable<TModel>> Get(TSearch search= null)
         {
             var entity = _context.Set<TDatabase>().AsQueryable();
 
             entity = AddFilter(entity, search);
             entity = AddInclude(entity, search);
 
-            if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
-            {
-                entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);
-            }
-
             var list = entity.ToList();
             return _mapper.Map<IList<TModel>>(list);
         }
-
 
 
         public virtual TModel GetById(int id)

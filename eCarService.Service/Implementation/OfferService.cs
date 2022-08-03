@@ -111,6 +111,10 @@ namespace eCarService.Service.Implementation
             {
                 filteredQuery = filteredQuery.Where(x => x.Name.StartsWith(search.Name));
             }
+            if (search?.Price > 0)
+            {
+                filteredQuery = filteredQuery.Where(x=> x.Price <= search.Price);
+            }
             return filteredQuery;
         }
 

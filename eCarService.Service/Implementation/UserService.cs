@@ -183,11 +183,22 @@ namespace eCarService.Service.Implementation
         {
             var entity = _context.Users.Find(id);
 
-            if(entity!=null)
+            if (req.Password != req.PasswordConfirmation)
             {
-                entity.PasswordSalt = GenerateSalt();
-                entity.PasswordHash = GenerateHash(entity.PasswordSalt, req.Password);
-                entity.Image = req.Image;
+                throw new UserException("The two password fields didn't match");
+            }
+
+            if (entity!=null)
+            {
+                if (!string.IsNullOrEmpty(req.Password))
+                {
+                    entity.PasswordSalt = GenerateSalt();
+                    entity.PasswordHash = GenerateHash(entity.PasswordSalt, req.Password);
+                }
+                if (req.Image != null)
+                {
+                    entity.Image = req.Image;
+                }
             };
 
             _context.SaveChanges();

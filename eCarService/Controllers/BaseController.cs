@@ -16,9 +16,9 @@ namespace eCarService.Controllers
             _service = service;
         }
         [HttpGet]
-        virtual public IEnumerable<T> Get([FromQuery] TSearch search)
+        virtual public async Task<IEnumerable<T>> Get([FromQuery] TSearch search)
         {
-            return _service.Get(search);
+            return await _service.Get(search);
         }
         [HttpGet("{id}")]
 

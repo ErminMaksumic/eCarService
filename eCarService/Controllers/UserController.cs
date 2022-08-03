@@ -35,9 +35,9 @@ namespace eCarService.Controllers
             return base.Delete(id);
         }
 
-        public override IEnumerable<User> Get([FromQuery] UserSearchObject search)
+        public override async Task<IEnumerable<User>> Get([FromQuery] UserSearchObject search)
         {
-            return base.Get(search);
+            return await base.Get(search);
         }
 
         [HttpPut("changePassword/{id}")]
