@@ -13,7 +13,7 @@ import '../utils/util.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const String routeName = "/profile";
-  ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();

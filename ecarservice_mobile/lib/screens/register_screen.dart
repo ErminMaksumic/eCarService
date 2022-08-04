@@ -21,7 +21,7 @@ class RegistrationScreen extends StatefulWidget {
   State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-      class _RegistrationScreenState extends State<RegistrationScreen> {
+    class _RegistrationScreenState extends State<RegistrationScreen> {
       late UserProvider _userProvider;
       TextEditingController _firstNameController = TextEditingController();
       TextEditingController _lastNameController = TextEditingController();

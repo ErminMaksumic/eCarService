@@ -6,11 +6,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutterv1/model/part.dart';
 import 'package:flutterv1/providers/offer_provider.dart';
 import 'package:flutterv1/screens/profile_screen.dart';
+import 'package:flutterv1/screens/rating_screen.dart';
 import 'package:flutterv1/utils/util.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../model/offer.dart';
+import '../model/rating.dart';
 
 class OfferListScreen extends StatefulWidget {
   static const String routeName = "/offersList";
@@ -175,7 +177,7 @@ class _OfferListScreenState extends State<OfferListScreen> {
             icon: Icon(Icons.abc_sharp),
             color: Colors.cyan,
             onPressed: () async {
-              await Navigator.pushNamed(context, ProfileScreen.routeName);
+              await Navigator.pushNamed(context, RatingScreen.routeName);
             },
           ),
         )

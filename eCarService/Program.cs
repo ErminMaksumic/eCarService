@@ -82,14 +82,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    var database = scope.ServiceProvider.GetService<eCarServiceContext>();
-//    new DbSeed().Init(database);
-//    if (database.Roles.Count() < 1)
-//    {
-//       new DbSeed().InsertData(database);
-//    }
-//}
+using (var scope = app.Services.CreateScope())
+{
+    var database = scope.ServiceProvider.GetService<eCarServiceContext>();
+    new DbSeed().Init(database);
+    if (database.Roles.Count() < 1)
+    {
+        new DbSeed().InsertData(database);
+    }
+}
 
 app.Run();
