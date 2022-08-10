@@ -57,10 +57,10 @@ namespace eProdajaService.WinUI.Offers
 
         private async void dgvOffers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var item = dgvOffers.Rows[e.RowIndex].DataBoundItem as eCarService.Model.Offer;
 
             if (e.ColumnIndex == dgvOffers.Columns["Delete"].Index && e.RowIndex >= 0)
             {
+                var item = dgvOffers.Rows[e.RowIndex].DataBoundItem as eCarService.Model.Offer;
                 var confirmResult = MessageBox.Show("Do you want to delete this offer?", "Delete offer", MessageBoxButtons.YesNo);
 
                 if (confirmResult == DialogResult.Yes)

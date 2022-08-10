@@ -21,7 +21,7 @@ class RatingScreen extends StatefulWidget {
 
 class _RatingScreenState extends State<RatingScreen> {
   late final RatingProvider _ratingProvider;
-  final TextEditingController _reviewController = new TextEditingController();
+  final TextEditingController _reviewController = TextEditingController();
 
   double rating = 0;
 
@@ -36,8 +36,7 @@ class _RatingScreenState extends State<RatingScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
+          child: Column(children: [
             Container(
               height: 280,
               decoration: const BoxDecoration(
@@ -90,7 +89,7 @@ class _RatingScreenState extends State<RatingScreen> {
                 rating = value;
               },
             )),
-            Container(
+            SizedBox(
               width: 300,
               height: 200,
               child: Card(
@@ -155,7 +154,7 @@ class _RatingScreenState extends State<RatingScreen> {
                               ));
                     }
                   },
-                  child: const Center(child: const Text("Change")),
+                  child: const Center(child: Text("Rate")),
                 )),
           ]),
         ),

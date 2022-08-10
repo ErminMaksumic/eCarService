@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,6 +12,8 @@ import 'package:provider/provider.dart';
 
 import '../model/offer.dart';
 import '../model/rating.dart';
+import '../widgets/master_screen.dart';
+import 'offer_details_screen.dart';
 
 class OfferListScreen extends StatefulWidget {
   static const String routeName = "/offersList";
@@ -26,8 +27,8 @@ class _OfferListScreenState extends State<OfferListScreen> {
   OfferProvider? _offerProvider;
   List<Offer> data = [];
 
-  TextEditingController _searchController = new TextEditingController();
-  TextEditingController _priceController = new TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
+  final TextEditingController _priceController = TextEditingController();
 
   @override
   void initState() {
@@ -38,20 +39,19 @@ class _OfferListScreenState extends State<OfferListScreen> {
 
   Future loadData() async {
     var tmpData = await _offerProvider?.get(null);
+
     setState(() {
       data = tmpData!;
+      loadPartsAndBrands();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.start,
-              children: buildAll()),
-        ),
+    return MasterScreenWidget(
+      index: 0,
+      child: SingleChildScrollView(
+        child: Column(children: buildAll()),
       ),
     );
   }
@@ -166,6 +166,7 @@ class _OfferListScreenState extends State<OfferListScreen> {
               });
               setState(() {
                 data = tempData!;
+                loadPartsAndBrands();
               });
             },
           ),
@@ -187,8 +188,12 @@ class _OfferListScreenState extends State<OfferListScreen> {
 
   List<Widget> _buildCard() {
     if (data.length == 0) {
-      return [const Text("Loading...")];
+      return [const Text("Loading data")];
+    } else if (data != null && (data[0].threeBrands == null)) {
+      return [const Text("Loading brands and parts")];
     }
+
+    ;
 
     List<Widget> list = data
         .map(
@@ -202,7 +207,7 @@ class _OfferListScreenState extends State<OfferListScreen> {
                   Column(
                     children: [
                       Container(
-                        height: 130,
+                        height: 110,
                         width: 500,
                         child: Image.memory(dataFromBase64String(x.image!),
                             fit: BoxFit.cover),
@@ -218,7 +223,7 @@ class _OfferListScreenState extends State<OfferListScreen> {
                                 Text(
                                   x.name!,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25),
@@ -240,8 +245,8 @@ class _OfferListScreenState extends State<OfferListScreen> {
                                           fontSize: 15)),
                                 ),
                                 Text(
-                                  x.parts!.length > 3
-                                      ? "${x.partNames!}, ..."
+                                  x.parts!.length >= 3
+                                      ? "${x.threeParts!.take(3).toString()}, ..."
                                       : x.parts!.length < 3
                                           ? x.partNames!
                                           : "Not specified",
@@ -270,8 +275,8 @@ class _OfferListScreenState extends State<OfferListScreen> {
                                           fontSize: 15)),
                                 ),
                                 Text(
-                                  x.carBrands!.length > 3
-                                      ? "${x.carBrandNames}, ..."
+                                  x.carBrands!.length >= 3
+                                      ? "${x.threeBrands!.take(3).toString()}, ..."
                                       : x.carBrands!.length < 3
                                           ? x.carBrandNames!
                                           : "Not specified",
@@ -308,14 +313,20 @@ class _OfferListScreenState extends State<OfferListScreen> {
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
-                              children: const [
-                                Text(
-                                  "More info",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(context,
+                                        "${OfferDetailsScreen.routeName}/${x.offerId}");
+                                  },
+                                  child: const Text(
+                                    "More info",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
                                 ),
                               ],
                             ),
@@ -323,7 +334,7 @@ class _OfferListScreenState extends State<OfferListScreen> {
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               )),
             ),
@@ -332,5 +343,12 @@ class _OfferListScreenState extends State<OfferListScreen> {
         .cast<Widget>()
         .toList();
     return list;
+  }
+
+  loadPartsAndBrands() {
+    for (var element in data) {
+      element.threeBrands = element.carBrandNames!.split(",");
+      element.threeParts = element.partNames!.split(",");
+    }
   }
 }

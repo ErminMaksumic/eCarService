@@ -7,6 +7,7 @@ part of 'offer.dart';
 // **************************************************************************
 
 Offer _$OfferFromJson(Map<String, dynamic> json) => Offer()
+  ..offerId = json['offerId'] as int?
   ..name = json['name'] as String?
   ..status = json['status'] as String?
   ..image = json['image'] as String?
@@ -21,6 +22,7 @@ Offer _$OfferFromJson(Map<String, dynamic> json) => Offer()
   ..carBrandNames = json['carBrandNames'] as String?;
 
 Map<String, dynamic> _$OfferToJson(Offer instance) => <String, dynamic>{
+      'offerId': instance.offerId,
       'name': instance.name,
       'status': instance.status,
       'image': instance.image,

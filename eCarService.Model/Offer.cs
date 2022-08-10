@@ -20,8 +20,8 @@ namespace eCarService.Model
         public List<Part> Parts { get; set; }
         public List<CarBrand> CarBrands { get; set; }
 
-        public string PartNames => String.Join(", ", Parts?.Take(3).Select(x => x?.Name));
-        public string CarBrandNames => String.Join(", ", CarBrands?.Take(3).Select(x => x?.Name));
+        public string PartNames => String.Join(", ", Parts?.Select(x => x?.Name));
+        public string CarBrandNames => String.Join(", ", CarBrands?.Select(x => x?.Name));
 
     }
 }

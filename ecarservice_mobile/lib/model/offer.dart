@@ -6,7 +6,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'offer.g.dart';
 
 @JsonSerializable()
-class Offer{
+class Offer {
+  int? offerId;
   String? name;
   String? status;
   String? image;
@@ -16,9 +17,10 @@ class Offer{
   String? partNames;
   String? carBrandNames;
 
+  List<String>? threeParts;
+  List<String>? threeBrands;
 
-  Offer(){}
-
+  Offer() {}
 
   factory Offer.fromJson(Map<String, dynamic> json) => _$OfferFromJson(json);
 

@@ -3,6 +3,7 @@ import 'package:flutterv1/providers/offer_provider.dart';
 import 'package:flutterv1/providers/rating_provider.dart';
 import 'package:flutterv1/providers/user_provider.dart';
 import 'package:flutterv1/screens/login_screen.dart';
+import 'package:flutterv1/screens/offer_details_screen.dart';
 import 'package:flutterv1/screens/offers_screen.dart';
 import 'package:flutterv1/screens/profile_screen.dart';
 import 'package:flutterv1/screens/rating_screen.dart';
@@ -35,10 +36,12 @@ class MyApp extends StatelessWidget {
       home: LoginScreen(),
       onGenerateRoute: (settings) {
         if (settings.name == OfferListScreen.routeName) {
-          return MaterialPageRoute(builder: (context) => const OfferListScreen());
+          return MaterialPageRoute(
+              builder: (context) => const OfferListScreen());
         }
         if (settings.name == RegistrationScreen.routeName) {
-          return MaterialPageRoute(builder: (context) => const RegistrationScreen());
+          return MaterialPageRoute(
+              builder: (context) => const RegistrationScreen());
         }
         if (settings.name == LoginScreen.routeName) {
           return MaterialPageRoute(builder: (context) => const MyApp());
@@ -48,6 +51,14 @@ class MyApp extends StatelessWidget {
         }
         if (settings.name == RatingScreen.routeName) {
           return MaterialPageRoute(builder: (context) => const RatingScreen());
+        }
+
+        // dynamic uri for sending url with id 
+        var uri = Uri.parse(settings.name!);
+        if ("/${uri.pathSegments.first}" == OfferDetailsScreen.routeName) {
+          var id = uri.pathSegments[1];
+          return MaterialPageRoute(
+              builder: (context) => OfferDetailsScreen(id));
         }
       },
     );
