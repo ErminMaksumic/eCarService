@@ -58,10 +58,10 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height * 0.7,
                 width: MediaQuery.of(context).size.width * 1,
                 decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.indigo,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
@@ -95,8 +95,8 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                       padding:
                           const EdgeInsets.only(top: 20, left: 20, right: 20),
                       child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const Text(
                             'Price: ',
@@ -115,34 +115,40 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                         ],
                       ),
                     ),
-                    Row(
+                    Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 30, left: 20, right: 20),
-                          child: Row(
-                            children: [
-                              Column(
-                                children: _buildParts(),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 30, left: 20, right: 20),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: _buildParts(),
+                                  ),
+                                  const SizedBox(
+                                    width: 65,
+                                  ),
+                                  Container(
+                                    height: 40,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        gradient: const LinearGradient(colors: [
+                                          Colors.cyan,
+                                          Colors.blue
+                                        ])),
+                                    child: InkWell(
+                                      onTap: () async {},
+                                      child: const Center(
+                                          child: Text("Rate this offer")),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              const SizedBox(
-                                width: 30,
-                              ),
-                              Container(
-                                height: 40,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    gradient: const LinearGradient(
-                                        colors: [Colors.cyan, Colors.blue])),
-                                child: InkWell(
-                                  onTap: () async {},
-                                  child: const Center(
-                                      child: Text("Reserve this offer")),
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -155,7 +161,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                             children: _buildBrands(),
                           ),
                           const SizedBox(
-                            width: 75,
+                            width: 60,
                           ),
                           Container(
                             height: 40,
@@ -166,8 +172,8 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                                     colors: [Colors.cyan, Colors.blue])),
                             child: InkWell(
                               onTap: () async {},
-                              child:
-                                  const Center(child: Text("Rate this offer")),
+                              child: const Center(
+                                  child: Text("Reserve this offer")),
                             ),
                           ),
                         ],
@@ -179,7 +185,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
