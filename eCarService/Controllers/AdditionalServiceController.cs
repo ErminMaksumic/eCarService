@@ -13,7 +13,18 @@ namespace eCarService.Controllers
     public class AdditionalServiceController : BaseCRUDController<Model.AdditionalService, AdditionalServiceSearchObject,
         AdditionalServiceUpsertRequest, AdditionalServiceUpsertRequest>
     {
+        private readonly IAdditionalServiceService service;
+
         public AdditionalServiceController(IAdditionalServiceService service) : base(service)
-        { }
+        {
+            this.service = service;
+        }
+        [HttpGet("Recommend/{id}")]
+        public async Task<List<Model.AdditionalService>> Recommend(int id)
+        {
+            return await service.Recommend(id);
     }
+    }
+
+  
 }

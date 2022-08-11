@@ -18,6 +18,27 @@ namespace eCarService.Service.Implementation
         public ReservationService(eCarServiceContext context, IMapper mapper) : base(context, mapper)
         {}
 
+        public override Model.Reservation Insert(ReservationInsertRequest request)
+        {
+            var reservation = _mapper.Map<Database.Reservation>(request);
+
+            _context.Reservations.Add(reservation);
+            _context.SaveChanges();
+
+            foreach (var reservationAdditionalService in request.AdditionalServices)
+            {
+                Database.ReservationsAdditionalService reservationAdditionalServiceObject = new ReservationsAdditionalService();
+                reservationAdditionalServiceObject.AdditionalServiceId = reservationAdditionalService;
+                reservationAdditionalServiceObject.ReservationId = reservation.ReservationId;
+
+                _context.ReservationsAdditionalServices.Add(reservationAdditionalServiceObject);
+
+                _context.SaveChanges();
+            }
+
+            return _mapper.Map<Model.Reservation>(reservation);
+        }
+
         public override IQueryable<Reservation> AddFilter(IQueryable<Reservation> query, OrderSearchObject search = null)
         {
             var filteredQuery = base.AddFilter(query, search);
@@ -34,13 +55,17 @@ namespace eCarService.Service.Implementation
             return filteredQuery.Include("Offer").Include("CarBrand");
         }
 
-        //public override IQueryable<Reservation> AddInclude(IQueryable<Reservation> query, OrderSearchObject search = null)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(search.Include))
-        //        query.Include(search.Include);
+        public override IQueryable<Reservation> AddInclude(IQueryable<Reservation> query, OrderSearchObject search = null)
+        {
+            var filteredQuery = base.AddInclude(query, search);
 
-        //    return query;
-        //}
+            filteredQuery = filteredQuery.Include(x=> x.ReservationsAdditionalServices);
+
+            if (!string.IsNullOrWhiteSpace(search.Include))
+                filteredQuery = filteredQuery.Include(search.Include);
+
+            return filteredQuery;
+        }
 
         public override void BeforeDelete(Reservation entity)
         {

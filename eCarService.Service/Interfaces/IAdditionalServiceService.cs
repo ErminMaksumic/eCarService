@@ -10,5 +10,7 @@ namespace eCarService.Service.Interfaces
 {
     public interface IAdditionalServiceService : ICRUDService<Model.AdditionalService, AdditionalServiceSearchObject,
         AdditionalServiceUpsertRequest, AdditionalServiceUpsertRequest>
-    {}
+    {
+        Task<List<Model.AdditionalService>> Recommend(int id);
+}
 }
