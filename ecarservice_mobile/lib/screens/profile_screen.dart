@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _userProvider = Provider.of(context, listen: false);
 
     return MasterScreenWidget(
-        index: 1,
+        index: 2,
         child: Column(
           children: [
             Container(
@@ -137,8 +137,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 margin: const EdgeInsets.fromLTRB(45, 0, 45, 0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    gradient:
-                        const LinearGradient(colors: [Colors.cyan, Colors.red])),
+                    gradient: const LinearGradient(
+                        colors: [Colors.cyan, Colors.red])),
                 child: InkWell(
                   onTap: () async {
                     try {
@@ -153,7 +153,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
                                 title: const Text("Success"),
-                                content: const Text("Profile successfully edited!"),
+                                content:
+                                    const Text("Profile successfully edited!"),
                                 actions: [
                                   TextButton(
                                       onPressed: () async => {

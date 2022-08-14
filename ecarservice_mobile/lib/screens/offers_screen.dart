@@ -171,17 +171,17 @@ class _OfferListScreenState extends State<OfferListScreen> {
             },
           ),
         ),
-        //delete this after testing !
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: IconButton(
-            icon: Icon(Icons.abc_sharp),
-            color: Colors.cyan,
-            onPressed: () async {
-              await Navigator.pushNamed(context, RatingScreen.routeName);
-            },
-          ),
-        )
+        // //delete this after testing !
+        // Container(
+        //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        //   child: IconButton(
+        //     icon: Icon(Icons.abc_sharp),
+        //     color: Colors.cyan,
+        //     onPressed: () async {
+        //       await Navigator.pushNamed(context, RatingScreen.routeName);
+        //     },
+        //   ),
+        // )
       ],
     );
   }
@@ -247,7 +247,8 @@ class _OfferListScreenState extends State<OfferListScreen> {
                                 Text(
                                   x.parts!.length >= 3
                                       ? "${x.threeParts!.take(3).toString()}, ..."
-                                      : x.parts!.length < 3
+                                      : x.parts!.length < 3 &&
+                                              x.parts!.isNotEmpty
                                           ? x.partNames!
                                           : "Not specified",
                                   textAlign: TextAlign.center,
@@ -277,7 +278,8 @@ class _OfferListScreenState extends State<OfferListScreen> {
                                 Text(
                                   x.carBrands!.length >= 3
                                       ? "${x.threeBrands!.take(3).toString()}, ..."
-                                      : x.carBrands!.length < 3
+                                      : x.carBrands!.length < 3 &&
+                                              x.carBrands!.isNotEmpty
                                           ? x.carBrandNames!
                                           : "Not specified",
                                   textAlign: TextAlign.center,

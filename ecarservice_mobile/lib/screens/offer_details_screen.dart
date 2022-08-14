@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutterv1/screens/rating_screen.dart';
+import 'package:flutterv1/utils/user.dart';
 import 'package:flutterv1/widgets/master_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -61,7 +63,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                 height: MediaQuery.of(context).size.height * 0.7,
                 width: MediaQuery.of(context).size.width * 1,
                 decoration: const BoxDecoration(
-                    color: Colors.indigo,
+                    color: Color.fromARGB(255, 54, 53, 50),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
@@ -85,7 +87,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                               style: const TextStyle(
                                   fontSize: 36,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                                  color: Colors.white),
                             ),
                           ),
                         ],
@@ -110,7 +112,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                             style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.white),
                           ),
                         ],
                       ),
@@ -128,22 +130,62 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                                     children: _buildParts(),
                                   ),
                                   const SizedBox(
-                                    width: 65,
+                                    width: 80,
                                   ),
-                                  Container(
-                                    height: 40,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        gradient: const LinearGradient(colors: [
-                                          Colors.cyan,
-                                          Colors.blue
-                                        ])),
-                                    child: InkWell(
-                                      onTap: () async {},
-                                      child: const Center(
-                                          child: Text("Rate this offer")),
-                                    ),
+                                  Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            height: 40,
+                                            width: 130,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                gradient: const LinearGradient(
+                                                    colors: [
+                                                      Colors.cyan,
+                                                      Colors.lightBlue
+                                                    ])),
+                                            child: InkWell(
+                                              onTap: () async {
+                                                // Navigator.pushNamed(context, RatingScreen.routeName, arguments: {'id': data!.offerId});
+                                                UserLogin.offerId =
+                                                    data!.offerId;
+                                                Navigator.pushNamed(context,
+                                                    RatingScreen.routeName);
+                                              },
+                                              child: const Center(
+                                                  child:
+                                                      Text("Rate this offer")),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        children: [
+                                          Container(
+                                            height: 40,
+                                            width: 130,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                gradient: const LinearGradient(
+                                                    colors: [
+                                                      Colors.cyan,
+                                                      Colors.lightBlue
+                                                    ])),
+                                            child: InkWell(
+                                              onTap: () async {},
+                                              child: const Center(
+                                                  child: Text(
+                                                      "Reserve this offer")),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
@@ -162,19 +204,6 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                           ),
                           const SizedBox(
                             width: 60,
-                          ),
-                          Container(
-                            height: 40,
-                            width: 130,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                gradient: const LinearGradient(
-                                    colors: [Colors.cyan, Colors.blue])),
-                            child: InkWell(
-                              onTap: () async {},
-                              child: const Center(
-                                  child: Text("Reserve this offer")),
-                            ),
                           ),
                         ],
                       ),
@@ -199,7 +228,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
             children: [
               Text(
                 x.name!,
-                style: const TextStyle(fontSize: 20, color: Colors.black),
+                style: const TextStyle(fontSize: 20, color: Colors.white),
               ),
               const Icon(
                 Icons.settings,
@@ -230,7 +259,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
             children: [
               Text(
                 x.name!,
-                style: const TextStyle(fontSize: 20, color: Colors.black),
+                style: const TextStyle(fontSize: 20, color: Colors.white),
               ),
               const Icon(
                 Icons.car_repair,

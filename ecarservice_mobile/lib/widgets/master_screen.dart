@@ -1,3 +1,4 @@
+import 'package:flutterv1/screens/custom_offer_req_screen.dart';
 import 'package:flutterv1/screens/offers_screen.dart';
 import 'package:flutterv1/screens/profile_screen.dart';
 import 'package:provider/single_child_widget.dart';
@@ -23,7 +24,11 @@ class MasterScreenWidget extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.add),
+            label: 'Custom request',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
             label: 'My profile',
           ),
         ],
@@ -35,6 +40,9 @@ class MasterScreenWidget extends StatelessWidget {
               Navigator.pushNamed(context, OfferListScreen.routeName);
               break;
             case 1:
+              Navigator.pushNamed(context, CustomOfferReqScreen.routeName);
+              break;
+            case 2:
               Navigator.pushNamed(context, ProfileScreen.routeName);
               break;
           }

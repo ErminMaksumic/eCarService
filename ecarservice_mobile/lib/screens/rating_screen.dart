@@ -33,6 +33,8 @@ class _RatingScreenState extends State<RatingScreen> {
 
   @override
   Widget build(BuildContext context) {
+//Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -122,7 +124,8 @@ class _RatingScreenState extends State<RatingScreen> {
                       await _ratingProvider.insert({
                         'rate': rating.round(),
                         'comment': _reviewController.text,
-                        'offerId': 2,
+                        'offerId': UserLogin.offerId,
+                        /*arguments['id'],*/
                         'userId': UserLogin.user!.userId,
                       });
                       showDialog(
@@ -155,7 +158,8 @@ class _RatingScreenState extends State<RatingScreen> {
                     }
                   },
                   child: const Center(child: Text("Rate")),
-                )),
+                )
+                ),
           ]),
         ),
       ),
