@@ -4,14 +4,14 @@ import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterv1/screens/login_screen.dart';
+import 'package:flutterv1/screens/user/login_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
-import '../main.dart';
-import '../model/requests/user_insert_request.dart';
-import '../providers/user_provider.dart';
-import '../utils/util.dart';
+import '../../main.dart';
+import '../../model/requests/user_insert_request.dart';
+import '../../providers/user_provider.dart';
+import '../../utils/util.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String routeName = "/register";

@@ -4,15 +4,15 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutterv1/model/part.dart';
 import 'package:flutterv1/providers/offer_provider.dart';
-import 'package:flutterv1/screens/profile_screen.dart';
-import 'package:flutterv1/screens/rating_screen.dart';
+import 'package:flutterv1/screens/user/profile_screen.dart';
+import 'package:flutterv1/screens/offers/rating_screen.dart';
 import 'package:flutterv1/utils/util.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../model/offer.dart';
-import '../model/rating.dart';
-import '../widgets/master_screen.dart';
+import '../../model/offer.dart';
+import '../../model/rating.dart';
+import '../../widgets/master_screen.dart';
 import 'offer_details_screen.dart';
 
 class OfferListScreen extends StatefulWidget {

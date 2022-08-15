@@ -1,4 +1,4 @@
-import 'package:flutterv1/screens/offers_screen.dart';
+import 'package:flutterv1/screens/offers/offers_screen.dart';
 
 import 'package:json_annotation/json_annotation.dart';
 part 'part.g.dart';

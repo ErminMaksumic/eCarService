@@ -7,19 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutterv1/model/carService.dart';
 import 'package:flutterv1/providers/car_service_provider.dart';
 import 'package:flutterv1/providers/custom_offer_provider.dart';
-import 'package:flutterv1/screens/login_screen.dart';
-import 'package:flutterv1/screens/offer_details_screen.dart';
-import 'package:flutterv1/screens/offers_screen.dart';
+import 'package:flutterv1/screens/user/login_screen.dart';
+import 'package:flutterv1/screens/offers/offer_details_screen.dart';
+import 'package:flutterv1/screens/offers/offers_screen.dart';
 import 'package:flutterv1/utils/user.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
-import '../main.dart';
-import '../model/requests/user_insert_request.dart';
-import '../providers/user_provider.dart';
-import '../utils/util.dart';
-import '../widgets/master_screen.dart';
+import '../../main.dart';
+import '../../model/requests/user_insert_request.dart';
+import '../../providers/user_provider.dart';
+import '../../utils/util.dart';
+import '../../widgets/master_screen.dart';
 
 class CustomOfferReqScreen extends StatefulWidget {
   static const String routeName = "/customOfferRequest";

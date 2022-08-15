@@ -1,7 +1,7 @@
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutterv1/model/rating.dart';
 import 'package:flutterv1/providers/rating_provider.dart';
-import 'package:flutterv1/screens/offers_screen.dart';
+import 'package:flutterv1/screens/offers/offers_screen.dart';
 import 'package:flutterv1/utils/user.dart';
 import 'package:flutterv1/utils/util.dart';
 import 'package:intl/intl.dart';
@@ -13,7 +13,8 @@ import 'dart:ui';
 
 class RatingScreen extends StatefulWidget {
   static const String routeName = "/rating";
-  const RatingScreen({Key? key}) : super(key: key);
+  String id;
+  RatingScreen(this.id, {Key? key}) : super(key: key);
 
   @override
   State<RatingScreen> createState() => _RatingScreenState();
@@ -124,7 +125,7 @@ class _RatingScreenState extends State<RatingScreen> {
                       await _ratingProvider.insert({
                         'rate': rating.round(),
                         'comment': _reviewController.text,
-                        'offerId': UserLogin.offerId,
+                        'offerId': widget.id,
                         /*arguments['id'],*/
                         'userId': UserLogin.user!.userId,
                       });
@@ -158,8 +159,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     }
                   },
                   child: const Center(child: Text("Rate")),
-                )
-                ),
+                )),
           ]),
         ),
       ),

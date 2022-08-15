@@ -2,14 +2,14 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutterv1/model/user.dart';
-import 'package:flutterv1/screens/login_screen.dart';
+import 'package:flutterv1/screens/user/login_screen.dart';
 import "package:flutterv1/utils/user.dart";
 import 'package:flutter/material.dart';
 import 'package:flutterv1/widgets/master_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import '../providers/user_provider.dart';
-import '../utils/util.dart';
+import '../../providers/user_provider.dart';
+import '../../utils/util.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const String routeName = "/profile";

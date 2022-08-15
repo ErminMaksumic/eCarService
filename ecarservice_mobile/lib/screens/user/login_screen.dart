@@ -1,10 +1,10 @@
 import "package:flutterv1/utils/user.dart";
 import 'package:flutter/material.dart';
-import 'package:flutterv1/screens/register_screen.dart';
+import 'package:flutterv1/screens/user/register_screen.dart';
 import 'package:provider/provider.dart';
-import '../providers/user_provider.dart';
-import '../utils/util.dart';
-import 'offers_screen.dart';
+import '../../providers/user_provider.dart';
+import '../../utils/util.dart';
+import '../offers/offers_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = "/login";
@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
     _userProvider = Provider.of(context, listen: false);
     return Scaffold(
         appBar: AppBar(
-          title: Text("Login"),
+          title: const Text("Login"),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -111,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                           Authorization.username = _usernameController.text;
                           Authorization.password = _passwordController.text;
                           UserLogin.user = await _userProvider.login();
-                          Navigator.pushNamed(
+                          Navigator.popAndPushNamed(
                               context, OfferListScreen.routeName);
                         }
                       } on Exception catch (e) {
@@ -141,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.cyan),
                 )),
                 onTap: () {
-                  Navigator.pushNamed(context, RegistrationScreen.routeName);
+                  Navigator.pop(context, RegistrationScreen.routeName);
                 },
               )),
             ],

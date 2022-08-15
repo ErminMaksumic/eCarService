@@ -1,6 +1,6 @@
 import 'package:flutterv1/model/brand.dart';
 import 'package:flutterv1/model/part.dart';
-import 'package:flutterv1/screens/offers_screen.dart';
+import 'package:flutterv1/screens/offers/offers_screen.dart';
 
 import 'package:json_annotation/json_annotation.dart';
 part 'offer.g.dart';

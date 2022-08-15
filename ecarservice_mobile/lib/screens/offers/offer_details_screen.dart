@@ -2,14 +2,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutterv1/screens/rating_screen.dart';
+import 'package:flutterv1/screens/offers/rating_screen.dart';
 import 'package:flutterv1/utils/user.dart';
 import 'package:flutterv1/widgets/master_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../model/offer.dart';
-import '../providers/offer_provider.dart';
-import '../utils/util.dart';
+import '../../model/offer.dart';
+import '../../providers/offer_provider.dart';
+import '../../utils/util.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -51,7 +51,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 200,
               width: 500,
               child: Image.memory(dataFromBase64String(data!.image!),
@@ -149,11 +149,8 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                                                     ])),
                                             child: InkWell(
                                               onTap: () async {
-                                                // Navigator.pushNamed(context, RatingScreen.routeName, arguments: {'id': data!.offerId});
-                                                UserLogin.offerId =
-                                                    data!.offerId;
                                                 Navigator.pushNamed(context,
-                                                    RatingScreen.routeName);
+                                                    "${RatingScreen.routeName}/${data!.offerId}");
                                               },
                                               child: const Center(
                                                   child:
