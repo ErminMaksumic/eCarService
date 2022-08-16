@@ -14,7 +14,7 @@ CustomOfferRequest _$CustomOfferRequestFromJson(Map<String, dynamic> json) =>
       ..description = json['description'] as String?
       ..carServiceId = json['carServiceId'] as int?
       ..userId = json['userId'] as int?
-      ..date = json['date'] as String;
+      ..date = json['date'] as String?;
 
 Map<String, dynamic> _$CustomOfferRequestToJson(CustomOfferRequest instance) =>
     <String, dynamic>{

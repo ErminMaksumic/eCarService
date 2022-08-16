@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutterv1/screens/offers/rating_screen.dart';
+import 'package:flutterv1/screens/reservation/reservation_screen.dart';
 import 'package:flutterv1/utils/user.dart';
 import 'package:flutterv1/widgets/master_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../../model/offer.dart';
 import '../../providers/offer_provider.dart';
@@ -174,7 +176,10 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                                                       Colors.lightBlue
                                                     ])),
                                             child: InkWell(
-                                              onTap: () async {},
+                                              onTap: () async {
+                                                Navigator.pushNamed(context,
+                                                    "${ReservationScreen.routeName}/${data!.offerId}");
+                                              },
                                               child: const Center(
                                                   child: Text(
                                                       "Reserve this offer")),

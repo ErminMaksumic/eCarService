@@ -15,6 +15,8 @@ import 'package:flutterv1/screens/user/register_screen.dart';
 import 'package:flutterv1/utils/util.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/reservation/reservation_screen.dart';
+
 void main() {
   runApp(MultiProvider(
     providers: [
@@ -56,9 +58,6 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(
                 builder: (context) => const ProfileScreen());
           }
-          // if (settings.name == RatingScreen.routeName) {
-          //   return MaterialPageRoute(builder: (context) => RatingScreen());
-          // }
           if (settings.name == CustomOfferReqScreen.routeName) {
             return MaterialPageRoute(
                 builder: (context) => const CustomOfferReqScreen());
@@ -72,6 +71,10 @@ class MyApp extends StatelessWidget {
                 builder: (context) => OfferDetailsScreen(id));
           } else if ("/${uri.pathSegments.first}" == RatingScreen.routeName) {
             return MaterialPageRoute(builder: (context) => RatingScreen(id));
+          } else if ("/${uri.pathSegments.first}" ==
+              ReservationScreen.routeName) {
+            return MaterialPageRoute(
+                builder: (context) => ReservationScreen(id));
           }
         });
   }
