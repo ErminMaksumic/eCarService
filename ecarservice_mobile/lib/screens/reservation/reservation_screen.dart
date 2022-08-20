@@ -1,9 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:io' as Io;
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
+import 'package:flutterv1/providers/additional_service_provider.dart';
+import 'package:flutterv1/providers/reservation_provider.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart' hide Card;
 import 'package:flutterv1/model/offer.dart';
 import 'package:flutterv1/screens/user/login_screen.dart';
 import 'package:flutterv1/utils/user.dart';
@@ -27,29 +32,28 @@ class ReservationScreen extends StatefulWidget {
 }
 
 class _ReservationScreenState extends State<ReservationScreen> {
-  late UserProvider _userProvider;
   late OfferProvider _offerProvider;
+  late ReservationProvider _reservationProvider;
+  late AdditionalServiceProvider _additionalServiceProvider;
   Offer? _data;
   int? selectedCarBrand;
   String? selectedDate;
   String? expDate;
+  Map<String, dynamic>? paymentIntentData;
+  final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _cardNumberController = TextEditingController();
-  final TextEditingController _expDateController = TextEditingController();
-
-  final _formKey = GlobalKey<FormState>();
-
-  String? imageString;
-  File? image;
 
   @override
   void initState() {
     super.initState();
     _offerProvider = context.read<OfferProvider>();
+    _reservationProvider = context.read<ReservationProvider>();
+    _additionalServiceProvider = context.read<AdditionalServiceProvider>();
+    Stripe.publishableKey =
+        "pk_test_51LXsy4GXcNCijvMXdjVDqB7K28efOhBim1tVizcvkuGHE38cF421qwVvF1FSEFMIYQFVxiUjCLk7FX6hMu0sYdIq00Zwp0NpCA";
     setState(() {});
     loadData();
   }
@@ -186,99 +190,6 @@ class _ReservationScreenState extends State<ReservationScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        child: const Center(
-                          child: Center(
-                              child: Text(
-                            "Payment",
-                            style: TextStyle(
-                                color: Colors.cyan,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        padding: const EdgeInsets.all(8),
-                        child: TextFormField(
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Required field!";
-                            }
-                          },
-                          decoration: const InputDecoration(
-                              labelText: "Full name",
-                              labelStyle: TextStyle(color: Colors.cyan),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 1, color: Colors.cyan))),
-                          controller: _fullNameController,
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        padding: const EdgeInsets.all(8),
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: "Card number",
-                              hintText: "00/00",
-                              hintStyle: TextStyle(color: Colors.red),
-                              labelStyle: TextStyle(color: Colors.cyan),
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 1, color: Colors.cyan))),
-                          controller: _fullNameController,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          // Container(
-                          //   width: MediaQuery.of(context).size.width / 2,
-                          //   height: MediaQuery.of(context).size.height * 0.1,
-                          //   padding: const EdgeInsets.all(8),
-                          //   child: ButtonTheme(
-                          //     minWidth: 500.0,
-                          //     height: 180.0,
-                          //     child: ElevatedButton(
-                          //       onPressed: () => _selectDate(context),
-                          //       child: Text(expDate != null
-                          //           ? "${expDate}"
-                          //           : 'Exp date'),
-                          //     ),
-                          //   ),
-                          // ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            width: MediaQuery.of(context).size.width / 2,
-                            margin: EdgeInsets.only(top: 15),
-                            child: TextFormField(
-                              decoration: const InputDecoration(
-                                  labelText: "Exp date",
-                                  labelStyle: TextStyle(color: Colors.cyan),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          width: 1, color: Colors.cyan))),
-                              controller: _expDateController,
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            width: MediaQuery.of(context).size.width / 2,
-                            margin: EdgeInsets.only(top: 15),
-                            child: TextFormField(
-                              decoration: const InputDecoration(
-                                  labelText: "CCV",
-                                  labelStyle: TextStyle(color: Colors.cyan),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          width: 1, color: Colors.cyan))),
-                              controller: _fullNameController,
-                            ),
-                          ),
-                        ],
-                      ),
                       SizedBox(height: 20),
                       Container(
                         height: 50,
@@ -289,7 +200,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
                                 colors: [Colors.cyan, Colors.blue])),
                         child: InkWell(
                           onTap: () async {
-                            if (_formKey.currentState!.validate()) {}
+                            makePayment(260);
                           },
                           child: const Center(child: Text("Reserve offer")),
                         ),
@@ -340,6 +251,85 @@ class _ReservationScreenState extends State<ReservationScreen> {
         String formated = DateFormat('yyyy-MM-dd').format(picked);
         selectedDate = formated;
       });
+    }
+  }
+
+  Future<void> makePayment(double amount) async {
+    try {
+      paymentIntentData =
+          await createPaymentIntent((amount * 100).round().toString(), 'usd');
+      await Stripe.instance
+          .initPaymentSheet(
+              paymentSheetParameters: SetupPaymentSheetParameters(
+                  paymentIntentClientSecret:
+                      paymentIntentData!['client_secret'],
+                  applePay: true,
+                  googlePay: true,
+                  testEnv: true,
+                  style: ThemeMode.dark,
+                  merchantCountryCode: 'BIH',
+                  merchantDisplayName: 'eCarService'))
+          .then((value) {});
+
+      displayPaymentSheet();
+    } catch (e, s) {
+      print('Error:$e$s');
+    }
+  }
+
+  displayPaymentSheet() async {
+    try {
+      await Stripe.instance
+          .presentPaymentSheet(
+              parameters: PresentPaymentSheetParameters(
+        clientSecret: paymentIntentData!['client_secret'],
+        confirmPayment: true,
+      ))
+          .onError((error, stackTrace) {
+        print('Exception/DISPLAYPAYMENTSHEET==> $error $stackTrace');
+      });
+
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("Payment successful")));
+    } on StripeException catch (e) {
+      showDialog(
+          context: context,
+          builder: (_) => const AlertDialog(
+                content: Text("Payment canceled."),
+              ));
+    } catch (e) {
+      print('$e');
+    }
+  }
+
+  createPaymentIntent(String amount, String currency) async {
+    try {
+      Map<String, dynamic> body = {
+        'amount': amount,
+        'currency': currency,
+        'payment_method_types[]': 'card'
+      };
+
+      var response = await http.post(
+          Uri.parse('https://api.stripe.com/v1/payment_intents'),
+          body: body,
+          headers: {
+            'Authorization':
+                'Bearer sk_test_51LXsy4GXcNCijvMXEp1OFQ2cqnKjCTdRO9dhriLoWOA6HhHdRRNz1v65O1pVShh9o4ZJEddVQl798crxgj2jrUoU00oOSFGK71',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          });
+
+      var res = await _reservationProvider.insert({
+        'date': selectedDate,
+        'userId': UserLogin.user!.userId,
+        'offerId': _data!.offerId,
+        'carBrandId': selectedCarBrand,
+        'status': "active",
+      });
+
+      return jsonDecode(response.body);
+    } catch (err) {
+      print('Error: ${err.toString()}');
     }
   }
 }

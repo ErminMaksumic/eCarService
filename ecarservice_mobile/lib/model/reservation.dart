@@ -5,11 +5,11 @@ part 'reservation.g.dart';
 @JsonSerializable()
 class Reservation {
   int? reservationId;
-  String? status;
   int? userId;
   int? offerId;
   int? paymentId;
   int? carBrandId;
+  String? date;
   List<AdditionalService>? additionalServices;
 
   Reservation() {}

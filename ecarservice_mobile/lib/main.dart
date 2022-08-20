@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterv1/model/customOfferRequest.dart';
+import 'package:flutterv1/providers/additional_service_provider.dart';
 import 'package:flutterv1/providers/car_service_provider.dart';
 import 'package:flutterv1/providers/custom_offer_provider.dart';
 import 'package:flutterv1/providers/offer_provider.dart';
 import 'package:flutterv1/providers/rating_provider.dart';
+import 'package:flutterv1/providers/reservation_provider.dart';
 import 'package:flutterv1/providers/user_provider.dart';
 import 'package:flutterv1/screens/custom_offer/custom_offer_req_screen.dart';
 import 'package:flutterv1/screens/user/login_screen.dart';
@@ -25,6 +26,8 @@ void main() {
       ChangeNotifierProvider(create: (_) => RatingProvider()),
       ChangeNotifierProvider(create: (_) => CarServiceProvider()),
       ChangeNotifierProvider(create: (_) => CustomOfferRequestProvider()),
+      ChangeNotifierProvider(create: (_) => ReservationProvider()),
+      ChangeNotifierProvider(create: (_) => AdditionalServiceProvider()),
     ],
     child: const MyApp(),
   ));
