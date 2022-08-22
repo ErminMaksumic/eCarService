@@ -4,6 +4,7 @@ import 'dart:io' as Io;
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
+import 'package:flutterv1/model/additionalService.dart';
 import 'package:flutterv1/providers/additional_service_provider.dart';
 import 'package:flutterv1/providers/reservation_provider.dart';
 import 'package:http/http.dart' as http;
@@ -19,6 +20,7 @@ import 'package:flutter/foundation.dart';
 import '../../main.dart';
 import '../../model/requests/user_insert_request.dart';
 import '../../providers/offer_provider.dart';
+import '../../providers/payment.dart';
 import '../../providers/user_provider.dart';
 import '../../utils/util.dart';
 
@@ -35,12 +37,16 @@ class _ReservationScreenState extends State<ReservationScreen> {
   late OfferProvider _offerProvider;
   late ReservationProvider _reservationProvider;
   late AdditionalServiceProvider _additionalServiceProvider;
+  late PaymentProvider _paymentProvider;
   Offer? _data;
+  List<AdditionalService>? _additionalServices = [];
+  List<AdditionalService>? _recommendedServices = [];
   int? selectedCarBrand;
   String? selectedDate;
   String? expDate;
   Map<String, dynamic>? paymentIntentData;
   final _formKey = GlobalKey<FormState>();
+  List<int> values = [];
 
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -52,6 +58,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
     _offerProvider = context.read<OfferProvider>();
     _reservationProvider = context.read<ReservationProvider>();
     _additionalServiceProvider = context.read<AdditionalServiceProvider>();
+    _paymentProvider = context.read<PaymentProvider>();
     Stripe.publishableKey =
         "pk_test_51LXsy4GXcNCijvMXdjVDqB7K28efOhBim1tVizcvkuGHE38cF421qwVvF1FSEFMIYQFVxiUjCLk7FX6hMu0sYdIq00Zwp0NpCA";
     setState(() {});
@@ -60,8 +67,10 @@ class _ReservationScreenState extends State<ReservationScreen> {
 
   void loadData() async {
     var tempData = await _offerProvider.getById(int.parse(widget.id));
+    var tempAddServices = await _additionalServiceProvider.get();
     setState(() {
       _data = tempData;
+      _additionalServices = tempAddServices;
     });
 
     _firstNameController.text = UserLogin.user!.firstName!;
@@ -191,6 +200,10 @@ class _ReservationScreenState extends State<ReservationScreen> {
                         ),
                       ),
                       SizedBox(height: 20),
+                      Column(
+                        children: _buildAddServices(),
+                      ),
+                      SizedBox(height: 20),
                       Container(
                         height: 50,
                         margin: EdgeInsets.fromLTRB(50, 20, 50, 0),
@@ -256,24 +269,41 @@ class _ReservationScreenState extends State<ReservationScreen> {
 
   Future<void> makePayment(double amount) async {
     try {
-      paymentIntentData =
-          await createPaymentIntent((amount * 100).round().toString(), 'usd');
-      await Stripe.instance
-          .initPaymentSheet(
-              paymentSheetParameters: SetupPaymentSheetParameters(
-                  paymentIntentClientSecret:
-                      paymentIntentData!['client_secret'],
-                  applePay: true,
-                  googlePay: true,
-                  testEnv: true,
-                  style: ThemeMode.dark,
-                  merchantCountryCode: 'BIH',
-                  merchantDisplayName: 'eCarService'))
-          .then((value) {});
+      if (_formKey.currentState!.validate() &&
+          selectedDate != null &&
+          selectedCarBrand != null) {
+        paymentIntentData =
+            await createPaymentIntent((amount * 100).round().toString(), 'usd');
+        var response = await Stripe.instance
+            .initPaymentSheet(
+                paymentSheetParameters: SetupPaymentSheetParameters(
+                    paymentIntentClientSecret:
+                        paymentIntentData!['client_secret'],
+                    applePay: true,
+                    googlePay: true,
+                    testEnv: true,
+                    style: ThemeMode.dark,
+                    merchantCountryCode: 'BIH',
+                    merchantDisplayName: 'eCarService'))
+            .then((value) {});
 
-      displayPaymentSheet();
-    } catch (e, s) {
-      print('Error:$e$s');
+        displayPaymentSheet();
+      } else {
+        throw Exception("Please check your inputs!");
+      }
+    } on Exception catch (e) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+                title: const Text("Error ocurred"),
+                content: Text(e.toString()),
+                actions: [
+                  TextButton(
+                    child: const Text("Ok"),
+                    onPressed: () => Navigator.pop(context),
+                  )
+                ],
+              ));
     }
   }
 
@@ -286,16 +316,18 @@ class _ReservationScreenState extends State<ReservationScreen> {
         confirmPayment: true,
       ))
           .onError((error, stackTrace) {
-        print('Exception/DISPLAYPAYMENTSHEET==> $error $stackTrace');
+        throw Exception(error);
       });
 
+      createReservationPayment();
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Payment successful")));
-    } on StripeException catch (e) {
+    } on Exception catch (e) {
       showDialog(
           context: context,
-          builder: (_) => const AlertDialog(
-                content: Text("Payment canceled."),
+          builder: (_) => AlertDialog(
+                title: Text("Error ocurred"),
+                content: Text("Payment canceled!"),
               ));
     } catch (e) {
       print('$e');
@@ -318,18 +350,80 @@ class _ReservationScreenState extends State<ReservationScreen> {
                 'Bearer sk_test_51LXsy4GXcNCijvMXEp1OFQ2cqnKjCTdRO9dhriLoWOA6HhHdRRNz1v65O1pVShh9o4ZJEddVQl798crxgj2jrUoU00oOSFGK71',
             'Content-Type': 'application/x-www-form-urlencoded'
           });
-
-      var res = await _reservationProvider.insert({
-        'date': selectedDate,
-        'userId': UserLogin.user!.userId,
-        'offerId': _data!.offerId,
-        'carBrandId': selectedCarBrand,
-        'status': "active",
-      });
-
       return jsonDecode(response.body);
     } catch (err) {
       print('Error: ${err.toString()}');
     }
+  }
+
+  _buildAddServices() {
+    if (_additionalServices!.length == 0) {
+      return [const Text("Loading data")];
+    }
+
+    List<int>? addServiceIds = [];
+
+    _recommendedServices!.forEach((element) {
+      addServiceIds!.add(element.additionalServiceId!);
+    });
+
+    List<Widget> list = _additionalServices!
+        .map(
+          (x) => Center(
+            child: CheckboxListTile(
+              title: Text(x.name!),
+              subtitle: addServiceIds!.indexOf(x.additionalServiceId!) > -1
+                  ? Text(
+                      x.price!.toString() + "\$ - We recommend you this offer!")
+                  : Text(x.price!.toString() + "\$"),
+              secondary: const Icon(Icons.car_rental),
+              autofocus: false,
+              isThreeLine: true,
+              activeColor: Colors.green,
+              checkColor: Colors.white,
+              value:
+                  values.indexOf(x.additionalServiceId!) != -1 ? true : false,
+              onChanged: (bool? value) {
+                setState(() {
+                  if (value! == true) {
+                    loadRecommendedServices(x.additionalServiceId);
+                    values.add(x.additionalServiceId!);
+                  } else
+                    values.remove(x.additionalServiceId);
+                });
+              },
+            ),
+          ),
+        )
+        .cast<Widget>()
+        .toList();
+    return list;
+  }
+
+  Future loadRecommendedServices(id) async {
+    var tempData = await _additionalServiceProvider.getRecommendedItems(id);
+
+    setState(() {
+      _recommendedServices = tempData;
+    });
+  }
+
+  void createReservationPayment() async {
+    var payment = await _paymentProvider.insert({
+      'transactionId': '2221',
+      'amount': '200',
+      'date': DateFormat('yyyy-MM-dd').format(DateTime.now()),
+      'fullName': _firstNameController.text + " " + _lastNameController.text
+    });
+
+    var reservation = await _reservationProvider.insert({
+      'date': selectedDate,
+      'userId': UserLogin.user!.userId,
+      'offerId': _data!.offerId,
+      'carBrandId': selectedCarBrand,
+      'status': "active",
+      'note': "active",
+      'additionalServices': values,
+    });
   }
 }

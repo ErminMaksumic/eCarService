@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCarService.Database;
 
@@ -11,9 +12,10 @@ using eCarService.Database;
 namespace eCarService.Service.Migrations
 {
     [DbContext(typeof(eCarServiceContext))]
-    partial class eCarServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20220821193212_reservationUpdate")]
+    partial class reservationUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,10 +266,6 @@ namespace eCarService.Service.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TransactionId")
                         .HasColumnType("int");

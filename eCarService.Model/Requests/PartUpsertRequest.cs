@@ -7,7 +7,7 @@ namespace eCarService.Model.Requests
 {
     public class PartUpsertRequest
     {
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(18)]
         public string Name { get; set; }
         public int Quantity { get; set; }
         public int CarServiceId { get; set; }

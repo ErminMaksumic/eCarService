@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace eCarService.Model.Requests
@@ -7,6 +8,8 @@ namespace eCarService.Model.Requests
     public class ReservationInsertRequest
     {
         public string Status { get; set; }
+        [MaxLength(20)]
+        public string Note { get; set; }
         public DateTime? Date { get; set; }
         public int? UserId { get; set; }
         public int CarBrandId { get; set; }

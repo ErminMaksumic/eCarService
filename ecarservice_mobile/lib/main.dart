@@ -3,6 +3,7 @@ import 'package:flutterv1/providers/additional_service_provider.dart';
 import 'package:flutterv1/providers/car_service_provider.dart';
 import 'package:flutterv1/providers/custom_offer_provider.dart';
 import 'package:flutterv1/providers/offer_provider.dart';
+import 'package:flutterv1/providers/payment.dart';
 import 'package:flutterv1/providers/rating_provider.dart';
 import 'package:flutterv1/providers/reservation_provider.dart';
 import 'package:flutterv1/providers/user_provider.dart';
@@ -28,6 +29,7 @@ void main() {
       ChangeNotifierProvider(create: (_) => CustomOfferRequestProvider()),
       ChangeNotifierProvider(create: (_) => ReservationProvider()),
       ChangeNotifierProvider(create: (_) => AdditionalServiceProvider()),
+      ChangeNotifierProvider(create: (_) => PaymentProvider()),
     ],
     child: const MyApp(),
   ));

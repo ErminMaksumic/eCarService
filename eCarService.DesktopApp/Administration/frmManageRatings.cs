@@ -51,10 +51,10 @@ namespace eProdajaService.WinUI.Administration
 
         private async void dgvRatings_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            var item = dgvRatings.Rows[e.RowIndex].DataBoundItem as eCarService.Model.Rating;
 
             if (e.ColumnIndex == dgvRatings.Columns["Delete"].Index && e.RowIndex >= 0)
             {
+                var item = dgvRatings.Rows[e.RowIndex].DataBoundItem as eCarService.Model.Rating;
                 await RatingService.Delete<eCarService.Model.AdditionalService>(item.RatingId);
 
                 loadRatings();

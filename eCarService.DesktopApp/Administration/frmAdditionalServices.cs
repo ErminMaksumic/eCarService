@@ -90,10 +90,10 @@ namespace eCarService.WinUI.Administration
 
         private async void dgvAdditionalServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var item = dgvAdditionalServices.Rows[e.RowIndex].DataBoundItem as eCarService.Model.AdditionalService;
 
             if (e.ColumnIndex == dgvAdditionalServices.Columns["Delete"].Index && e.RowIndex >= 0)
             {
+                var item = dgvAdditionalServices.Rows[e.RowIndex].DataBoundItem as eCarService.Model.AdditionalService;
                 await AdditionalService.Delete<eCarService.Model.AdditionalService>(item.AdditionalServiceId);
 
                 loadData();

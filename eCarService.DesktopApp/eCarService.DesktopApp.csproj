@@ -277,6 +277,12 @@
     <Compile Include="Reports\frmYearlyRevenueReport.Designer.cs">
       <DependentUpon>frmYearlyRevenueReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reservations\frmOrderAdditionalServList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations\frmOrderAdditionalServList.Designer.cs">
+      <DependentUpon>frmOrderAdditionalServList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservations\frmCustomOfferRequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptQuantityReport.rdlc" />
     <EmbeddedResource Include="Reports\rptYearRevenue.rdlc" />
+    <EmbeddedResource Include="Reservations\frmOrderAdditionalServList.resx">
+      <DependentUpon>frmOrderAdditionalServList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservations\frmCustomOfferRequest.resx">
       <DependentUpon>frmCustomOfferRequest.cs</DependentUpon>
     </EmbeddedResource>

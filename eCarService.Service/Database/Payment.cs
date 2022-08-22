@@ -11,9 +11,11 @@ namespace eCarService.Database
         }
 
         public int PaymentId { get; set; }
+        public int TransactionId { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
-        public int CardNumber { get; set; }
+        public string FullName { get; set; }
+
 
         public virtual ICollection<Reservation> Reservations { get; set; }
     }

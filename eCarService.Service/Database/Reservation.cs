@@ -17,7 +17,7 @@ namespace eCarService.Database
         public int? OfferId { get; set; }
         public int? PaymentId { get; set; }
         public int? CarBrandId { get; set; }
-
+        public string Note { get; set; }
         public virtual CarBrand? CarBrand { get; set; }
         public virtual Offer? Offer { get; set; }
         public virtual Payment? Payment { get; set; }

@@ -45,6 +45,8 @@ namespace eProdajaService.WinUI.Orders
             this.BrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompleteServ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalServices = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -53,11 +55,11 @@ namespace eProdajaService.WinUI.Orders
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvOrderList);
-            this.groupBox1.Location = new System.Drawing.Point(9, 129);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 159);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(937, 229);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1378, 361);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "OrderList";
@@ -72,61 +74,61 @@ namespace eProdajaService.WinUI.Orders
             this.Date,
             this.BrandName,
             this.CompleteServ,
-            this.Status});
+            this.Status,
+            this.Note,
+            this.AdditionalServices});
             this.dgvOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOrderList.Location = new System.Drawing.Point(2, 15);
-            this.dgvOrderList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvOrderList.Location = new System.Drawing.Point(3, 17);
+            this.dgvOrderList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvOrderList.Name = "dgvOrderList";
             this.dgvOrderList.ReadOnly = true;
             this.dgvOrderList.RowHeadersWidth = 51;
             this.dgvOrderList.RowTemplate.Height = 29;
             this.dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrderList.Size = new System.Drawing.Size(933, 212);
+            this.dgvOrderList.Size = new System.Drawing.Size(1372, 342);
             this.dgvOrderList.TabIndex = 0;
             this.dgvOrderList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellContentClick);
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Location = new System.Drawing.Point(48, 83);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFrom.Location = new System.Drawing.Point(64, 102);
+            this.dtpFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(188, 20);
+            this.dtpFrom.Size = new System.Drawing.Size(249, 22);
             this.dtpFrom.TabIndex = 1;
             // 
             // dtpTo
             // 
-            this.dtpTo.Location = new System.Drawing.Point(369, 83);
-            this.dtpTo.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpTo.Location = new System.Drawing.Point(492, 102);
+            this.dtpTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(188, 20);
+            this.dtpTo.Size = new System.Drawing.Size(249, 22);
             this.dtpTo.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 86);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(5, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "FROM:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 86);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(444, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "TO:";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(578, 48);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Location = new System.Drawing.Point(771, 59);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(105, 19);
+            this.btnSearch.Size = new System.Drawing.Size(140, 23);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -134,19 +136,18 @@ namespace eProdajaService.WinUI.Orders
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(280, 17);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Location = new System.Drawing.Point(373, 21);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(217, 20);
+            this.txtSearch.Size = new System.Drawing.Size(288, 22);
             this.txtSearch.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(131, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(175, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 13);
+            this.label3.Size = new System.Drawing.Size(137, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Search by offer name:";
             // 
@@ -159,11 +160,11 @@ namespace eProdajaService.WinUI.Orders
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(188, 16);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(251, 20);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(698, 109);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(931, 134);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search bar";
@@ -190,8 +191,10 @@ namespace eProdajaService.WinUI.Orders
             // 
             this.BrandName.DataPropertyName = "BrandName";
             this.BrandName.HeaderText = "User\'s car";
+            this.BrandName.MinimumWidth = 6;
             this.BrandName.Name = "BrandName";
             this.BrandName.ReadOnly = true;
+            this.BrandName.Width = 125;
             // 
             // CompleteServ
             // 
@@ -216,14 +219,34 @@ namespace eProdajaService.WinUI.Orders
             this.Status.ReadOnly = true;
             this.Status.Width = 125;
             // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Note";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            this.Note.Width = 125;
+            // 
+            // AdditionalServices
+            // 
+            this.AdditionalServices.DataPropertyName = "AdditionalServices";
+            this.AdditionalServices.HeaderText = "AdditionalServices";
+            this.AdditionalServices.MinimumWidth = 6;
+            this.AdditionalServices.Name = "AdditionalServices";
+            this.AdditionalServices.ReadOnly = true;
+            this.AdditionalServices.Text = "AdditionalServices";
+            this.AdditionalServices.UseColumnTextForButtonValue = true;
+            this.AdditionalServices.Width = 125;
+            // 
             // frmOrderList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 380);
+            this.ClientSize = new System.Drawing.Size(1402, 541);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmOrderList";
             this.Text = "Order List";
             this.Load += new System.EventHandler(this.frmOrderList_Load);
@@ -252,5 +275,7 @@ namespace eProdajaService.WinUI.Orders
         private DataGridViewTextBoxColumn BrandName;
         private DataGridViewButtonColumn CompleteServ;
         private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn Note;
+        private DataGridViewButtonColumn AdditionalServices;
     }
 }

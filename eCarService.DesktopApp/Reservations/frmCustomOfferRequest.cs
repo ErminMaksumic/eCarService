@@ -48,27 +48,30 @@ namespace eCarService.WinUI.Reservations
 
         private async void dgvOrderList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var item = dgvCustomReqLIst.Rows[e.RowIndex].DataBoundItem as eCarService.Model.CustomOfferRequest;
 
-            if (e.ColumnIndex == dgvCustomReqLIst.Columns["CompleteServ"].Index && e.RowIndex >= 0 &&
-            item.Status != "Done")
+            if (e.ColumnIndex == dgvCustomReqLIst.Columns["CompleteServ"].Index && e.RowIndex >= 0)
             {
-                var updateRequest = new ChangeStatusRequest()
+                var item = dgvCustomReqLIst.Rows[e.RowIndex].DataBoundItem as eCarService.Model.CustomOfferRequest;
+                if (item.Status != "Done")
                 {
-                    Status = "Done"
-                };
+                    var updateRequest = new ChangeStatusRequest()
+                    {
+                        Status = "Done"
+                    };
 
-                await CustomServiceChangeStatus.Put<eCarService.Model.CustomOfferRequest>
-                (item.CustomReqId, updateRequest);
+                    await CustomServiceChangeStatus.Put<eCarService.Model.CustomOfferRequest>
+                    (item.CustomReqId, updateRequest);
 
-                loadData();
+                    loadData();
 
-                MessageBox.Show("Service is now done!");
+                    MessageBox.Show("Service is now done!");
+                }
+                else
+                {
+                    MessageBox.Show("Service is already done!");
+                }
             }
-            else
-            {
-                MessageBox.Show("Service is already done!");
-            }
+           
         }
     }
 }

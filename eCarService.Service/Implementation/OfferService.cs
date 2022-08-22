@@ -133,10 +133,16 @@ namespace eCarService.Service.Implementation
 
             _context.RemoveRange(reservations);
 
+            var reservationAdditionalServices = _context.ReservationsAdditionalServices.Where(x => x.Reservation.OfferId == entity.OfferId);
+
+            _context.RemoveRange(reservationAdditionalServices);
+
 
             var parts = _context.OfferParts.Where(x => x.OfferId == entity.OfferId).ToList();
 
             _context.RemoveRange(parts);
+
+           
 
         }
 

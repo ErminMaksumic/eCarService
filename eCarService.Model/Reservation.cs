@@ -16,9 +16,11 @@ namespace eCarService.Model
         public virtual Offer Offer { get; set; }
         public virtual CarBrand CarBrand { get; set; }
         public string BrandName => CarBrand?.Name;
-
+        public string Note { get; set; }
         public string OfferName => Offer?.Name;
-        public virtual ICollection<ReservationAdditionalService> ReservationAdditionalService { get; set; }
+
+        public List<AdditionalService> AdditionalServ { get; set; }
+        public virtual ICollection<ReservationAdditionalService> ReservationsAdditionalService { get; set; }
 
 
     }

@@ -1,4 +1,5 @@
 ﻿using eCarService.DesktopApp;
+using eCarService.DesktopApp.Reservations;
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.WinUI;
@@ -17,6 +18,8 @@ namespace eProdajaService.WinUI.Orders
     public partial class frmOrderList : Form
     {
         private readonly APIService ReservationService = new APIService("Reservation");
+        private readonly APIService CustomServiceChangeStatus = new APIService("Reservation/changeStatus");
+
         public frmOrderList()
         {
             InitializeComponent();
@@ -24,8 +27,8 @@ namespace eProdajaService.WinUI.Orders
 
         private void frmOrderList_Load(object sender, EventArgs e)
         {
-            loadOrders();
             setDefaultValues();
+            loadOrders();
         }
 
         private void setDefaultValues()
@@ -40,7 +43,8 @@ namespace eProdajaService.WinUI.Orders
             {
                 CarServiceId = ServiceCredentials.ServiceId,
                 From = dtpFrom.Value,
-                To = dtpTo.Value
+                To = dtpTo.Value,
+                Name = txtSearch.Text
             };
 
             var result = await ReservationService.Get<List<eCarService.Model.Reservation>>(search);
@@ -48,34 +52,44 @@ namespace eProdajaService.WinUI.Orders
             dgvOrderList.DataSource = result;
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-        }
 
         private async void dgvOrderList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            if (e.ColumnIndex == dgvOrderList.Columns["CompleteServ"].Index && e.RowIndex >= 0)
+            {
                 var item = dgvOrderList.Rows[e.RowIndex].DataBoundItem as eCarService.Model.Reservation;
 
-                if (e.ColumnIndex == dgvOrderList.Columns["CompleteServ"].Index && e.RowIndex >= 0 &&
-                item.Status!="Done")
+                if (item.Status != "Done")
                 {
-                var updateRequest = new ReservationInsertRequest()
-                {
-                    Date = item.Date,
-                    OfferId = item.OfferId,
-                    UserId = item.UserId,
-                    Status = "Done"
-                };
+                    var updateRequest = new ChangeStatusRequest()
+                    {
+                        Status = "Done"
+                    };
 
-                await ReservationService.Put<eCarService.Model.Reservation>(item.ReservationId, updateRequest);
-                loadOrders();
-                MessageBox.Show("Service is now done!");
-            }
+                    await CustomServiceChangeStatus.Put<eCarService.Model.CustomOfferRequest>
+                    (item.ReservationId, updateRequest);
+
+                    loadOrders();
+
+                    MessageBox.Show("Service is now done!");
+
+                }
                 else
+                {
+                    MessageBox.Show("Service is already done!");
+                }
+
+            }
+
+            if (e.ColumnIndex == dgvOrderList.Columns["AdditionalServices"].Index && e.RowIndex >= 0)
             {
-                MessageBox.Show("Service is already done!");
-            }    
-           
+                var item = dgvOrderList.Rows[e.RowIndex].DataBoundItem as eCarService.Model.Reservation;
+                Form form = new frmOrderAdditionalServList(item);
+                form.ShowDialog();
+            }
+
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -14,8 +14,19 @@ namespace eCarService.Controllers
     public class ReservationController : BaseCRUDController<Model.Reservation, OrderSearchObject, 
         ReservationInsertRequest, ReservationInsertRequest>
     {
+        private readonly IReservationService _service;
+
         public ReservationController(IReservationService service) : base(service)
-        { }
+        {
+            this._service = service;
+        }
+
+
+        [HttpPut("changeStatus/{id}")]
+        public Model.Reservation ChangeStatus(int id, [FromBody] ChangeStatusRequest req)
+        {
+            return _service.ChangeStatus(id, req.Status);
+        }
     }
 
 }

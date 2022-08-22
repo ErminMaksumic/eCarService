@@ -51,15 +51,20 @@ namespace eCarService.Service.Implementation
             {
                 filteredQuery = filteredQuery.Where(x => x.Date > search.From && x.Date < search.To);
             }
+            if (!string.IsNullOrWhiteSpace(search.Name))
+            {
+                filteredQuery = filteredQuery.Where(x => x.Offer.Name.StartsWith(search.Name));
+            }
 
-            return filteredQuery.Include("Offer").Include("CarBrand");
+            return filteredQuery.Include("Offer").Include("CarBrand").Include("ReservationsAdditionalServices")
+                .Include("ReservationsAdditionalServices.AdditionalService");
         }
 
         public override IQueryable<Reservation> AddInclude(IQueryable<Reservation> query, OrderSearchObject search = null)
         {
             var filteredQuery = base.AddInclude(query, search);
 
-            filteredQuery = filteredQuery.Include(x=> x.ReservationsAdditionalServices);
+            filteredQuery = filteredQuery.Include("ReservationsAdditionalServices");
 
             if (!string.IsNullOrWhiteSpace(search.Include))
                 filteredQuery = filteredQuery.Include(search.Include);
@@ -72,6 +77,18 @@ namespace eCarService.Service.Implementation
             var reservationAdditionalServices = _context.ReservationsAdditionalServices.Where(x => x.ReservationId == entity.ReservationId);
 
             _context.RemoveRange(reservationAdditionalServices);
+        }
+
+        public Model.Reservation ChangeStatus(int id, string status)
+        {
+            var entity = _context.Reservations.Find(id);
+
+            if (entity != null)
+                entity.Status = status;
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Reservation>(entity);
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using eCarService.Model.Requests;
+﻿using eCarService.Model;
+using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace eCarService.Service.Interfaces
 {
     public interface IReservationService : ICRUDService<Model.Reservation, OrderSearchObject, 
         ReservationInsertRequest,ReservationInsertRequest>
-    {}
+    {
+        Reservation ChangeStatus(int id, string status);
+    }
 }

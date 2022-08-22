@@ -40,7 +40,8 @@ namespace eCarService.Service
             CreateMap<Database.AdditionalService, Model.AdditionalService>().ReverseMap();
             CreateMap<Database.AdditionalService, AdditionalServiceUpsertRequest>().ReverseMap();
 
-            CreateMap<Database.Reservation, Model.Reservation>().ReverseMap();
+            CreateMap<Database.Reservation, Model.Reservation>().ForMember(x => x.AdditionalServ,
+                opts => opts.MapFrom(x => x.ReservationsAdditionalServices.Select(x => x.AdditionalService).ToList()));
             CreateMap<Database.Reservation, ReservationInsertRequest>().ReverseMap();
 
             CreateMap<Database.Role, Model.Role>().ReverseMap();
