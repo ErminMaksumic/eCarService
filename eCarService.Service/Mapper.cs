@@ -52,6 +52,11 @@ namespace eCarService.Service
             CreateMap<Database.CustomOfferRequest, Model.CustomOfferRequest>().ReverseMap();
             CreateMap<Database.CustomOfferRequest, CustomOfferUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.Payment, Model.Payment>().ReverseMap();
+            CreateMap<Database.Payment, PaymentUpsertRequest>().ReverseMap();
+            CreateMap<Model.Payment, PaymentUpsertRequest>().ReverseMap();
+
+
 
 
         }

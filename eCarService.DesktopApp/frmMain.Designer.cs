@@ -78,8 +78,8 @@ namespace eProdajaService.WinUI
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(992, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -261,56 +261,59 @@ namespace eProdajaService.WinUI
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::eCarService.DesktopApp.Properties.Resources.modern_car_repair_station_with_large_number_lifts_specialized_equipment_diagnostics_service_repair_car_283617_3976;
             this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(744, 320);
+            this.pictureBox1.Size = new System.Drawing.Size(992, 399);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
             // btnCreateService
             // 
             this.btnCreateService.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCreateService.Location = new System.Drawing.Point(290, 243);
-            this.btnCreateService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateService.Location = new System.Drawing.Point(339, 311);
+            this.btnCreateService.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnCreateService.Name = "btnCreateService";
-            this.btnCreateService.Size = new System.Drawing.Size(255, 80);
-            this.btnCreateService.TabIndex = 7;
+            this.btnCreateService.Size = new System.Drawing.Size(340, 98);
+            this.btnCreateService.TabIndex = 16;
             this.btnCreateService.Text = "Create your CAR SERVICE to access your panel!";
             this.btnCreateService.UseVisualStyleBackColor = false;
-            this.btnCreateService.Click += new System.EventHandler(this.btnCreateService_Click_1);
+            this.btnCreateService.Click += new System.EventHandler(this.btnCreateService_Click);
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.lblUserName.Location = new System.Drawing.Point(340, 117);
+            this.lblUserName.Location = new System.Drawing.Point(533, 183);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(0, 37);
-            this.lblUserName.TabIndex = 6;
+            this.lblUserName.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Linen;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F);
-            this.label1.Location = new System.Drawing.Point(153, 117);
+            this.label1.Location = new System.Drawing.Point(284, 183);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 37);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 14;
             this.label1.Text = "Welcome back: ";
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 344);
+            this.ClientSize = new System.Drawing.Size(992, 423);
             this.Controls.Add(this.btnCreateService);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "frmMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmMain_Load);

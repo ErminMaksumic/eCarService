@@ -84,6 +84,7 @@ namespace eProdajaService.WinUI.Parts
             this.dgvParts.Location = new System.Drawing.Point(2, 15);
             this.dgvParts.Margin = new System.Windows.Forms.Padding(2);
             this.dgvParts.Name = "dgvParts";
+            this.dgvParts.ReadOnly = true;
             this.dgvParts.RowHeadersWidth = 51;
             this.dgvParts.RowTemplate.Height = 29;
             this.dgvParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -98,6 +99,7 @@ namespace eProdajaService.WinUI.Parts
             this.Name.HeaderText = "Name";
             this.Name.MinimumWidth = 6;
             this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
             // 
             // Quantity
             // 
@@ -106,6 +108,7 @@ namespace eProdajaService.WinUI.Parts
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // label2
             // 

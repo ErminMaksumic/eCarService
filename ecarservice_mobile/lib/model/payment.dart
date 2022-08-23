@@ -5,7 +5,7 @@ part 'payment.g.dart';
 class Payment {
   int? paymentId;
   String? fullName;
-  int? amount;
+  double? amount;
   String? date;
 
   Payment() {}

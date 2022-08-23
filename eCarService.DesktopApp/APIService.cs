@@ -96,12 +96,21 @@ namespace eCarService.WinUI
             }
         }
 
-        public async Task<T> Post<T>(object request)
+        public async Task<T> Post<T>(object request, bool register = false)
         {
             try
             {
-                var result = await $"{endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                T result;
 
+                if (register)
+                {
+                     result = await $"{endpoint}{_resource}".PostJsonAsync(request).ReceiveJson<T>();
+                }
+                else
+                {
+                     result = await $"{endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+
+                }
                 return result;
             }
             catch (FlurlHttpException ex)

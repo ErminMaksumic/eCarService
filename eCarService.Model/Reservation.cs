@@ -13,6 +13,8 @@ namespace eCarService.Model
         public DateTime Date { get; set; }
         public int? UserId { get; set; }
         public int? OfferId { get; set; }
+        public int? PaymentId { get; set; }
+
         public virtual Offer Offer { get; set; }
         public virtual CarBrand CarBrand { get; set; }
         public string BrandName => CarBrand?.Name;

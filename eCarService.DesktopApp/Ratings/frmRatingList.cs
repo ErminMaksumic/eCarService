@@ -35,7 +35,7 @@ namespace eProdajaService.WinUI.Ratings
                 OfferName = txtSearch.Text
             });
 
-            lblAverageRating.Text = Math.Round((double)result.Average(x => x.Rate),2).ToString();
+            lblAverageRating.Text = result.Count() > 0 ? Math.Round((double)result.Average(x => x.Rate), 2).ToString() : "0";
 
             dgvRatingList.AutoGenerateColumns = false;
             dgvRatingList.DataSource = result;

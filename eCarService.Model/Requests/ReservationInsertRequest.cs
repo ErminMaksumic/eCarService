@@ -15,6 +15,7 @@ namespace eCarService.Model.Requests
         public int CarBrandId { get; set; }
         public int? OfferId { get; set; }
         public List<int> AdditionalServices { get; set; } = new List<int>();
+        public PaymentUpsertRequest Payment { get; set; }
 
     }
 }

@@ -141,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.cyan),
                 )),
                 onTap: () {
-                  Navigator.pop(context, RegistrationScreen.routeName);
+                  Navigator.pushNamed(context, RegistrationScreen.routeName);
                 },
               )),
             ],

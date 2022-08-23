@@ -46,7 +46,9 @@ class _ReservationScreenState extends State<ReservationScreen> {
   String? expDate;
   Map<String, dynamic>? paymentIntentData;
   final _formKey = GlobalKey<FormState>();
-  List<int> values = [];
+  List<int> valuesIds = [];
+  List<AdditionalService>? valuesObjects = [];
+  double amount = 0;
 
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -213,7 +215,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
                                 colors: [Colors.cyan, Colors.blue])),
                         child: InkWell(
                           onTap: () async {
-                            makePayment(260);
+                            makePayment(calculateAmount(_data!.price!));
                           },
                           child: const Center(child: Text("Reserve offer")),
                         ),
@@ -381,15 +383,19 @@ class _ReservationScreenState extends State<ReservationScreen> {
               isThreeLine: true,
               activeColor: Colors.green,
               checkColor: Colors.white,
-              value:
-                  values.indexOf(x.additionalServiceId!) != -1 ? true : false,
+              value: valuesIds.indexOf(x.additionalServiceId!) != -1
+                  ? true
+                  : false,
               onChanged: (bool? value) {
                 setState(() {
                   if (value! == true) {
                     loadRecommendedServices(x.additionalServiceId);
-                    values.add(x.additionalServiceId!);
-                  } else
-                    values.remove(x.additionalServiceId);
+                    valuesIds.add(x.additionalServiceId!);
+                    valuesObjects!.add(x);
+                  } else {
+                    valuesIds.remove(x.additionalServiceId);
+                    valuesObjects!.remove(x);
+                  }
                 });
               },
             ),
@@ -409,13 +415,6 @@ class _ReservationScreenState extends State<ReservationScreen> {
   }
 
   void createReservationPayment() async {
-    var payment = await _paymentProvider.insert({
-      'transactionId': '2221',
-      'amount': '200',
-      'date': DateFormat('yyyy-MM-dd').format(DateTime.now()),
-      'fullName': _firstNameController.text + " " + _lastNameController.text
-    });
-
     var reservation = await _reservationProvider.insert({
       'date': selectedDate,
       'userId': UserLogin.user!.userId,
@@ -423,7 +422,22 @@ class _ReservationScreenState extends State<ReservationScreen> {
       'carBrandId': selectedCarBrand,
       'status': "active",
       'note': "active",
-      'additionalServices': values,
+      'additionalServices': valuesIds,
+      'payment': {
+        'transactionId': paymentIntentData!['id'],
+        'amount': calculateAmount(_data!.price!),
+        'date': DateFormat('yyyy-MM-dd').format(DateTime.now()),
+        'fullName': _firstNameController.text + " " + _lastNameController.text
+      }
     });
+  }
+
+  double calculateAmount(double offerPrice) {
+    double addServicesAmount = 0;
+    valuesObjects!.forEach((element) {
+      addServicesAmount += element.price!;
+    });
+
+    return addServicesAmount + offerPrice;
   }
 }

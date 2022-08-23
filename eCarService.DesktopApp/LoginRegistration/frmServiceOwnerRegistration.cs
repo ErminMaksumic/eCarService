@@ -48,7 +48,7 @@ namespace eCarService.WinUI.LoginRegistration
                         RoleId = 3
 
                     };
-                    var user = await UsersService.Post<Model.User>(newUser);
+                    var user = await UsersService.Post<Model.User>(newUser, true);
 
                     if (user != null)
                     {

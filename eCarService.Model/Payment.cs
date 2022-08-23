@@ -10,8 +10,8 @@ namespace eCarService.Model
     {
         public int PaymentId { get; set; }
         public decimal? Amount { get; set; }
-        public int? ReservationId { get; set; }
-        public int? TransactionId { get; set; }
+        public string TransactionId { get; set; }
         public string FullName { get; set; }
+
     }
 }

@@ -62,13 +62,15 @@ namespace eCarService.WinUI.Brands
                     CarServiceId = ServiceCredentials.ServiceId
                 };
 
-                await BrandService.Post<dynamic>(request);
+                var result = await BrandService.Post<dynamic>(request);
 
-                MessageBox.Show($"Brand {request.Name} was successfuly added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                txtName.Clear();
-
-                loadBrands();
+                if (result != null)
+                {
+                    MessageBox.Show($"Brand {request.Name} was successfuly added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtName.Clear();
+                    loadBrands();
+                }
+               
             }
         }
 
