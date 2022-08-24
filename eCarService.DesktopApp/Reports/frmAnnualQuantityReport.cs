@@ -35,7 +35,8 @@ namespace eCarService.DesktopApp.Reports
 
             var result = await ReservationService.Get<List<eCarService.Model.Reservation>>(new OrderSearchObject()
             {
-                CarServiceId = ServiceCredentials.ServiceId
+                CarServiceId = ServiceCredentials.ServiceId,
+                ExcludeDefaultValues = true
             });
 
             var user = await UserService.GetById<Model.User>(ServiceCredentials.UserId);

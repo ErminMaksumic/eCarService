@@ -47,7 +47,7 @@ namespace eCarService.Service.Implementation
             {
                 filteredQuery = filteredQuery.Where(x => x.Offer.CarServiceId == search.CarServiceId);
             }
-            if (search.From != null && search.To != null)
+            if (!search.ExcludeDefaultValues)
             {
                 filteredQuery = filteredQuery.Where(x => x.Date > search.From && x.Date < search.To);
             }

@@ -10,5 +10,6 @@ namespace eCarService.Model.SearchObjects
         public DateTime From { get; set; } = DateTime.Now.AddYears(-1); 
         public DateTime To { get; set; } = DateTime.Now;
         public string Include { get; set; }
+        public bool ExcludeDefaultValues { get; set; } = false;
     }
 }
