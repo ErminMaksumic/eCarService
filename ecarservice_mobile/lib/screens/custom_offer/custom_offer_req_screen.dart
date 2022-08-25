@@ -207,7 +207,7 @@ class _CustomOfferReqScreenState extends State<CustomOfferReqScreen> {
                                           AlertDialog(
                                             title: const Text("Success"),
                                             content: const Text(
-                                                "Rating successfully added!"),
+                                                "Custom request successfully sent!"),
                                             actions: [
                                               TextButton(
                                                   onPressed: () async =>

@@ -35,7 +35,7 @@ namespace eCarService.Service.Implementation
 
         public Model.CustomOfferRequest ChangeStatus(int id, string status)
         {
-            var entity = _context.CustomOfferRequests.Find(id);
+            var entity = _context.CustomOfferRequests.Include("User").First(x=> x.CustomReqId == id);
 
             entity.Status = status;
 
@@ -53,7 +53,10 @@ namespace eCarService.Service.Implementation
 
         public override IQueryable<CustomOfferRequest> AddInclude(IQueryable<CustomOfferRequest> query, CustomOfferSearchObject search = null)
         {
-            return query.Include("User");
+            var filteredQuery = base.AddInclude(query, search);
+
+            filteredQuery = filteredQuery.Include("User");
+            return filteredQuery;
         }
     }
 }
