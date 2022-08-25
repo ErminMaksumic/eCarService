@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eCarService.Database;
+using eCarService.Model.Helpers;
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.Service.Interfaces;
@@ -46,6 +47,10 @@ namespace eCarService.Service.Implementation
             if (search.CarServiceId != null && search.CarServiceId != 0)
             {
                 filteredQuery = filteredQuery.Where(x => x.Offer.CarServiceId == search.CarServiceId);
+            }
+            if (search.UserId != null && search.UserId != 0)
+            {
+                filteredQuery = filteredQuery.Where(x => x.UserId == search.UserId);
             }
             if (!search.ExcludeDefaultValues)
             {

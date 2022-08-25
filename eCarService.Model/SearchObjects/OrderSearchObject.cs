@@ -11,5 +11,6 @@ namespace eCarService.Model.SearchObjects
         public DateTime To { get; set; } = DateTime.Now;
         public string Include { get; set; }
         public bool ExcludeDefaultValues { get; set; } = false;
+        public int UserId { get; set; }
     }
 }

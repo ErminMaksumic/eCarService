@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eCarService.Database;
+using eCarService.Model.Helpers;
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.Service.Interfaces;
@@ -20,6 +21,11 @@ namespace eCarService.Service.Implementation
 
         public override Model.Offer Insert(OfferUpsertRequest request)
         {
+            if (request.Brands.Count() < 1)
+            {
+                throw new UserException("You must select at least 1 car brand");
+            }
+
             var offer = _mapper.Map<Offer>(request);
 
             _context.Offers.Add(offer);
@@ -52,6 +58,11 @@ namespace eCarService.Service.Implementation
 
         public override Model.Offer Update(int id, OfferUpsertRequest request)
         {
+            if (request.Brands.Count() < 1)
+            {
+                throw new UserException("You must select at least 1 car brand");
+            }
+
             var entity = _context.Offers.Include("CarBrandOffers")
                 .Include("OfferParts").FirstOrDefault(x=> x.OfferId == id);
 
@@ -154,5 +165,6 @@ namespace eCarService.Service.Implementation
 
             return includedQuery;
         }
+
     }
 }

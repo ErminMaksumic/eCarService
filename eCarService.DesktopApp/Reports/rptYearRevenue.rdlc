@@ -47,7 +47,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Annual revenue</Value>
+                    <Value>Annual revenue (without additional services)</Value>
                     <Style>
                       <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -62,9 +62,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>0.23833in</Top>
-            <Left>2.67063in</Left>
+            <Left>0.66021in</Left>
             <Height>0.33333in</Height>
-            <Width>2.02083in</Width>
+            <Width>6.05208in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
