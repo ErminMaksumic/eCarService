@@ -1,5 +1,7 @@
 import 'package:flutterv1/model/additionalService.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'offer.dart';
 part 'reservation.g.dart';
 
 @JsonSerializable()
@@ -9,7 +11,9 @@ class Reservation {
   int? offerId;
   int? paymentId;
   int? carBrandId;
+  String? status;
   String? date;
+  Offer? offer;
   List<AdditionalService>? additionalServices;
 
   Reservation() {}

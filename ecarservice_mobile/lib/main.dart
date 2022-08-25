@@ -8,6 +8,7 @@ import 'package:flutterv1/providers/rating_provider.dart';
 import 'package:flutterv1/providers/reservation_provider.dart';
 import 'package:flutterv1/providers/user_provider.dart';
 import 'package:flutterv1/screens/custom_offer/custom_offer_req_screen.dart';
+import 'package:flutterv1/screens/reservation/reservation_list_screen.dart';
 import 'package:flutterv1/screens/user/login_screen.dart';
 import 'package:flutterv1/screens/offers/offer_details_screen.dart';
 import 'package:flutterv1/screens/offers/offers_screen.dart';
@@ -66,6 +67,10 @@ class MyApp extends StatelessWidget {
           if (settings.name == CustomOfferReqScreen.routeName) {
             return MaterialPageRoute(
                 builder: (context) => const CustomOfferReqScreen());
+          }
+          if (settings.name == ReservationListScreen.routeName) {
+            return MaterialPageRoute(
+                builder: (context) => const ReservationListScreen());
           }
 
           // dynamic uri for sending url with id

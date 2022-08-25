@@ -9,7 +9,7 @@ part of 'payment.dart';
 Payment _$PaymentFromJson(Map<String, dynamic> json) => Payment()
   ..paymentId = json['paymentId'] as int?
   ..fullName = json['fullName'] as String?
-  ..amount = json['amount'] as double?
+  ..amount = (json['amount'] as num?)?.toDouble()
   ..date = json['date'] as String?;
 
 Map<String, dynamic> _$PaymentToJson(Payment instance) => <String, dynamic>{

@@ -23,6 +23,7 @@ import '../../providers/offer_provider.dart';
 import '../../providers/payment.dart';
 import '../../providers/user_provider.dart';
 import '../../utils/util.dart';
+import '../offers/offers_screen.dart';
 
 class ReservationScreen extends StatefulWidget {
   static const String routeName = "/reservation";
@@ -96,7 +97,8 @@ class _ReservationScreenState extends State<ReservationScreen> {
                     fit: BoxFit.cover),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.all(20),
                 child: Center(
                   child: Center(
                       child: Text(
@@ -177,7 +179,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
                           ),
                         ],
                       ),
-                      Container(
+                      SizedBox(
                         width: 300,
                         height: 200,
                         child: Card(
@@ -201,11 +203,16 @@ class _ReservationScreenState extends State<ReservationScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
+                      const Text(
+                        "Recommenders are based on your last click on checkbox",
+                        style: TextStyle(color: Colors.cyan),
+                      ),
+                      const SizedBox(height: 20),
                       Column(
                         children: _buildAddServices(),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Container(
                         height: 50,
                         margin: EdgeInsets.fromLTRB(50, 20, 50, 0),
@@ -215,7 +222,9 @@ class _ReservationScreenState extends State<ReservationScreen> {
                                 colors: [Colors.cyan, Colors.blue])),
                         child: InkWell(
                           onTap: () async {
-                            makePayment(calculateAmount(_data!.price!));
+                            await makePayment(calculateAmount(_data!.price!));
+                            Navigator.pushNamed(
+                                context, OfferListScreen.routeName);
                           },
                           child: const Center(child: Text("Reserve offer")),
                         ),
@@ -366,18 +375,28 @@ class _ReservationScreenState extends State<ReservationScreen> {
     List<int>? addServiceIds = [];
 
     _recommendedServices!.forEach((element) {
-      addServiceIds!.add(element.additionalServiceId!);
+      addServiceIds.add(element.additionalServiceId!);
     });
 
     List<Widget> list = _additionalServices!
         .map(
           (x) => Center(
             child: CheckboxListTile(
-              title: Text(x.name!),
-              subtitle: addServiceIds!.indexOf(x.additionalServiceId!) > -1
-                  ? Text(
-                      x.price!.toString() + "\$ - We recommend you this offer!")
-                  : Text(x.price!.toString() + "\$"),
+              title: Text("${x.name!}" "(${x.price!}\$)"),
+              subtitle: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: addServiceIds.indexOf(x.additionalServiceId!) > -1
+                            ? " - We recommend you this service!"
+                            : '',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red,
+                            fontSize: 15)),
+                  ],
+                ),
+              ),
               secondary: const Icon(Icons.car_rental),
               autofocus: false,
               isThreeLine: true,
@@ -415,21 +434,30 @@ class _ReservationScreenState extends State<ReservationScreen> {
   }
 
   void createReservationPayment() async {
-    var reservation = await _reservationProvider.insert({
-      'date': selectedDate,
-      'userId': UserLogin.user!.userId,
-      'offerId': _data!.offerId,
-      'carBrandId': selectedCarBrand,
-      'status': "active",
-      'note': "active",
-      'additionalServices': valuesIds,
-      'payment': {
-        'transactionId': paymentIntentData!['id'],
-        'amount': calculateAmount(_data!.price!),
-        'date': DateFormat('yyyy-MM-dd').format(DateTime.now()),
-        'fullName': _firstNameController.text + " " + _lastNameController.text
-      }
-    });
+    try {
+      var reservation = await _reservationProvider.insert({
+        'date': selectedDate,
+        'userId': UserLogin.user!.userId,
+        'offerId': _data!.offerId,
+        'carBrandId': selectedCarBrand,
+        'status': "Active",
+        'note': _descriptionController.text,
+        'additionalServices': valuesIds,
+        'payment': {
+          'transactionId': paymentIntentData!['id'],
+          'amount': calculateAmount(_data!.price!),
+          'date': DateFormat('yyyy-MM-dd').format(DateTime.now()),
+          'fullName': "${_firstNameController.text} ${_lastNameController.text}"
+        }
+      });
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+                title: Text("Error ocurred"),
+                content: Text("You cannot reserve own offer!!"),
+              ));
+    }
   }
 
   double calculateAmount(double offerPrice) {

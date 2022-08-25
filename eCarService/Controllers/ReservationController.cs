@@ -1,4 +1,5 @@
-﻿using eCarService.Model.Requests;
+﻿using eCarService.Model;
+using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,7 @@ namespace eCarService.Controllers
         {
             return _service.ChangeStatus(id, req.Status);
         }
+
     }
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutterv1/screens/reservation/reservation_list_screen.dart';
 import 'package:flutterv1/screens/user/login_screen.dart';
 import 'package:flutterv1/screens/offers/offers_screen.dart';
 import '../utils/util.dart';
@@ -17,6 +18,13 @@ class DrawerMenu extends StatelessWidget {
             title: const Text('Offers'),
             onTap: () {
               Navigator.pushNamed(context, OfferListScreen.routeName);
+            },
+          ),
+          ListTile(
+            title: const Text('My reservations'),
+            onTap: () {
+              Navigator.popAndPushNamed(
+                  context, ReservationListScreen.routeName);
             },
           ),
           ListTile(
