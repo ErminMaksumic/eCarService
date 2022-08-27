@@ -8,8 +8,9 @@ namespace eCarService.Model.Requests
     public class ReservationInsertRequest
     {
         public string Status { get; set; }
-        [MaxLength(20)]
+        [MaxLength(30)]
         public string Note { get; set; }
+        [Required]
         public DateTime? Date { get; set; }
         public int? UserId { get; set; }
         public int CarBrandId { get; set; }

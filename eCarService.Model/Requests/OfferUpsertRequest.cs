@@ -9,7 +9,7 @@ namespace eCarService.Model.Requests
     {
         [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string Name { get; set; }
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), Range(1, 1000)]
         public decimal Price { get; set; }
         public string Status { get; set; }
         public int? CarServiceId { get; set; }

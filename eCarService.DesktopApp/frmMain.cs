@@ -188,18 +188,19 @@ namespace eProdajaService.WinUI
             form.ShowDialog();
         }
 
-        private void bestSellingOfferToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form form = new frmAnnualQuantityReport();
-            form.ShowDialog();
-        }
-
+     
 
         private void btnCreateService_Click(object sender, EventArgs e)
         {
             Form form = new frmServiceRegistration();
 
             form.ShowDialog();
+        }
+
+        private void annualCount_Click(object sender, EventArgs e)
+        {
+                Form form = new frmAnnualQuantityReport();
+                form.ShowDialog();
         }
     }
 }

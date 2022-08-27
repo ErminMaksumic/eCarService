@@ -68,9 +68,7 @@ namespace eProdajaService.WinUI
 
                 MessageBox.Show($"Part {request.Name} was successfuly edited!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            Form form = new frmParts();
             this.Close();
-            form.ShowDialog();
             }
 
         }

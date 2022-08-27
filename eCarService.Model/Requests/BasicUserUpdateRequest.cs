@@ -7,13 +7,13 @@ namespace eCarService.Model.Requests
 {
     public class BasicUserUpdateRequest
     {
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(10)]
         public string FirstName { get; set; }
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(15)]
         public string LastName { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [EmailAddress()]
+        [EmailAddress(), MaxLength(15)]
         public string Email { get; set; }
     }
 }

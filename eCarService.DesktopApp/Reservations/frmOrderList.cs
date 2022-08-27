@@ -33,7 +33,7 @@ namespace eProdajaService.WinUI.Orders
 
         private void setDefaultValues()
         {
-            dtpFrom.Value = DateTime.Now;
+            dtpFrom.Value = DateTime.Now.AddYears(-1);
             dtpTo.Value = DateTime.Now.AddYears(1);
         }
 

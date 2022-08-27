@@ -158,7 +158,14 @@ namespace eCarService.Service.Implementation
                 .Select(x => x.Item1).Take(3).ToList();
         }
 
+        public override void BeforeDelete(AdditionalService entity)
+        {
+            var reservationsAdditionalServices = _context.ReservationsAdditionalServices.Where(x => x.AdditionalServiceId == entity.AdditionalServiceId).ToList();
+
+            _context.RemoveRange(reservationsAdditionalServices);
+        }
     }
+
     public class Copurchase_prediction
     {
         public float Score { get; set; }

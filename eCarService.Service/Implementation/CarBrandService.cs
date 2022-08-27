@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eCarService.Database;
+using eCarService.Model.Helpers;
 using eCarService.Model.Requests;
 using eCarService.Model.SearchObjects;
 using eCarService.Service.Interfaces;
@@ -36,6 +37,9 @@ namespace eCarService.Service.Implementation
 
         public override void BeforeDelete(CarBrand entity)
         {
+            if (_context.CarBrands.Where(x=> x.CarServiceId == entity.CarServiceId).ToList().Count() == 1)
+                throw new UserException("You must have at least 1 car brand!");
+
             var brandOffer = _context.CarBrandOffers.Where(x => x.CarBrandId == entity.CarBrandId);
 
             _context.RemoveRange(brandOffer);

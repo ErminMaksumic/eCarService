@@ -9,6 +9,7 @@ namespace eCarService.Model.Requests
     {
         [Required(AllowEmptyStrings = false), MaxLength(18)]
         public string Name { get; set; }
+        [Range(0, 200)]
         public int Quantity { get; set; }
         public int CarServiceId { get; set; }
     }

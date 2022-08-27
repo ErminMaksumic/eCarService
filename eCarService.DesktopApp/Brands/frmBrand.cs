@@ -70,7 +70,6 @@ namespace eCarService.WinUI.Brands
                     txtName.Clear();
                     loadBrands();
                 }
-               
             }
         }
 
@@ -126,20 +125,24 @@ namespace eCarService.WinUI.Brands
 
         private async void deleteBrand(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == dgvBrands.Columns["Delete"].Index && e.RowIndex >= 0)
             {
-                var item = dgvBrands.Rows[e.RowIndex].DataBoundItem as eCarService.Model.CarBrand;
-                await BrandService.Delete<eCarService.Model.CarBrand>(item.CarBrandId);
+                    var item = dgvBrands.Rows[e.RowIndex].DataBoundItem as eCarService.Model.CarBrand;
+                    var result = await BrandService.Delete<eCarService.Model.CarBrand>(item.CarBrandId);
 
-                loadBrands();
+                    if (result != null)
+                    {
+                        loadBrands();
 
-                txtEditName.Clear();
+                        txtEditName.Clear();
 
-                MessageBox.Show($"Brand is successfuly deleted!",
-                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        MessageBox.Show($"Brand is successfuly deleted!",
+                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
             }
+           
+
+           
         }
     }
 }

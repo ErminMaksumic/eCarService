@@ -7,17 +7,17 @@ namespace eCarService.Model.Requests
 {
     public class UserUpdateRequest
     {
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(10)]
         public string FirstName { get; set; }
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string LastName { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [EmailAddress()]
+        [EmailAddress(), MaxLength(15)]
         public string Email { get; set; }
-        [Required(AllowEmptyStrings = false), MinLength(5)]
+        [Required(AllowEmptyStrings = false), MinLength(5), MaxLength(20)]
         public string Password { get; set; }
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string PasswordConfirmation { get; set; }
         public byte[] Image { get; set; }
     }

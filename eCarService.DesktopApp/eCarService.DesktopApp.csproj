@@ -296,7 +296,7 @@
       <DependentUpon>frmOrderList.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="UserCredentials.cs" />
+    <Compile Include="ServiceCredentials.cs" />
     <EmbeddedResource Include="Administration\frmAdditionalServices.resx">
       <DependentUpon>frmAdditionalServices.cs</DependentUpon>
     </EmbeddedResource>

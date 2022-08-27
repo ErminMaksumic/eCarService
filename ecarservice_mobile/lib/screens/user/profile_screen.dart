@@ -36,7 +36,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return MasterScreenWidget(
         index: 2,
-        child: Column(
+        child: SingleChildScrollView(
+            child: Column(
           children: [
             Container(
               margin: const EdgeInsets.only(top: 10),
@@ -182,24 +183,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: const Center(child: Text("Change")),
                 )),
           ],
-        ));
+        )));
   }
 
   Future pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
 
-    debugPrint(image.toString());
+      debugPrint(image.toString());
 
-    if (image == null) return;
+      if (image == null) return;
 
-    final imageTemp = File(image.path);
-    Uint8List bytes = await image.readAsBytes();
-    ByteData.view(bytes.buffer);
-    var x = base64String(bytes);
+      final imageTemp = File(image.path);
+      Uint8List bytes = await image.readAsBytes();
+      ByteData.view(bytes.buffer);
+      var x = base64String(bytes);
 
-    setState(() {
-      this.image = imageTemp;
-      this.imageString = x;
-    });
+      setState(() {
+        this.image = imageTemp;
+        this.imageString = x;
+      });
+    } on Exception catch (e) {
+      print("failed to pick an image: ${e.toString()}");
+    }
   }
 }

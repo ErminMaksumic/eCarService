@@ -9,7 +9,7 @@ namespace eCarService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrator, ServiceRegistered")]
+    [Authorize(Roles = "Administrator, ServiceRegistered, Unregistered")] // unregistered == mobile
 
 
     public class ReservationController : BaseCRUDController<Model.Reservation, OrderSearchObject, 

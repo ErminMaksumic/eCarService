@@ -60,7 +60,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         this.imageString = x;
       });
     } on Exception catch (e) {
-      print("failed to pick image: ${e.toString()}");
+      print("failed to pick an image: ${e.toString()}");
     }
   }
 
@@ -76,31 +76,31 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       request.passwordConfirmation = _passwordConfirmationController.text;
       request.image = imageString;
       request.roleId = 3;
-      var response = await _userProvider.register(request);
+      await _userProvider.register(request);
 
       showDialog(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-                title: Text("Success"),
+                title: const Text("Success"),
                 content:
                     Text("You are registered as ${_userNameController.text}"),
                 actions: [
                   TextButton(
                       onPressed: () async => await Navigator.popAndPushNamed(
                           context, LoginScreen.routeName),
-                      child: Text("Ok"))
+                      child: const Text("Ok"))
                 ],
               ));
     } on Exception catch (e) {
       showDialog(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-                title: Text("Error"),
+                title: const Text("Error"),
                 content: Text(e.toString()),
                 actions: [
                   TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: Text("Ok"))
+                      child: const Text("Ok"))
                 ],
               ));
     }

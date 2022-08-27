@@ -8,7 +8,7 @@ namespace eCarService.Model.SearchObjects
     {
         public string Name { get; set; }
         public DateTime From { get; set; } = DateTime.Now.AddYears(-1); 
-        public DateTime To { get; set; } = DateTime.Now;
+        public DateTime To { get; set; } = DateTime.Now.AddYears(1);
         public string Include { get; set; }
         public bool ExcludeDefaultValues { get; set; } = false;
         public int UserId { get; set; }

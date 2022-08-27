@@ -40,8 +40,10 @@ class _ReservationListScreenScreenState extends State<ReservationListScreen> {
   }
 
   Future loadData() async {
-    var tmpData =
-        await _reservationProvider?.get({'userId': UserLogin.user!.userId});
+    var tmpData = await _reservationProvider?.get({
+      'userId': UserLogin.user!.userId,
+      'excludeDefaultValues': true,
+    });
 
     setState(() {
       data = tmpData!;
@@ -138,7 +140,9 @@ class _ReservationListScreenScreenState extends State<ReservationListScreen> {
             color: Colors.cyan,
             onPressed: () async {
               var tempData = await _reservationProvider?.get({
+                'userId': UserLogin.user!.userId,
                 'name': _searchController.text,
+                'excludeDefaultValues': true,
               });
               setState(() {
                 data = tempData!;
@@ -222,8 +226,8 @@ class _ReservationListScreenScreenState extends State<ReservationListScreen> {
                                     style: TextStyle(
                                         color: x.status == "Active" ||
                                                 x.status == "active"
-                                            ? Colors.red
-                                            : Colors.green,
+                                            ? Colors.green
+                                            : Colors.yellow,
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold))
                               ],

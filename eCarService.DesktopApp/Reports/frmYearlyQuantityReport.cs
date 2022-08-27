@@ -1,4 +1,5 @@
-﻿using eCarService.Model.SearchObjects;
+﻿using eCarService.DesktopApp;
+using eCarService.Model.SearchObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,8 @@ namespace eCarService.WinUI.Reports
             if (reset)
                 graphRevenue.Reset();
 
-            var result = await ReservationService.Get<List<eCarService.Model.Reservation>>(new OrderSearchObject() { Include = "Offer" });
+            var result = await ReservationService.Get<List<eCarService.Model.Reservation>>(new OrderSearchObject() 
+            { Include = "Offer", CarServiceId = ServiceCredentials.ServiceId});
 
             double[] dataX = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 

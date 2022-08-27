@@ -336,7 +336,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
     } on Exception catch (e) {
       showDialog(
           context: context,
-          builder: (_) => AlertDialog(
+          builder: (_) => const AlertDialog(
                 title: Text("Error ocurred"),
                 content: Text("Payment canceled!"),
               ));
@@ -390,7 +390,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
                         text: addServiceIds.indexOf(x.additionalServiceId!) > -1
                             ? " - We recommend you this service!"
                             : '',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.red,
                             fontSize: 15)),
@@ -455,7 +455,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
           context: context,
           builder: (_) => AlertDialog(
                 title: Text("Error ocurred"),
-                content: Text("You cannot reserve own offer!!"),
+                content: Text(e.toString()),
               ));
     }
   }
