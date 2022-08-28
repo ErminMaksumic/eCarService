@@ -33,7 +33,7 @@ namespace eProdajaService.WinUI.Administration
         {
             UserSearchObject searchObject = new UserSearchObject()
             {
-                Name = txtSearch.Text
+                FullName = txtSearch.Text
             };
             var result = await UsersService.Get<List<eCarService.Model.User>>(searchObject);
             dgvUsers.AutoGenerateColumns = false;

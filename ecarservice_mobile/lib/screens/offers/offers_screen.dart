@@ -245,9 +245,9 @@ class _OfferListScreenState extends State<OfferListScreen> {
                                           fontSize: 15)),
                                 ),
                                 Text(
-                                  x.parts!.length >= 3
-                                      ? "${x.threeParts!.take(3).toString()}, ..."
-                                      : x.parts!.length < 3 &&
+                                  x.parts!.length >= 2
+                                      ? "${x.threeParts!.take(2).toString()}, ..."
+                                      : x.parts!.length < 2 &&
                                               x.parts!.isNotEmpty
                                           ? x.partNames!
                                           : "Not specified",
