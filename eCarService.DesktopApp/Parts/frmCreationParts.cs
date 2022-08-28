@@ -58,16 +58,23 @@ namespace eProdajaService.WinUI
 
             if (!_partId.HasValue)
             {
-                await PartService.Post<dynamic>(request);
+                var result = await PartService.Post<dynamic>(request);
 
-                MessageBox.Show($"Part {request.Name} was successfuly created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                    if (result != null)
+                    {
+                        MessageBox.Show($"Part {request.Name} was successfuly created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    }
             else
             {
-                await PartService.Put<dynamic>(_partId, request);
 
-                MessageBox.Show($"Part {request.Name} was successfuly edited!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                var result = await PartService.Put<dynamic>(_partId, request);
+
+                    if (result != null)
+                    {
+                        MessageBox.Show($"Part {request.Name} was successfuly edited!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    }
             this.Close();
             }
 
