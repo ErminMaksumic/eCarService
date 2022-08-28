@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutterv1/model/additionalService.dart';
 import 'package:flutterv1/providers/additional_service_provider.dart';
 import 'package:flutterv1/providers/reservation_provider.dart';
+import 'package:flutterv1/screens/reservation/reservation_list_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart' hide Card;
@@ -223,8 +224,6 @@ class _ReservationScreenState extends State<ReservationScreen> {
                         child: InkWell(
                           onTap: () async {
                             await makePayment(calculateAmount(_data!.price!));
-                            Navigator.pushNamed(
-                                context, OfferListScreen.routeName);
                           },
                           child: const Center(child: Text("Reserve offer")),
                         ),
@@ -331,8 +330,19 @@ class _ReservationScreenState extends State<ReservationScreen> {
       });
 
       createReservationPayment();
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Payment successful")));
+      showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+                title: Text("Payment"),
+                content: const Text("Your order is completed"),
+                actions: [
+                  TextButton(
+                    onPressed: () async => await Navigator.popAndPushNamed(
+                        context, ReservationListScreen.routeName),
+                    child: const Text("Ok"),
+                  ),
+                ],
+              ));
     } on Exception catch (e) {
       showDialog(
           context: context,
