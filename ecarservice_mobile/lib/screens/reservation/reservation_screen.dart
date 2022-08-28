@@ -205,7 +205,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
                       ),
                       const SizedBox(height: 20),
                       const Text(
-                        "Recommenders are based on your last click on checkbox",
+                        "Recommendations are based on your last checkbox click",
                         style: TextStyle(color: Colors.cyan),
                       ),
                       const SizedBox(height: 20),
