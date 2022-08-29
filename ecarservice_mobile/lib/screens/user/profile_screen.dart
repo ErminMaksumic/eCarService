@@ -142,29 +142,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         colors: [Colors.cyan, Colors.red])),
                 child: InkWell(
                   onTap: () async {
+                    var result;
                     try {
-                      await _userProvider.changeProfile({
-                        'password': _newPassword.text,
-                        'passwordConfirmation': _newPasswordConfirmation.text,
-                        'image': imageString,
-                      });
-                      Navigator.pop(context);
+                      if (imageString == null && _newPassword.text.isEmpty) {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                const AlertDialog(
+                                  title: Text("Profile change failed"),
+                                  content:
+                                      Text("You must make at least one change"),
+                                ));
+                      } else {
+                        result = await _userProvider.changeProfile({
+                          'password': _newPassword.text,
+                          'passwordConfirmation': _newPasswordConfirmation.text,
+                          'image': imageString,
+                        });
+                      }
 
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                                title: const Text("Success"),
-                                content:
-                                    const Text("Profile successfully edited!"),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () async => {
-                                            await Navigator.popAndPushNamed(
-                                                context, LoginScreen.routeName)
-                                          },
-                                      child: const Text("Ok"))
-                                ],
-                              ));
+                      if (result != null) {
+                        Authorization.password = _newPassword.text;
+
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: const Text("Success"),
+                                  content: const Text(
+                                      "Profile successfully edited!"),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () async => {
+                                              await Navigator.popAndPushNamed(
+                                                  context,
+                                                  LoginScreen.routeName)
+                                            },
+                                        child: const Text("Ok"))
+                                  ],
+                                ));
+                      }
                     } on Exception catch (e) {
                       showDialog(
                           context: context,
