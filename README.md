@@ -26,6 +26,12 @@
     Password: serviceUser           
     ```    
 
+## Stripe payment - Valid card number
+
+    
+    Card number: 4242 4242 4242 4242
+   
+ 
 
 # Running the app
 
@@ -43,4 +49,5 @@
 ## [Visual code / android studio / ...]
 
     flutter pub get
-	flutter run
+	flutter run / flutter run --dart-define=baseUrl=http://[yourIp]:5045/api/
+
