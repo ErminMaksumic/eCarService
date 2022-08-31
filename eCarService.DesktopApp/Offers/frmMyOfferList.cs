@@ -47,12 +47,15 @@ namespace eProdajaService.WinUI.Offers
 
         private void dgvOffers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var data = dgvOffers.SelectedRows[0].DataBoundItem as Offer;
+            if (e.RowIndex >= 0)
+            {
+                var data = dgvOffers.SelectedRows[0].DataBoundItem as Offer;
 
-            Form editForm = new frmAddNewOffer(data.OfferId);
+                Form editForm = new frmAddNewOffer(data.OfferId);
 
-            editForm.ShowDialog();
-            loadOffers();
+                editForm.ShowDialog();
+                loadOffers();
+            }
         }
 
         private async void dgvOffers_CellClick(object sender, DataGridViewCellEventArgs e)

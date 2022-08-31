@@ -52,11 +52,15 @@ namespace eProdajaService.WinUI.Parts
 
         private void dgvParts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            editPart();
+            if (e.RowIndex >= 0)
+            {
+                editPart();
+            }
         }
 
         private void editPart()
         {
+
             var data = dgvParts.SelectedRows[0].DataBoundItem as Part;
 
             Form form = new frmCreationParts(data.PartId);

@@ -52,8 +52,11 @@ namespace eProdajaService.WinUI.Administration
 
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            showDetailsForm();
-            loadData();
+            if (e.RowIndex >= 0)
+            {
+                showDetailsForm();
+                loadData();
+            }
         }
 
         private void showDetailsForm()

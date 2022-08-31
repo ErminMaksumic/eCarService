@@ -132,7 +132,7 @@ class _OfferDetailsScreenScreenState extends State<OfferDetailsScreen> {
                                     children: _buildParts(),
                                   ),
                                   const SizedBox(
-                                    width: 80,
+                                    width: 30,
                                   ),
                                   Column(
                                     children: [

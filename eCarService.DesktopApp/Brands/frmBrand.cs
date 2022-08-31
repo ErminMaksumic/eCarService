@@ -75,8 +75,11 @@ namespace eCarService.WinUI.Brands
 
         private void dgvBrands_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _carBrand = dgvBrands.SelectedRows[0].DataBoundItem as CarBrand;
-            txtEditName.Text = _carBrand.Name;
+            if (e.RowIndex >= 0)
+            {
+                _carBrand = dgvBrands.SelectedRows[0].DataBoundItem as CarBrand;
+                txtEditName.Text = _carBrand.Name;
+            }
         }
 
         private async void btnEditSubmit_Click(object sender, EventArgs e)
