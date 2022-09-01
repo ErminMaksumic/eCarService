@@ -126,7 +126,6 @@ class _RatingScreenState extends State<RatingScreen> {
                         'rate': rating.round(),
                         'comment': _reviewController.text,
                         'offerId': widget.id,
-                        /*arguments['id'],*/
                         'userId': UserLogin.user!.userId,
                       });
                       showDialog(
@@ -147,7 +146,7 @@ class _RatingScreenState extends State<RatingScreen> {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
-                                title: const Text("Profile change failed"),
+                                title: const Text("Error"),
                                 content: const Text("Check field inputs"),
                                 actions: [
                                   TextButton(

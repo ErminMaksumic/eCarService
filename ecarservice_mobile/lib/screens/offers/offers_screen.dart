@@ -171,17 +171,6 @@ class _OfferListScreenState extends State<OfferListScreen> {
             },
           ),
         ),
-        // //delete this after testing !
-        // Container(
-        //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        //   child: IconButton(
-        //     icon: Icon(Icons.abc_sharp),
-        //     color: Colors.cyan,
-        //     onPressed: () async {
-        //       await Navigator.pushNamed(context, RatingScreen.routeName);
-        //     },
-        //   ),
-        // )
       ],
     );
   }

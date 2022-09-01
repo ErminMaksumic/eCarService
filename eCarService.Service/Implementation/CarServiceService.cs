@@ -78,6 +78,25 @@ namespace eCarService.Service.Implementation
 
             _context.RemoveRange(customOffers);
 
+            var carBrandOffer = _context.CarBrandOffers.Where(x => x.CarBrand.CarServiceId == entity.CarServiceId).ToList();
+
+            _context.RemoveRange(carBrandOffer);
+
+            var partOffer = _context.OfferParts.Where(x => x.Part.CarServiceId == entity.CarServiceId).ToList();
+
+            _context.RemoveRange(partOffer);
+
+            var reservations = _context.Reservations.Where(x => x.CarBrand.CarServiceId == entity.CarServiceId).ToList();
+
+            _context.RemoveRange(reservations);
+
+            var reservationAdditionalServices = _context.ReservationsAdditionalServices.Where(x => x.Reservation.CarBrand.CarServiceId == entity.CarServiceId).ToList();
+
+            _context.RemoveRange(reservationAdditionalServices);
+
+            var ratings = _context.Ratings.Where(x => x.Offer.CarServiceId == entity.CarServiceId).ToList();
+
+            _context.RemoveRange(reservations);
 
             _context.SaveChanges();
         }

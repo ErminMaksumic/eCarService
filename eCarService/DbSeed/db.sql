@@ -258,6 +258,9 @@ INSERT [dbo].[CarBrandOffer] ([CarBrandOfferId], [CarBrandId], [OfferId]) VALUES
 
 INSERT [dbo].[CarBrandOffer] ([CarBrandOfferId], [CarBrandId], [OfferId]) VALUES (30, 3, 2)
 
+INSERT [dbo].[CarBrandOffer] ([CarBrandOfferId], [CarBrandId], [OfferId]) VALUES (31, 7, 7)
+
+
 SET IDENTITY_INSERT [dbo].[CarBrandOffer] OFF
 
 SET IDENTITY_INSERT [dbo].[OfferParts] ON 
