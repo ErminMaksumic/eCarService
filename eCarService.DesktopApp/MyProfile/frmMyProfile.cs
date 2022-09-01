@@ -86,11 +86,19 @@ namespace eProdajaService.WinUI.MyProfile
 
         private void pbProfileImage_Click(object sender, EventArgs e)
         {
-            ofdChangeImage.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
-
-            if (ofdChangeImage.ShowDialog() == DialogResult.OK)
+            try
             {
-                pbProfileImage.Image = new Bitmap(ofdChangeImage.FileName);
+                ofdChangeImage.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
+
+                if (ofdChangeImage.ShowDialog() == DialogResult.OK)
+                {
+                    pbProfileImage.Image = new Bitmap(ofdChangeImage.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Invalid format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

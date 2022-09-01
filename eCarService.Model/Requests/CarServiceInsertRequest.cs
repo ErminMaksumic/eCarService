@@ -7,7 +7,7 @@ namespace eCarService.Model.Requests
 {
     public class CarServiceInsertRequest
     {
-        [Required(AllowEmptyStrings = false), MaxLength(15)]
+        [Required(AllowEmptyStrings = false), MaxLength(10)]
         public string Name { get; set; }
         [Required(AllowEmptyStrings = false), MaxLength(15)]
         public string Address { get; set; }

@@ -9,11 +9,11 @@ namespace eCarService.Model.Requests
     {
         [Required(AllowEmptyStrings = false), MaxLength(10)]
         public string FirstName { get; set; }
-        [Required(AllowEmptyStrings = false), MaxLength(15)]
+        [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string LastName { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [EmailAddress(), MaxLength(15)]
+        [EmailAddress(), MaxLength(25)]
         public string Email { get; set; }
     }
 }

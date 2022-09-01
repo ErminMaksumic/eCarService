@@ -20,7 +20,7 @@ namespace eCarService.Model.Requests
         [MinLength(4), MaxLength(15)]
         [Required(AllowEmptyStrings = false)]
         public string UserName { get; set; }
-        [Required(AllowEmptyStrings = false), MinLength(5), MaxLength(20)]
+        [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string Password { get; set; }
         [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string PasswordConfirmation { get; set; }

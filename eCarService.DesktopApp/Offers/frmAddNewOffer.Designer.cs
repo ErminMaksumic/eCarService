@@ -60,7 +60,7 @@ namespace eProdajaService.WinUI.Offers
             // txtOfferName
             // 
             this.txtOfferName.Location = new System.Drawing.Point(313, 21);
-            this.txtOfferName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOfferName.Margin = new System.Windows.Forms.Padding(2);
             this.txtOfferName.Name = "txtOfferName";
             this.txtOfferName.Size = new System.Drawing.Size(168, 20);
             this.txtOfferName.TabIndex = 0;
@@ -98,7 +98,12 @@ namespace eProdajaService.WinUI.Offers
             // numPrice
             // 
             this.numPrice.Location = new System.Drawing.Point(313, 58);
-            this.numPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.numPrice.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(166, 20);
             this.numPrice.TabIndex = 14;
@@ -106,7 +111,7 @@ namespace eProdajaService.WinUI.Offers
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(743, 257);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(70, 19);
             this.btnSubmit.TabIndex = 17;
@@ -118,7 +123,7 @@ namespace eProdajaService.WinUI.Offers
             // 
             this.clbParts.FormattingEnabled = true;
             this.clbParts.Location = new System.Drawing.Point(9, 54);
-            this.clbParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clbParts.Margin = new System.Windows.Forms.Padding(2);
             this.clbParts.Name = "clbParts";
             this.clbParts.Size = new System.Drawing.Size(168, 64);
             this.clbParts.TabIndex = 19;
@@ -127,7 +132,7 @@ namespace eProdajaService.WinUI.Offers
             // 
             this.clbBrands.FormattingEnabled = true;
             this.clbBrands.Location = new System.Drawing.Point(424, 54);
-            this.clbBrands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clbBrands.Margin = new System.Windows.Forms.Padding(2);
             this.clbBrands.Name = "clbBrands";
             this.clbBrands.Size = new System.Drawing.Size(168, 64);
             this.clbBrands.TabIndex = 21;
@@ -150,7 +155,7 @@ namespace eProdajaService.WinUI.Offers
             // 
             this.pbImage.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pbImage.Location = new System.Drawing.Point(4, 49);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(222, 128);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,9 +184,9 @@ namespace eProdajaService.WinUI.Offers
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.numPrice);
             this.groupBox1.Location = new System.Drawing.Point(20, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(608, 86);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
@@ -194,9 +199,9 @@ namespace eProdajaService.WinUI.Offers
             this.groupBox2.Controls.Add(this.label);
             this.groupBox2.Controls.Add(this.clbBrands);
             this.groupBox2.Location = new System.Drawing.Point(20, 114);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(608, 150);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
@@ -217,9 +222,9 @@ namespace eProdajaService.WinUI.Offers
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.pbImage);
             this.groupBox4.Location = new System.Drawing.Point(652, 34);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(244, 209);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
@@ -235,7 +240,7 @@ namespace eProdajaService.WinUI.Offers
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSubmit);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddNewOffer";
             this.Text = "Add new offer";
             this.Load += new System.EventHandler(this.frmAddNewOffer_Load);

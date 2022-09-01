@@ -67,11 +67,19 @@ namespace eCarService.WinUI.LoginRegistration
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ofdImage.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
+            try
+            {
+                ofdImage.Filter = "Image Files (*.jpg;*.jpeg;.*.png;)|*.jpg;*.jpeg;.*.png";
 
             if (ofdImage.ShowDialog() == DialogResult.OK)
             {
                 pbImage.Image = new Bitmap(ofdImage.FileName);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Invalid format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private bool ValidateInputs()
