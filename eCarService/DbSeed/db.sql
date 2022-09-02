@@ -166,15 +166,15 @@ INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId
 
 INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (7, N'My car is broken, I need service', N'I don''t know what is happened.', 2, N'Active', 2, CAST(N'2022-08-28T00:00:00.000' AS DateTime))
 
-INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (8, N'test', N'test', 4, N'Done', 1, CAST(N'2022-08-23T00:00:00.000' AS DateTime))
+INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (8, N'test', N'test', 4, N'Active', 1, CAST(N'2022-08-23T00:00:00.000' AS DateTime))
 
-INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (9, N'test', N'test', 2, N'Done', 1, CAST(N'2022-08-31T00:00:00.000' AS DateTime))
+INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (9, N'test', N'test', 2, N'Active', 1, CAST(N'2022-08-31T00:00:00.000' AS DateTime))
 
-INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (10, N'tet2', N'test2', 2, N'Done', 1, CAST(N'2022-08-30T00:00:00.000' AS DateTime))
+INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (10, N'tet2', N'test2', 2, N'Active', 1, CAST(N'2022-08-30T00:00:00.000' AS DateTime))
 
-INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (11, N'test', N'test', 4, N'Done', 1, CAST(N'2022-08-31T00:00:00.000' AS DateTime))
+INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (11, N'test', N'test', 4, N'Active', 1, CAST(N'2022-08-31T00:00:00.000' AS DateTime))
 
-INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (12, N'test', N'test', 2, N'Done', 1, CAST(N'2022-08-25T00:00:00.000' AS DateTime))
+INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (12, N'test', N'test', 2, N'Active', 1, CAST(N'2022-08-25T00:00:00.000' AS DateTime))
 
 INSERT [dbo].[CustomOfferRequest] ([CustomReqId], [Name], [Description], [UserId], [Status], [CarServiceId], [Date]) VALUES (13, N'test', N'test', 4, N'Done', 1, CAST(N'2022-08-23T00:00:00.000' AS DateTime))
 

@@ -25,7 +25,7 @@ namespace eCarService.Service.Implementation
 
             if (!string.IsNullOrWhiteSpace(searchObject.Name))
             {
-                filteredQuery = filteredQuery.Where(x => x.Address.StartsWith(searchObject.Name));
+                filteredQuery = filteredQuery.Where(x => x.Name.StartsWith(searchObject.Name));
             }
             if (searchObject?.UserId != null && searchObject.UserId!=0)
             {
