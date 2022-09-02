@@ -7,7 +7,7 @@ namespace eCarService.Model.Requests
 {
     public class UserUpdateRequest
     {
-        [Required(AllowEmptyStrings = false), MaxLength(10)]
+        [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string FirstName { get; set; }
         [Required(AllowEmptyStrings = false), MaxLength(20)]
         public string LastName { get; set; }

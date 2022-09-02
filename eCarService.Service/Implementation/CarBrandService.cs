@@ -40,9 +40,9 @@ namespace eCarService.Service.Implementation
             if (_context.CarBrands.Where(x=> x.CarServiceId == entity.CarServiceId).ToList().Count() == 1)
                 throw new UserException("You must have at least 1 car brand!");
 
-            var brandOffer = _context.CarBrandOffers.Where(x => x.CarBrandId == entity.CarBrandId);
+            if (_context.CarBrandOffers.Where(x => x.CarBrandId == entity.CarBrandId).ToList().Count() == 1)
+                throw new UserException("One or more offers contains this brand! Unselect brand in that offers first!");
 
-            _context.RemoveRange(brandOffer);
 
             var reservations = _context.Reservations.Where(x => x.CarBrandId == entity.CarBrandId);
 
