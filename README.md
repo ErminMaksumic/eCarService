@@ -46,7 +46,7 @@
     docker-compose up
     
 
-## [Visual code / android studio / ...]
+## [Terminal / Android Studio / ...]
 
     flutter pub get
 	flutter run / flutter run --dart-define=baseUrl=http://[yourIp]:5045/api/
