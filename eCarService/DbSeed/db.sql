@@ -184,21 +184,21 @@ SET IDENTITY_INSERT [dbo].[CustomOfferRequest] OFF
 
 SET IDENTITY_INSERT [dbo].[Ratings] ON 
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (1, 5, N'Great service!', 2, 3)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (1, 5, N'Great service!', 2, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (2, 1, N'Poor', 3, 3)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (2, 1, N'Poor', 3, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (3, 3, N'od service', 6, 3)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (3, 3, N'od service', 6, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (4, 5, N'All od', 7, 2)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (4, 5, N'All od', 7, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (5, 3, N'Parts quallity can be better', 9, 2)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (5, 3, N'Parts quallity can be better', 9, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (6, 2, N'Mechanic is rude', 10, 2)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (6, 2, N'Mechanic is rude', 10, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (7, 4, N'od service!', 2, 2)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (7, 4, N'od service!', 2, 4)
 
-INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (8, 2, N'Poor service', 3, 2)
+INSERT [dbo].[Ratings] ([RatingId], [Rate], [Comment], [OfferId], [UserId]) VALUES (8, 2, N'Poor service', 3, 4)
 
 SET IDENTITY_INSERT [dbo].[Ratings] OFF
 
