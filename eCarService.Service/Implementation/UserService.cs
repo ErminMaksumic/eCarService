@@ -70,6 +70,22 @@ namespace eCarService.Service.Implementation
                 throw new UserException("You cannot delete Administrator's account");
             }
 
+            var customReq = _context.CustomOfferRequests.Where(x => x.UserId == entity.UserId);
+
+            _context.RemoveRange(customReq);
+
+            var ratings = _context.Ratings.Where(x => x.UserId == entity.UserId);
+
+            _context.RemoveRange(ratings);
+
+            var reservations = _context.Reservations.Where(x => x.UserId == entity.UserId);
+
+            _context.RemoveRange(reservations);
+
+            var reservationsAdditionalServices = _context.ReservationsAdditionalServices.Where(x => x.Reservation.UserId == entity.UserId);
+
+            _context.RemoveRange(reservationsAdditionalServices);
+
             var data = _context.CarServices.Where(x => x.UserId == entity.UserId).FirstOrDefault();
 
             if(data!=null)
