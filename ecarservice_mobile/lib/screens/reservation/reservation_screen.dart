@@ -337,7 +337,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
                 content: const Text("Your order is completed"),
                 actions: [
                   TextButton(
-                    onPressed: () async => await Navigator.popAndPushNamed(
+                    onPressed: () async => await Navigator.pushNamed(
                         context, ReservationListScreen.routeName),
                     child: const Text("Ok"),
                   ),
