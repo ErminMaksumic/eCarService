@@ -23,7 +23,7 @@ namespace eCarService.Service.Implementation
         {
             if (request.Brands.Count() < 1)
             {
-                throw new UserException("You must select at least 1 car brand");
+                throw new UserException("You must select at least 1 car brand. If your list is empty, add a car brand using tab BRANDS");
             }
 
             var offer = _mapper.Map<Offer>(request);
